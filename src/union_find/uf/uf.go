@@ -4,6 +4,7 @@ package uf
 import (
 	"fmt"
 	"errors"
+	"tool"
 )
 
 type UnionFindList []int
@@ -13,8 +14,10 @@ var rank []byte
 
 func NewUnionFindList(n int) UnionFindList {
 	if n <= 0 {
-		panic(errors.New("count is not postive num"))
+		panic(errors.New("count is invalid"))
 	}
+	tool.Trace("init union find list, size:%d\n", n)
+
 	count = n
 	mu := make(UnionFindList, count)
 	rank = make([]byte, count)
@@ -24,43 +27,55 @@ func NewUnionFindList(n int) UnionFindList {
 	return mu
 }
 
-func (u *UnionFindList) find(i int) int {
-	if i >= len(*u) {
-		panic(fmt.Errorf("index out of range"))
+func (parent *UnionFindList) find(i int) int {
+	if i >= len(*parent) || i < 0 {
+		panic(fmt.Errorf("index not between 0 and %d", len(*parent)))
 	}
-	ti := (*u)[i]
-	for ti != i {
-		ti = (*u)[ti]
+	tool.Trace("\tstart find the root of %d: \n", i)
+	for i != (*parent)[i] {
+		tool.Trace("\tfinding: index %d,parent %d\n", i, (*parent)[i])
+		(*parent)[i] = (*parent)[(*parent)[i]] //path compression by halving
+		tool.Trace("\tpath compression by halving: chg index %d's parent to index %d\n", i, (*parent)[i])
+
+		i = (*parent)[(*parent)[i]]
 	}
-	return ti
+	return i
 }
-func (u *UnionFindList) IsConnected(p, q int) bool {
-	if u.find(p) == u.find(q) {
+func (parent *UnionFindList) IsConnected(p, q int) bool {
+	tool.Trace("check %d & %d is connected\n", p, q)
+	if parent.find(p) == parent.find(q) {
+		tool.Trace("already connected: %d & %d\n", p, q)
 		return true
 	}
 	return false
 }
 
-func (u *UnionFindList) Connect(p, q int) {
-	tp, tq := u.find(p), u.find(q)
-	if tp == tq {
+func (parent *UnionFindList) Connect(p, q int) {
+	tool.Trace("try to connect %d & %d\n", p, q)
+	rootP, rootQ := parent.find(p), parent.find(q)
+	if rootP == rootQ {
+		tool.Trace("no need connect: %d & %d\n", p, q)
 		return
 	}
-	if rank[tp] < rank[tq] {
-		(*u)[tp] = (*u)[tq]
-	} else if rank[tp] > rank[tq] {
-		(*u)[tq] = (*u)[tp]
-	} else {
-		(*u)[tq] = (*u)[tp]
-		rank[tp]++
-	}
 
+	//move little rank to larger rank's root
+	if rank[rootP] < rank[rootQ] {
+		(*parent)[rootP] = rootQ
+	} else if rank[rootP] > rank[rootQ] {
+		(*parent)[rootQ] = rootP
+	} else {
+		(*parent)[rootQ] = rootP
+		rank[rootP]++
+	}
+	//after connected,node is decrease one
+	count--
+	tool.Trace("after connect: \n\tcount:\t%d\n\tparent:\t%v\n\trank:\t%v\n", count, *parent, rank)
 }
 
-func (u *UnionFindList) Count(p, q int) int {
+func (parent *UnionFindList) Count() int {
 	return count
 }
 
-func (u *UnionFindList) String() {
-	fmt.Println(fmt.Sprintf("%v", u))
+func (parent *UnionFindList) String() string {
+	return fmt.Sprintf("%v", *parent)
 }
