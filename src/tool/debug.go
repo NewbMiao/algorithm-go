@@ -5,14 +5,14 @@ import (
 	"flag"
 )
 
-var DEBUG *bool
+var DEBUG bool
 
 func init() {
-	DEBUG = flag.Bool("v", false, "show trace log")
+	flag.BoolVar(&DEBUG, "debug", false, "show trace log")
 	flag.Parse()
 }
 func Trace(fmtStr string, args ... interface{}) {
-	if *DEBUG {
+	if DEBUG {
 		fmt.Printf("[Trace] "+fmtStr, args...)
 	}
 }
