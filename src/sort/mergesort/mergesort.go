@@ -13,13 +13,35 @@ type MergeSorter interface {
 func Sort(m MItems) MItems {
 	tool.Trace("to sort slice %v\n", m)
 	n := len(m)
-	CUT_SET := 7
-	if n <= CUT_SET {
+	cutset := 7
+	if n <= cutset {
 		return insertSort(m)
 
 	}
 	tool.Trace("to sort %d: %v,%v\n", n, m[:n/2], m[n/2:])
 	return merge(Sort(m[:n/2]), Sort(m[n/2:]))
+}
+
+func SortBU(m MItems) MItems {
+	tool.Trace("to sort slice %v\n", m)
+	n := len(m)
+	for step := 1; step < n; step *= 2 {
+		for lo := 0; lo < n-step; lo += step * 2 {
+			mid := lo + step
+			hi := mid + step
+			if n < hi {
+				hi = n
+			}
+			tool.Trace("sort bottom up (%d):  %d - %d - %d\n", step, lo, mid, hi)
+			tmp:=merge(m[lo:mid], m[mid:hi])
+			tool.Trace("sort bottom up (%v)\n", tmp)
+
+			for i:=lo;i<hi;i++{
+				m[i]=tmp[i-lo]
+			}
+		}
+	}
+	return m
 }
 
 func merge(l, r MItems) (d MItems) {
@@ -32,6 +54,11 @@ func merge(l, r MItems) (d MItems) {
 	tool.Trace("merge l:%v,r:%v\n", l, r)
 	i := 0
 	j := 0
+	if l[ln-1] <= r[0] {
+		tool.Trace("merge l and r once: %v,%v\n", l, r)
+		d = append(l, r...)
+		return
+	}
 	for k := 0; k < ln+rn; k++ {
 		tool.Trace("to merge i:%d,j:%d\n", i, j)
 
