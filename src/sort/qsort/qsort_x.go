@@ -40,10 +40,7 @@ func _partition(arr Sitem, lo, hi int) int {
 			}
 			i++
 		}
-		for arr.Less(lo, j) {
-			if j == lo {
-				break
-			}
+		for arr.Less(lo, j) {//无需判断 j > lo，因为 j=lo不满足less
 			j--
 		}
 

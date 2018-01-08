@@ -5,18 +5,18 @@ import (
 	"tool"
 )
 
-func qsort(arr QuickSorter, lo, hi int) {
+func qSort(arr QuickSorter, lo, hi int) {
 	if hi <= lo {
 		return
 	}
 	index := partition(arr, lo, hi)
-	qsort(arr, lo, index-1)
-	qsort(arr, index+1, hi)
+	qSort(arr, lo, index-1)
+	qSort(arr, index+1, hi)
 }
 
 func Sort(arr QuickSorter) {
 	lo, hi := 0, arr.Len()-1
-	qsort(arr, lo, hi)
+	qSort(arr, lo, hi)
 }
 
 type QuickSorter interface {
@@ -26,16 +26,10 @@ type QuickSorter interface {
 func partition(arr QuickSorter, lo, hi int) int {
 	i, j := lo+1, hi
 	for {
-		for arr.Less(i, lo) {
-			if i == hi {
-				break
-			}
+		for arr.Less(i, lo) &&  i < hi{
 			i++
 		}
-		for arr.Less(lo, j) {
-			if j == lo {
-				break
-			}
+		for arr.Less(lo, j) {//无需判断 j > lo，因为 j=lo不满足less
 			j--
 		}
 
@@ -50,3 +44,4 @@ func partition(arr QuickSorter, lo, hi int) int {
 	return j
 
 }
+
