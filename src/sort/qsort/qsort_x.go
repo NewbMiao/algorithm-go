@@ -7,7 +7,7 @@ import (
 func _qsort(arr Sitem, lo, hi int) {
 	N := hi - lo + 1
 	if N <= CUTOFF {
-		insertSort(arr)
+		insertSort(arr, lo, hi)
 		return
 	} else if N <= 40 { //use median of three
 		m := median3(arr, lo, lo+N>>1, hi)
@@ -40,10 +40,7 @@ func _partition(arr Sitem, lo, hi int) int {
 			}
 			i++
 		}
-		for arr.Less(lo, j) {
-			if j == lo {
-				break
-			}
+		for arr.Less(lo, j) { //无需判断 j > lo，因为 j=lo不满足less
 			j--
 		}
 
