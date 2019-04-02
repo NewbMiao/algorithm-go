@@ -85,7 +85,7 @@ func merge(l, r MItems) (d MItems) {
 func insertSort(m MItems) MItems {
 	for i, n := 1, len(m); i < n; i++ {
 		for j := i; j > 0 && m[j] < m[j-1]; j-- {
-			tool.Trace("swap %d(%v) <=> %d(%v)\n", j-1, m[j-1], j, m[j])
+			tool.Trace("insertSort swap %d(%v) <=> %d(%v)\n", j-1, m[j-1], j, m[j])
 			m[j-1], m[j] = m[j], m[j-1]
 		}
 	}
