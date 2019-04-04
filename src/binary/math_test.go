@@ -8,11 +8,7 @@ import (
 func TestMin(t *testing.T) {
 	var x, y = 4, 5
 	var want = 4
-	//min,max
 	t.Log(fmt.Sprintf("input x=%d, y=%d, want min: %d", x, y, want))
-
-	//power of 2
-	fmt.Printf("%d is power of 2: %v\n", x, isPowerOf2(x))
 
 	if min(x, y) == want {
 		t.Log("min is ok")
@@ -24,12 +20,7 @@ func TestMin(t *testing.T) {
 func TestMax(t *testing.T) {
 	var x, y = 4, 5
 	var want = 5
-	//min,max
 	t.Log(fmt.Sprintf("input x=%d, y=%d, want max: %d", x, y, want))
-
-	//power of 2
-	fmt.Printf("%d is power of 2: %v\n", x, isPowerOf2(x))
-
 	if max(x, y) == want {
 		t.Log("max is ok")
 	} else {
