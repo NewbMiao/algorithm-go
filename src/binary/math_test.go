@@ -39,3 +39,16 @@ func TestIsPowerOf2(t *testing.T) {
 		t.Error("isPowerOf2 is not ok")
 	}
 }
+
+
+func TestMPowerOfN(t *testing.T) {
+	var m,n = 5,6
+	var want = 15625
+	t.Log(fmt.Sprintf("input: %d power of %d? want: %d", m,n, want))
+
+	if mPowerOfN(m,n) == want {
+		t.Log("mPowerOfN is ok")
+	} else {
+		t.Error("mPowerOfN is not ok, get:",mPowerOfN(m,n))
+	}
+}

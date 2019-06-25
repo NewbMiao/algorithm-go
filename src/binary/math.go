@@ -1,6 +1,5 @@
 package binary
 
-
 //x & ~0 = x;	x & 0 = 0
 func Min(x, y int) (r int) {
 	var less int
@@ -23,4 +22,15 @@ func IsPowerOf2(x int) bool {
 	return x != 0 && x&(x-1) == 0
 }
 
-
+func mPowerOfN(m, n int) (res int) {
+	res = 1
+	tmp := m
+	for n > 0 {
+		if n&1 == 1 {
+			res *= tmp
+		}
+		tmp *= tmp
+		n >>= 1
+	}
+	return
+}
