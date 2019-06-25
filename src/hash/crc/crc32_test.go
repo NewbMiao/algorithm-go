@@ -3,14 +3,16 @@ package crc
 import (
 	"testing"
 	"fmt"
+	"hash/crc32"
 )
 
 func TestCrc32(t *testing.T) {
-	var data uint = 3
-	var want uint = 192
-	t.Log(fmt.Sprintf("input data=%d(%b), want crc32: %d(%b)", data, data, want, want))
+	var data = "1234567890"
+	var want uint32 = 639479525
+	t.Log(fmt.Sprintf("input data=%s, want crc32: %d(%b)", data, want, want))
 
-	r := bitRev(data,8)
+	fmt.Println("hash/crc32 result is:", crc32.ChecksumIEEE([]byte(data)))
+	r := Crc32([]byte(data))
 	if r == want {
 		t.Log("crc32 is ok")
 	} else {

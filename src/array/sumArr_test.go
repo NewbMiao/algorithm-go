@@ -1,4 +1,4 @@
-package misc
+package array
 
 import (
 	"testing"
