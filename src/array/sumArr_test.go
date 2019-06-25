@@ -2,16 +2,15 @@ package array
 
 import (
 	"testing"
-	"sort"
+	"fmt"
 )
 
 func TestSumArr(t *testing.T) {
 	arr := []int{1, 10, 4, 22, 5, 6, 7, 8}
-	sort.Ints(arr)
 	sum := 20
-	res := []int{}
-	index := len(arr) - 1
-	findSumArr(arr, res, sum, index)
+	r := FindSumArr(arr, sum)
+	t.Log(fmt.Sprintf("SumArr, input arr :%v, want subArray which sum is %d : %v", arr, sum, r))
+
 	/*
 	output:
 		10,6,4
