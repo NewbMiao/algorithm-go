@@ -9,10 +9,9 @@ func TestAddTwoNumbers(t *testing.T) {
 	ds := [][3][]int{
 		{{2, 4, 3}, {5, 6, 4}, {7, 0, 8}},
 		{{5}, {5}, {0, 1}},
-		{{1,8},{0},{1,8}},
+		{{1, 8}, {0}, {1, 8}},
 	}
 	for _, v := range ds {
-		fmt.Println(v)
 		t.Log(fmt.Sprintf("AddTwoNumbers, input list num1 %v, num2 %v, want: %v", v[0], v[1], v[2]))
 		fmt.Println(genListNode(v[0]), cvtListNode2arr(genListNode(v[0])))
 		r := addTwoNumbers(genListNode(v[0]), genListNode(v[1]))
@@ -28,6 +27,9 @@ func TestAddTwoNumbers(t *testing.T) {
 }
 
 func genListNode(arr []int) *ListNode {
+	if len(arr)==0{
+		return nil
+	}
 	l := &ListNode{}
 	cur := l
 	for i := 0; i < len(arr); i++ {
