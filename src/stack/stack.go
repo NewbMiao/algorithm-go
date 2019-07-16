@@ -1,5 +1,7 @@
 package stack
 
+import "fmt"
+
 type S struct {
 	Data []interface{}
 }
@@ -29,9 +31,19 @@ func (s *S) IsEmpty() bool {
 	return len(s.Data) == 0
 }
 
+func (s *S) Clear() {
+	if !s.IsEmpty() {
+		s.Data = []interface{}{}
+	}
+}
+
 func (s *S) Peek() interface{} {
 	if s == nil || len(s.Data) == 0 {
 		return nil
 	}
 	return s.Data[0]
+}
+
+func (s *S) String() string {
+	return fmt.Sprintf("%v", s.Data)
 }
