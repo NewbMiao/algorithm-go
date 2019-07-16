@@ -47,7 +47,7 @@ func _partition(arr Sitem, lo, hi int) int {
 		if i >= j {
 			break
 		}
-		tool.Trace("partition swapping %d,%d\n", lo, j)
+		tool.Trace("partition swapping %d,%d\n", i, j)
 		arr.Swap(i, j)
 	}
 	tool.Trace("partition last swap %d,%d\n", lo, j)
