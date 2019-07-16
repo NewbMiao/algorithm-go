@@ -1,5 +1,7 @@
 package linkedlist
 
+import "fmt"
+
 type LNode struct {
 	Value interface{}
 	Next  *LNode
@@ -51,6 +53,26 @@ func (l *LList) IsEmpty() bool {
 	return l.Head == nil
 }
 
-func (l *LList) IsLast() bool {
-	return l.Head.Next == nil
+func (l *LList) IsLast(n *LNode) bool {
+	if l.Head == nil {
+		return false
+	}
+	last := l.Head
+	for last != nil {
+		if last.Next == nil {
+			break
+		}
+		last = last.Next
+	}
+	return last == n
+}
+
+func (l *LList) String() string {
+	tmp := l.Head
+	r := []interface{}{}
+	for tmp != nil {
+		r = append(r, tmp.Value)
+		tmp = tmp.Next
+	}
+	return fmt.Sprintf("%v", r)
 }
