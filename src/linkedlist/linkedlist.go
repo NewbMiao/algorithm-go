@@ -50,16 +50,27 @@ func (l *LList) Pop() (res interface{}) {
 }
 
 func (l *LList) IsEmpty() bool {
-	return l.Head == nil
+	return l == nil || l.Head == nil
+}
+
+func (l *LList) Last() *LNode {
+	if l == nil || l.Head == nil {
+		return nil
+	}
+	n := l.Head
+	for n.Next != nil && n.Next != l.Head {
+		n = n.Next
+	}
+	return n
 }
 
 func (l *LList) IsLast(n *LNode) bool {
-	if l.Head == nil {
+	if l == nil || l.Head == nil {
 		return false
 	}
 	last := l.Head
 	for last != nil {
-		if last.Next == nil {
+		if last.Next == nil || last.Next == l.Head {
 			break
 		}
 		last = last.Next
@@ -72,6 +83,9 @@ func (l *LList) String() string {
 	r := []interface{}{}
 	for tmp != nil {
 		r = append(r, tmp.Value)
+		if tmp.Next == l.Head { //避免成环死循环
+			break
+		}
 		tmp = tmp.Next
 	}
 	return fmt.Sprintf("%v", r)
