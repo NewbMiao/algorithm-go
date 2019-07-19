@@ -1,5 +1,7 @@
 package stack
 
+import . "kit/stack"
+
 //双栈实现队列
 type TwoStackQueue struct {
 	SPush *S

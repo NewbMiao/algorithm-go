@@ -1,5 +1,7 @@
 package stack
 
+import . "kit/stack"
+
 //递归原地逆序栈
 func Reverse(s *S) {
 	if s.IsEmpty() {

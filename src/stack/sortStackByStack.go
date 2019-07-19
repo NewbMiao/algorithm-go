@@ -1,5 +1,7 @@
 package stack
 
+import . "kit/stack"
+
 //用栈来排序栈
 func sortStackByStack(s *S) {
 	help := New()

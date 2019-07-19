@@ -2,6 +2,7 @@ package stack
 
 import (
 	"math"
+	. "kit/stack"
 )
 
 //获取矩阵中连续为1的最大矩形长度

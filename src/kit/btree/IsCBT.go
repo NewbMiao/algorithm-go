@@ -1,6 +1,8 @@
 package btree
 
-import "linkedlist"
+import (
+	"kit/linkedlist"
+)
 
 func IsCBT(bt *Node) bool {
 	if bt == nil {

@@ -1,5 +1,6 @@
 package stack
 
+import . "kit/stack"
 //用栈获取最小值
 type MyStack struct {
 	SData *S

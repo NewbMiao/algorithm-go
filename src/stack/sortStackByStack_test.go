@@ -3,6 +3,7 @@ package stack
 import (
 	"testing"
 	"fmt"
+	. "kit/stack"
 )
 
 func TestSortStackByStack(t *testing.T) {

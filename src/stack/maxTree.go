@@ -1,7 +1,8 @@
 package stack
 
 import (
-	"btree"
+	"kit/btree"
+	. "kit/stack"
 )
 
 //由数组构建最大值树

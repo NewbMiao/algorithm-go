@@ -4,7 +4,7 @@ import (
 	"testing"
 	"btree/traversal"
 	"fmt"
-	"btree"
+	"kit/btree"
 )
 
 func TestGetMaxTree(t *testing.T) {
