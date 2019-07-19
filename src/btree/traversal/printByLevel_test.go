@@ -2,7 +2,7 @@ package traversal
 
 import (
 	"testing"
-	. "btree"
+	. "kit/btree"
 )
 
 var pbt *Node

@@ -1,7 +1,7 @@
 package subtree
 
 import (
-	. "btree"
+	. "kit/btree"
 	"btree/traversal"
 	"string_alg"
 )

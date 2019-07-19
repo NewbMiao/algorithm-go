@@ -1,6 +1,7 @@
 package linkedlist
 
 import (
+	. "kit/linkedlist"
 	"testing"
 	"fmt"
 )

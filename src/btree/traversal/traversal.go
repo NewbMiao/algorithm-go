@@ -1,8 +1,8 @@
 package traversal
 
 import (
-	"stack"
-	. "btree"
+	"kit/stack"
+	. "kit/btree"
 )
 
 //先序遍历：根,左,右

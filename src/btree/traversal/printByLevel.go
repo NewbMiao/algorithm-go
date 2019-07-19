@@ -1,8 +1,8 @@
 package traversal
 
 import (
-	. "btree"
-	"linkedlist"
+	. "kit/btree"
+	"kit/linkedlist"
 	"fmt"
 	"container/list"
 )

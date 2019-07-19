@@ -3,6 +3,7 @@ package linkedlist
 import (
 	"testing"
 	"fmt"
+	. "kit/linkedlist"
 )
 
 func TestRemoveLastKthNode(t *testing.T) {

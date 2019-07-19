@@ -1,5 +1,7 @@
 package linkedlist
 
+import . "kit/linkedlist"
+
 //原地逆置部分链表
 func ReversePart(l *LList, from, to int) {
 	if l == nil {

@@ -2,7 +2,7 @@ package traversal
 
 import (
 	"testing"
-	. "btree"
+	. "kit/btree"
 )
 
 func TestSortedArrToBST(t *testing.T) {

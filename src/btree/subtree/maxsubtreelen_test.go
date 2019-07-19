@@ -3,22 +3,22 @@ package subtree
 import (
 	"testing"
 	"fmt"
-	. "btree"
+	. "kit/btree"
 )
 
-var sbt *Node
+var smbt *Node
 
 func init() {
-	sbt = &Node{Value: -3}
-	sbt.Left = &Node{Value: 3}
-	sbt.Right = &Node{Value: -9}
-	sbt.Left.Left = &Node{Value: 1}
-	sbt.Left.Right = &Node{Value: 0}
-	sbt.Left.Right.Left = &Node{Value: 1}
-	sbt.Left.Right.Right = &Node{Value: 6}
-	sbt.Right.Left = &Node{Value: 2}
-	sbt.Right.Right = &Node{Value: 1}
-	PrintTree(sbt)
+	smbt = &Node{Value: -3}
+	smbt.Left = &Node{Value: 3}
+	smbt.Right = &Node{Value: -9}
+	smbt.Left.Left = &Node{Value: 1}
+	smbt.Left.Right = &Node{Value: 0}
+	smbt.Left.Right.Left = &Node{Value: 1}
+	smbt.Left.Right.Right = &Node{Value: 6}
+	smbt.Right.Left = &Node{Value: 2}
+	smbt.Right.Right = &Node{Value: 1}
+	PrintTree(smbt)
 }
 
 func TestGetMaxSubtreeLen(t *testing.T) {
@@ -31,7 +31,7 @@ func TestGetMaxSubtreeLen(t *testing.T) {
 	}
 	for sum, want := range wants {
 		t.Log(fmt.Sprintf("GetMaxSubtreeLen sum:%d, want: %v", sum, want))
-		r := GetMaxSubtreeLen(sbt, sum)
+		r := GetMaxSubtreeLen(smbt, sum)
 		return
 		if r == want {
 			t.Log("GetMaxSubtreeLen is ok")

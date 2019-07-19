@@ -3,6 +3,7 @@ package linkedlist
 import (
 	"testing"
 	"fmt"
+	. "kit/linkedlist"
 )
 
 func TestJosephusKill1(t *testing.T) {

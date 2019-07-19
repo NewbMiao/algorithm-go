@@ -2,6 +2,7 @@ package linkedlist
 
 import (
 	"math"
+	. "kit/linkedlist"
 )
 
 //删除列表中间节点

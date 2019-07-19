@@ -1,5 +1,9 @@
 package linkedlist
 
+import (
+	. "kit/linkedlist"
+)
+
 //原地逆置链表
 func ReverseList(l *LList) {
 	if l == nil || l.Head == nil {

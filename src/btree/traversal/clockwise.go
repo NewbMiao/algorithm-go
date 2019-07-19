@@ -1,7 +1,7 @@
 package traversal
 
 import (
-	. "btree"
+	. "kit/btree"
 )
 
 //逆时针打印树边界节点

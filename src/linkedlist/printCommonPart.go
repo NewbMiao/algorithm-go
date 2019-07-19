@@ -1,5 +1,9 @@
 package linkedlist
 
+import (
+	. "kit/linkedlist"
+)
+
 //打印有序链表的公共部分
 func printCommonPart(h1, h2 *LList) (res []int) {
 	if h1 == nil || h2 == nil {

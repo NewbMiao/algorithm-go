@@ -1,7 +1,7 @@
 package traversal
 
 import (
-	. "btree"
+	. "kit/btree"
 )
 
 func MorrisIn(bt *Node) (res []int) {

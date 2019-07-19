@@ -1,7 +1,7 @@
 package leetcode
 
 import (
-	"stack"
+	"kit/stack"
 	"math"
 )
 

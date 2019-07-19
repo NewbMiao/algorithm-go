@@ -3,7 +3,7 @@ package subtree
 import (
 	"testing"
 	"fmt"
-	. "btree"
+	. "kit/btree"
 )
 
 var ebt, ebt1, ebt2 *Node

@@ -1,6 +1,6 @@
 package leetcode
 
-import "stack"
+import "kit/stack"
 
 /*
 https://leetcode-cn.com/problems/valid-parentheses/

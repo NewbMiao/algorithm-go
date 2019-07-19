@@ -3,7 +3,7 @@ package traversal
 import (
 	"testing"
 	"fmt"
-	. "btree"
+	. "kit/btree"
 )
 
 var sbt *Node

@@ -1,7 +1,7 @@
 package traversal
 
 import (
-	. "btree"
+	. "kit/btree"
 )
 
 func SortedArrToBST(arr []int) *Node {

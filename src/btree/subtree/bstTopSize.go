@@ -1,8 +1,8 @@
 package subtree
 
 import (
-	. "btree"
-	"linkedlist"
+	. "kit/btree"
+	"kit/linkedlist"
 	"math"
 )
 

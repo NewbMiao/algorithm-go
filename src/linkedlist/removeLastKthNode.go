@@ -1,5 +1,9 @@
 package linkedlist
 
+import (
+	. "kit/linkedlist"
+)
+
 //删除单链表倒数第K节点
 func RemoveLastKthNode(l *LList, k int) {
 	if l.IsEmpty() || k < 1 {

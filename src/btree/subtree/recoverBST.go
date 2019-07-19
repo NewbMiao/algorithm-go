@@ -1,8 +1,8 @@
 package subtree
 
 import (
-	. "btree"
-	"stack"
+	. "kit/btree"
+	"kit/stack"
 )
 
 func FindTwoErrNode(bt *Node) (errNodes [2]*Node) {

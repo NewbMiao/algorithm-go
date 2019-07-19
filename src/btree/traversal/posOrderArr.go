@@ -1,7 +1,7 @@
 package traversal
 
 import (
-	. "btree"
+	. "kit/btree"
 )
 
 //BST post order arr check

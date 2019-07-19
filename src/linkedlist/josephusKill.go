@@ -1,6 +1,9 @@
 package linkedlist
 
-import "fmt"
+import (
+	. "kit/linkedlist"
+	"fmt"
+)
 
 //环形链表模拟约瑟夫环问题
 func JosephusKill1(l *LList, m int) (res int) {
