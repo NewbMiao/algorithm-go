@@ -44,6 +44,10 @@ func (s *S) Peek() interface{} {
 	return s.Data[0]
 }
 
+func (s *S) Size() int {
+	return len(s.Data)
+}
+
 func (s *S) String() string {
 	return fmt.Sprintf("%v", s.Data)
 }

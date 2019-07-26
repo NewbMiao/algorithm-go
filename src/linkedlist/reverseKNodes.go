@@ -13,22 +13,20 @@ func reverseKNodes1(head *LNode, k int) *LNode {
 	if head == nil {
 		return nil
 	}
-	var newHead, newCur, nextGroup *LNode
+	var newHead, newCur, next *LNode
 	st := stack.New()
 	cur := head
+	newHead = head
 	n := 0
 	for cur != nil {
-		if n == 0 {
-			nextGroup = cur
-		}
 		st.Push(cur)
+		next = cur.Next
 		n++
-		cur = cur.Next //先移动cur，避免逆置后获取错误的cur
 		if n == k {
 			for !st.IsEmpty() {
 				top, _ := st.Pop()
 				node, _ := top.(*LNode)
-				if newHead == nil {
+				if newHead == head {
 					newHead = node
 					newCur = node
 				} else {
@@ -37,16 +35,10 @@ func reverseKNodes1(head *LNode, k int) *LNode {
 				}
 				n--
 			}
-			newCur.Next = nil
+			newCur.Next = next
 		}
+		cur = next
 
-	}
-	if n > 0 {
-		if newCur != nil {
-			newCur.Next = nextGroup
-		} else {
-			return head
-		}
 	}
 	return newHead
 }
