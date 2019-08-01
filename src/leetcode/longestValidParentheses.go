@@ -86,8 +86,8 @@ func longestValidParentheses2(s string) int {
 	}
 
 	//从右到左
-	left=0
-	right=0
+	left = 0
+	right = 0
 	for i := l - 1; i >= 0; i-- {
 		if s[i] == '(' {
 			left += 1
@@ -95,7 +95,7 @@ func longestValidParentheses2(s string) int {
 			right += 1
 		}
 		if left == right {
-			max = int(math.Max(float64(max), float64(2*right)))
+			max = int(math.Max(float64(max), float64(2*left)))
 		} else if right < left {
 			left = 0
 			right = 0
