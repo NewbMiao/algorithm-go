@@ -91,3 +91,52 @@ func resignList(left, start, end, right *LNode) {
 	}
 	start.Next = right
 }
+
+func reverseKNodes3(head *LNode, k int) *LNode {
+	if k < 2 {
+		return head
+	}
+	if head == nil {
+		return nil
+	}
+	tmp := head
+	for i := 1; i < k && tmp != nil; i++ {
+		tmp = tmp.Next
+	}
+	if tmp == nil {
+		return head
+	}
+
+	//下一组开始节点
+	tmp2 := tmp.Next
+	tmp.Next = nil //移除next
+	//逆置当前分组
+	newHead := reverseList(head)
+
+	//递归后续分组
+	nextGroup := reverseKNodes3(tmp2, k)
+	head.Next = nextGroup
+
+	return newHead
+}
+
+//func reverseList(head *LNode) *LNode {
+//	var pre, next *LNode
+//	for head != nil {
+//		next = head.Next
+//		head.Next = pre
+//		pre = head
+//		head = next
+//	}
+//	return pre
+//}
+
+func reverseList(head *LNode) *LNode {
+	if head==nil||head.Next==nil{
+		return head
+	}
+	result:=reverseList(head.Next)
+	head.Next.Next=head
+	head.Next=nil
+	return result
+}

@@ -59,6 +59,19 @@ func TestReverseKNodes(t *testing.T) {
 		} else {
 			t.Error("reverseKNodes2 is not ok, result:", fmt.Sprintf("%v", r))
 		}
+
+		l = Arr2LList(ds[k])
+		if l == nil {
+			head = nil
+		} else {
+			head = l.Head
+		}
+		r = reverseKNodes3(head, ks[k])
+		if fmt.Sprint(CvtLNode2arr(r)) == fmt.Sprint(ws[k]) {
+			t.Log("reverseKNodes3 is ok")
+		} else {
+			t.Error("reverseKNodes3 is not ok, result:", fmt.Sprintf("%v", CvtLNode2arr(r)))
+		}
 	}
 
 }
