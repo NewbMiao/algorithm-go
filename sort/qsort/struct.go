@@ -1,6 +1,6 @@
 package qsort
 
-import "tool"
+import "github.com/NewbMiao/AlgorithmCodeNote/tool"
 
 const CUTOFF = 8
 

@@ -1,7 +1,7 @@
 package qsort
 
 import (
-	"tool"
+	"github.com/NewbMiao/AlgorithmCodeNote/tool"
 )
 
 func _qsort(arr Sitem, lo, hi int) {

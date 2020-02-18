@@ -1,16 +1,16 @@
-package main
+package uf
 
 import (
-	"union_find/uf"
+	"github.com/NewbMiao/AlgorithmCodeNote/union_find/uf"
 	"fmt"
 	"strings"
 	"bufio"
 	"os"
 	"io"
-	"tool"
+	"github.com/NewbMiao/AlgorithmCodeNote/tool"
 )
 
-func main() {
+func BufReader() {
 	var err error
 	var in, p, q int
 	var mu uf.UnionFindList

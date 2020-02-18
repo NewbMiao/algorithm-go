@@ -4,7 +4,7 @@ package uf
 import (
 	"fmt"
 	"errors"
-	"tool"
+	"github.com/NewbMiao/AlgorithmCodeNote/tool"
 )
 
 type UnionFindList []int

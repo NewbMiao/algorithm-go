@@ -2,7 +2,7 @@ package qsort
 
 import (
 	"sort"
-	"tool"
+	"github.com/NewbMiao/AlgorithmCodeNote/tool"
 )
 
 func qSort(arr QuickSorter, lo, hi int) {

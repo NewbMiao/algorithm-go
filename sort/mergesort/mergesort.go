@@ -2,7 +2,7 @@ package mergesort
 
 import (
 	"sort"
-	"tool"
+	"github.com/NewbMiao/AlgorithmCodeNote/tool"
 )
 
 type MItems []string

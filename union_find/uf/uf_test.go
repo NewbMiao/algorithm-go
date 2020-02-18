@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 	"strconv"
-	"tool"
+	"github.com/NewbMiao/AlgorithmCodeNote/tool"
 )
 
 func TestUF(t *testing.T) {
