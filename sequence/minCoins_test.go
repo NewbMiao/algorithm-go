@@ -1,13 +1,13 @@
 package sequence
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestMinCoinsOne(t *testing.T) {
-	arr1 := []int{100, 20, 5, 10, 2, 50, 1};
-	aim1 := 17019;
+	arr1 := []int{100, 20, 5, 10, 2, 50, 1}
+	aim1 := 17019
 	want := 174
 	var r int
 	t.Log(fmt.Sprintf("input coinsArr %v, aim: %d, want: %v", arr1, aim1, want))
@@ -28,8 +28,8 @@ func TestMinCoinsOne(t *testing.T) {
 }
 
 func TestMinCoinsTwo(t *testing.T) {
-	arr2 := []int{10, 100, 2, 5, 5, 5, 10, 1, 1, 1, 2, 100};
-	aim2 := 223;
+	arr2 := []int{10, 100, 2, 5, 5, 5, 10, 1, 1, 1, 2, 100}
+	aim2 := 223
 	want := 6
 	var r int
 	t.Log(fmt.Sprintf("input coinsArr2 %v, aim: %d, want: %v", arr2, aim2, want))

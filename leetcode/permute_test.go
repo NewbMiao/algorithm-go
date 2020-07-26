@@ -1,8 +1,8 @@
 package leetcode
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestPermute(t *testing.T) {

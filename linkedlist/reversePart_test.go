@@ -1,13 +1,14 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
-	"testing"
 	"fmt"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 func TestReversePart(t *testing.T) {
-	l := NewList()
+	l := linkedlist.NewList()
 	l.Push(1)
 	l.Push(2)
 	l.Push(3)

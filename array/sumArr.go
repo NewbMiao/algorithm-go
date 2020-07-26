@@ -4,7 +4,7 @@ import (
 	"sort"
 )
 
-//获取arr中和为sum的所有子数组
+//获取arr中和为sum的所有子数组.
 func FindSumArr(arr []int, sum int) (sub [][]int) {
 	sort.Ints(arr)                         //升序arr
 	index := len(arr) - 1                  //倒着计算子数组

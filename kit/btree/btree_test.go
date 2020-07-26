@@ -1,9 +1,9 @@
 package btree
 
 import (
-	"testing"
-	"math"
 	"fmt"
+	"math"
+	"testing"
 )
 
 var gbt *Node
@@ -37,7 +37,6 @@ func TestPrinter(t *testing.T) {
 	PrintTree(bt)
 
 	PrintTree(gbt)
-
 }
 
 func TestEdgeMap(t *testing.T) {

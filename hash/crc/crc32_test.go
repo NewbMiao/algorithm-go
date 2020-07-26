@@ -1,9 +1,9 @@
 package crc
 
 import (
-	"testing"
 	"fmt"
 	"hash/crc32"
+	"testing"
 )
 
 func TestCrc32(t *testing.T) {

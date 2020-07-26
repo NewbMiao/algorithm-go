@@ -4,19 +4,19 @@ import "fmt"
 
 // http://graphics.stanford.edu/~seander/bithacks.html
 
-//平行计算,异或压缩奇偶信息，压缩顺序:1->2->4->8->16->32
+//平行计算,异或压缩奇偶信息，压缩顺序:1->2->4->8->16->32.
 func judgeBinOddOne1(x uint) bool {
 	const intSize = 32 << (^uint(0) >> 63)
 	var i uint = 1
 	for i < intSize {
-		x = x ^ (x >> i)
+		x ^= x >> i
 		i *= 2
 	}
 	return x&1 == 1
 }
 
 // 一个二进制数减1，若右起第一个1的索引位置是m，那么从m到0位的二进制会逐位取反。
-// 所以，x &= x-1会使得从m到0位的二进制都会变成0。
+// 所以，x &= x-1会使得从m到0位的二进制都会变成0。.
 func judgeBinOddOne2(x uint) bool {
 	cnt := 0
 	for x > 0 {
@@ -27,7 +27,7 @@ func judgeBinOddOne2(x uint) bool {
 	return cnt&1 == 1
 }
 
-//查表法：256区间内1的个数表
+//查表法：256区间内1的个数表.
 func judgeBinOddOne3(x uint) bool {
 	var bitmap256 = [256]int{0}
 	for i := 1; i < 256; i++ {
@@ -36,7 +36,7 @@ func judgeBinOddOne3(x uint) bool {
 	cnt := 0
 	for x != 0 {
 		cnt += bitmap256[x&0xff]
-		x = x >> 8
+		x >>= 8
 	}
 	fmt.Printf("judgeBinOddOne has one: %d\n", cnt)
 	return cnt&1 == 1
@@ -55,7 +55,7 @@ func judgeBinOddOne3(x uint) bool {
 // 就变成了16个段，每段2位。
 // 同理(n&0x33333333)+((n>>2)&0x33333333)将16个段中相邻的两个段两两相加，
 // 存放在4bits中，就变成了8个段，每段4位。
-// 以此类推，最终求得数中1的个数就存放在一个段中，这个段32bits，
+// 以此类推，最终求得数中1的个数就存放在一个段中，这个段32bits，.
 func judgeBinOddOne4(x uint) bool {
 	const intSize = 32 << (^uint(0) >> 63)
 	var bMap = map[int][]uint{
@@ -86,7 +86,7 @@ func judgeBinOddOne4(x uint) bool {
 func judgeBinOddOne5(x uint) bool {
 	//parity map
 	var pMap = make([]uint, 0)
-	var p2 = func(n uint) ([]uint) {
+	var p2 = func(n uint) []uint {
 		return []uint{n, n ^ 1, n ^ 1, n}
 	}
 	var p4 = func(n uint) (r []uint) {
@@ -119,12 +119,12 @@ func judgeBinOddOne5(x uint) bool {
 	var p uint = 0
 	for x != 0 {
 		p ^= pMap[x&0xff]
-		x = x >> 8
+		x >>= 8
 	}
 	return p == 1
 }
 
-//并行查奇偶表：0110 1001 1001 0110 (0x6996 in hex)
+//并行查奇偶表：0110 1001 1001 0110 (0x6996 in hex).
 func judgeBinOddOne6(x uint) bool {
 	const intSize = 32 << (^uint(0) >> 63)
 	if intSize == 64 {
@@ -137,7 +137,7 @@ func judgeBinOddOne6(x uint) bool {
 	return (0x6996>>x)&1 == 1
 }
 
-//multiple 8 operations
+//multiple 8 operations.
 func judgeBinOddOne7(x uint) bool {
 	const intSize = 32 << (^uint(0) >> 63)
 	iMap := map[int]uint{

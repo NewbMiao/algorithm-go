@@ -34,7 +34,7 @@ func (l *LList) Push(n interface{}) {
 		}
 		pre.Next = NewLNode(n)
 	}
-	l.Size += 1
+	l.Size++
 }
 
 func (l *LList) Pop() (res interface{}) {
@@ -45,7 +45,7 @@ func (l *LList) Pop() (res interface{}) {
 	res = l.Head.Value
 
 	l.Head = l.Head.Next
-	l.Size -= 1
+	l.Size--
 	return
 }
 

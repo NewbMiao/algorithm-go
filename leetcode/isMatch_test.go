@@ -1,8 +1,8 @@
 package leetcode
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestIsMatch(t *testing.T) {
@@ -35,7 +35,5 @@ func TestIsMatch(t *testing.T) {
 		} else {
 			t.Error("isMatch2 is not ok, result:", fmt.Sprintf("%v", r))
 		}
-
 	}
-
 }

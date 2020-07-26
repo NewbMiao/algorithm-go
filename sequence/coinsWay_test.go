@@ -1,14 +1,14 @@
 package sequence
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 	"time"
 )
 
 func TestCoinsWay(t *testing.T) {
-	arr1 := []int{10, 5, 1, 25};
-	aim1 := 2000;
+	arr1 := []int{10, 5, 1, 25}
+	aim1 := 2000
 	want := 1103021
 	var r int
 	t.Log(fmt.Sprintf("input coinsArr %v, aim: %d, want: %v", arr1, aim1, want))

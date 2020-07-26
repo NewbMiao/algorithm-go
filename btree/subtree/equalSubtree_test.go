@@ -1,32 +1,33 @@
 package subtree
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
-	"testing"
 	"fmt"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-var et1, et2 *Node
+var et1, et2 *btree.Node
 
 func init() {
-	et1 = &Node{Value: 1}
-	et1.Left = &Node{Value: 2}
-	et1.Right = &Node{Value: 3}
-	et1.Left.Left = &Node{Value: 4}
-	et1.Left.Right = &Node{Value: 5}
-	et1.Right.Left = &Node{Value: 6}
-	et1.Right.Right = &Node{Value: 7}
-	et1.Left.Left.Right = &Node{Value: 8}
-	et1.Left.Right.Left = &Node{Value: 9}
+	et1 = &btree.Node{Value: 1}
+	et1.Left = &btree.Node{Value: 2}
+	et1.Right = &btree.Node{Value: 3}
+	et1.Left.Left = &btree.Node{Value: 4}
+	et1.Left.Right = &btree.Node{Value: 5}
+	et1.Right.Left = &btree.Node{Value: 6}
+	et1.Right.Right = &btree.Node{Value: 7}
+	et1.Left.Left.Right = &btree.Node{Value: 8}
+	et1.Left.Right.Left = &btree.Node{Value: 9}
 
-	et2 = &Node{Value: 2}
-	et2.Left = &Node{Value: 4}
-	et2.Left.Right = &Node{Value: 8}
-	et2.Right = &Node{Value: 5}
-	et2.Right.Left = &Node{Value: 9}
+	et2 = &btree.Node{Value: 2}
+	et2.Left = &btree.Node{Value: 4}
+	et2.Left.Right = &btree.Node{Value: 8}
+	et2.Right = &btree.Node{Value: 5}
+	et2.Right.Left = &btree.Node{Value: 9}
 
-	PrintTree(et1)
-	PrintTree(et2)
+	btree.PrintTree(et1)
+	btree.PrintTree(et2)
 }
 
 func TestT1SubtreeEqualT2(t *testing.T) {

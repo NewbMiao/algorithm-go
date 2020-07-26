@@ -14,7 +14,7 @@ import "fmt"
 https://leetcode-cn.com/problems/merge-k-sorted-lists/
 合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。
 */
-// 分治
+// 分治.
 func mergeKLists(lists []*ListNode) *ListNode {
 	amout := len(lists)
 	if amout == 0 {
@@ -32,5 +32,4 @@ func mergeKLists(lists []*ListNode) *ListNode {
 	}
 
 	return lists[0]
-
 }

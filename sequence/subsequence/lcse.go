@@ -16,14 +16,14 @@ func GetLcse(str1, str2 string) string {
 	llen := dp[i][j] - 1
 	for llen >= 0 {
 		if i > 0 && dp[i][j] == dp[i-1][j] {
-			i -= 1
+			i--
 		} else if j > 0 && dp[i][j] == dp[i][j-1] {
-			j -= 1
+			j--
 		} else {
 			res[llen] = str1[i]
-			llen -= 1
-			i -= 1
-			j -= 1
+			llen--
+			i--
+			j--
 		}
 	}
 	return string(res)
@@ -60,6 +60,5 @@ func getDpL(str1, str2 string) (dp [][]int) {
 			}
 		}
 	}
-	return
-
+	return dp
 }

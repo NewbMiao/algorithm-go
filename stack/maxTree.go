@@ -1,8 +1,8 @@
 package stack
 
 import (
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
+	"github.com/NewbMiao/algorithm-go/kit/btree"
+	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
 //由数组构建最大值树
@@ -11,7 +11,7 @@ func getMaxTree(arr []int) *btree.Node {
 	var head *btree.Node
 	lBigMap := make(map[*btree.Node]*btree.Node, l)
 	rBigMap := make(map[*btree.Node]*btree.Node, l)
-	st := New() //栈维护一个递增节点集合，便于记录当前节点和前一个比他大的节点
+	st := stack.New() //栈维护一个递增节点集合，便于记录当前节点和前一个比他大的节点
 	nodes := make([]*btree.Node, l)
 	for k, v := range arr {
 		nodes[k] = &btree.Node{Value: v}
@@ -73,7 +73,7 @@ func getMaxTree(arr []int) *btree.Node {
 	return head
 }
 
-func popStackSetMap(s *S, m map[*btree.Node]*btree.Node) {
+func popStackSetMap(s *stack.S, m map[*btree.Node]*btree.Node) {
 	top, _ := s.Pop()
 	if s.IsEmpty() {
 		m[top.(*btree.Node)] = nil

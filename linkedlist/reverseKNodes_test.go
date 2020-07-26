@@ -1,9 +1,10 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
-	"testing"
 	"fmt"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 func TestReverseKNodes(t *testing.T) {
@@ -32,8 +33,8 @@ func TestReverseKNodes(t *testing.T) {
 		{3, 2, 1, 6, 5, 4, 7, 8},
 	}
 	for k := range ds {
-		l := Arr2LList(ds[k])
-		var head *LNode
+		l := linkedlist.Arr2LList(ds[k])
+		var head *linkedlist.LNode
 		if l == nil {
 			head = nil
 		} else {
@@ -41,37 +42,36 @@ func TestReverseKNodes(t *testing.T) {
 		}
 		t.Log(fmt.Sprintf("reverseKNodes, input list %v, k %v, want: %v", l, ks[k], ws[k]))
 		r := reverseKNodes1(head, ks[k])
-		if fmt.Sprint(CvtLNode2arr(r)) == fmt.Sprint(ws[k]) {
+		if fmt.Sprint(linkedlist.CvtLNode2arr(r)) == fmt.Sprint(ws[k]) {
 			t.Log("reverseKNodes1 is ok")
 		} else {
 			t.Error("reverseKNodes1 is not ok, result:", fmt.Sprintf("%v", r))
 		}
 
-		l = Arr2LList(ds[k])
+		l = linkedlist.Arr2LList(ds[k])
 		if l == nil {
 			head = nil
 		} else {
 			head = l.Head
 		}
 		r = reverseKNodes2(head, ks[k])
-		if fmt.Sprint(CvtLNode2arr(r)) == fmt.Sprint(ws[k]) {
+		if fmt.Sprint(linkedlist.CvtLNode2arr(r)) == fmt.Sprint(ws[k]) {
 			t.Log("reverseKNodes2 is ok")
 		} else {
 			t.Error("reverseKNodes2 is not ok, result:", fmt.Sprintf("%v", r))
 		}
 
-		l = Arr2LList(ds[k])
+		l = linkedlist.Arr2LList(ds[k])
 		if l == nil {
 			head = nil
 		} else {
 			head = l.Head
 		}
 		r = reverseKNodes3(head, ks[k])
-		if fmt.Sprint(CvtLNode2arr(r)) == fmt.Sprint(ws[k]) {
+		if fmt.Sprint(linkedlist.CvtLNode2arr(r)) == fmt.Sprint(ws[k]) {
 			t.Log("reverseKNodes3 is ok")
 		} else {
-			t.Error("reverseKNodes3 is not ok, result:", fmt.Sprintf("%v", CvtLNode2arr(r)))
+			t.Error("reverseKNodes3 is not ok, result:", fmt.Sprintf("%v", linkedlist.CvtLNode2arr(r)))
 		}
 	}
-
 }

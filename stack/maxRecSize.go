@@ -2,7 +2,8 @@ package stack
 
 import (
 	"math"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
+
+	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
 //获取矩阵中连续为1的最大矩形长度
@@ -18,7 +19,7 @@ func maxRecSize(m [][]int) int {
 			if m[i][j] == 0 {
 				height[j] = 0
 			} else {
-				height[j] += 1
+				height[j]++
 			}
 		}
 		max = int(math.Max(float64(max), float64(getMaxRec(height))))
@@ -30,7 +31,7 @@ func getMaxRec(height []int) int {
 	if len(height) == 0 {
 		return 0
 	}
-	st := New()
+	st := stack.New()
 	max := 0
 	for i, v := range height {
 		//栈内index对应size值大小递减，遇到大值，取栈顶左右能扩展的最大矩形大小

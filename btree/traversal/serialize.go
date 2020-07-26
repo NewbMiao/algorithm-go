@@ -1,15 +1,16 @@
 package traversal
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
 	"fmt"
-	"strings"
 	"strconv"
+	"strings"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 //层级遍历序列化
-func SerialByLevel(bt *Node) (res string) {
+func SerialByLevel(bt *btree.Node) (res string) {
 	queue := linkedlist.NewList()
 	queue.Push(bt)
 
@@ -20,7 +21,7 @@ func SerialByLevel(bt *Node) (res string) {
 			return
 		}
 
-		cur := tmp.(*Node)
+		cur := tmp.(*btree.Node)
 		if cur.Left != nil {
 			res += fmt.Sprint(cur.Left.Value, "!")
 			queue.Push(cur.Left)
@@ -38,7 +39,7 @@ func SerialByLevel(bt *Node) (res string) {
 }
 
 //层级遍历反序列化
-func ReconByLevel(res string) (bt *Node) {
+func ReconByLevel(res string) (bt *btree.Node) {
 	strs := strings.Split(res, "!")
 	index := 0
 	queue := linkedlist.NewList()
@@ -49,10 +50,10 @@ func ReconByLevel(res string) (bt *Node) {
 		if node == nil {
 			return
 		}
-		cur := node.(*Node)
-		index += 1
+		cur := node.(*btree.Node)
+		index++
 		cur.Left = genNode(strs[index])
-		index += 1
+		index++
 		cur.Right = genNode(strs[index])
 
 		if cur.Left != nil {
@@ -66,17 +67,17 @@ func ReconByLevel(res string) (bt *Node) {
 	return
 }
 
-func genNode(s string) *Node {
+func genNode(s string) *btree.Node {
 	if s == "#" {
 		return nil
 	}
 	if tmp, err := strconv.Atoi(s); err == nil {
-		return &Node{Value: tmp}
+		return &btree.Node{Value: tmp}
 	}
 	return nil
 }
 
-func SerialByPre(bt *Node) (s string) {
+func SerialByPre(bt *btree.Node) (s string) {
 	if bt == nil {
 		return "#!"
 	}
@@ -86,7 +87,7 @@ func SerialByPre(bt *Node) (s string) {
 	return
 }
 
-func ReconByPre(s string) (bt *Node) {
+func ReconByPre(s string) (bt *btree.Node) {
 	if s == "" {
 		return
 	}
@@ -99,7 +100,7 @@ func ReconByPre(s string) (bt *Node) {
 	return
 }
 
-func reconPre(queue *linkedlist.LList) (bt *Node) {
+func reconPre(queue *linkedlist.LList) (bt *btree.Node) {
 	if queue == nil {
 		return
 	}
@@ -107,7 +108,7 @@ func reconPre(queue *linkedlist.LList) (bt *Node) {
 	if node == nil {
 		return
 	}
-	if tmp, ok := node.(*Node); ok && tmp != nil {
+	if tmp, ok := node.(*btree.Node); ok && tmp != nil {
 		bt = tmp
 		bt.Left = reconPre(queue)
 		bt.Right = reconPre(queue)

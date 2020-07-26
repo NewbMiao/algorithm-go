@@ -14,7 +14,7 @@ func TestGenerateParenthesis(t *testing.T) {
 			"(()())",
 			"(())()",
 			"()(())",
-			"()()()",},
+			"()()()"},
 	}
 	for k, v := range ds {
 		t.Log(fmt.Sprintf("GenerateParenthesis, input num %v, want: %v", v, ws[k]))
@@ -31,6 +31,5 @@ func TestGenerateParenthesis(t *testing.T) {
 		} else {
 			t.Error("GenerateParenthesis1 is not ok, result:", fmt.Sprintf("%v", r))
 		}
-
 	}
 }

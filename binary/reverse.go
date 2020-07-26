@@ -20,7 +20,7 @@ func reverseBit1(x uint) (r uint) {
 func reverseBit2(x uint) (r uint) {
 	//reverse map
 	var rMap = make([]uint, 0)
-	var p2 = func(n uint) ([]uint) {
+	var p2 = func(n uint) []uint {
 		return []uint{n, n + 2*64, n + 1*64, n + 3*64}
 	}
 	var p4 = func(n uint) (r []uint) {
@@ -46,9 +46,9 @@ func reverseBit2(x uint) (r uint) {
 	intSize -= 8
 	for x != 0 {
 		r |= rMap[x&0xff] << intSize
-		x = x >> 8
+		x >>= 8
 	}
-	return
+	return r
 }
 
 func ReverseBin32(v uint32) (r uint32) {
@@ -59,7 +59,7 @@ func ReverseBin32(v uint32) (r uint32) {
 	s >>= 1
 	for s > 0 {
 		mask ^= (mask << s)
-		v = ((v >> s) & mask) | ((v << s) & (^mask));
+		v = ((v >> s) & mask) | ((v << s) & (^mask))
 		s >>= 1
 	}
 

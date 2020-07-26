@@ -2,7 +2,7 @@ package leetcode
 
 import "sort"
 
-func intersect_hashmap(nums1 []int, nums2 []int) []int {
+func intersect(nums1 []int, nums2 []int) []int {
 	if len(nums1) > len(nums2) {
 		nums1, nums2 = nums2, nums1
 	}
@@ -21,7 +21,7 @@ func intersect_hashmap(nums1 []int, nums2 []int) []int {
 	return nums2[:k]
 }
 
-func intersect_doublePointer(nums1 []int, nums2 []int) []int {
+func intersectDoublepointer(nums1 []int, nums2 []int) []int {
 	sort.Ints(nums1)
 	sort.Ints(nums2)
 	var i, j, k int

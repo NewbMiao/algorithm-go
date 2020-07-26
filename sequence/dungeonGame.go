@@ -89,7 +89,6 @@ func DungeonGame2(m [][]int) (b int) {
 			down := math.Max(float64(dp[j]-m[row][col]), 1)
 			right := math.Max(float64(dp[j+1]-m[row][col]), 1)
 			dp[j] = int(math.Min(right, down))
-
 		}
 	}
 

@@ -2,9 +2,9 @@ package btree
 
 import (
 	"fmt"
-	"unicode/utf8"
-	"strings"
 	"math"
+	"strings"
+	"unicode/utf8"
 )
 
 type Node struct {

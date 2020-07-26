@@ -1,8 +1,8 @@
 package binary
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestOddOnes(t *testing.T) {
@@ -25,5 +25,4 @@ func TestOddOnes(t *testing.T) {
 			t.Error(fmt.Sprintf("judgeBinOddOne%d is not ok", k+1))
 		}
 	}
-
 }

@@ -25,7 +25,7 @@ func Steps2(n int) int {
 	res := 2
 	for i := 3; i <= n; i++ {
 		tmp = res
-		res = res + pre
+		res += pre
 		pre = tmp
 	}
 

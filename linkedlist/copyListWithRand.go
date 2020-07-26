@@ -15,7 +15,7 @@ func copyListWithRand1(head *randNode) *randNode {
 	if head == nil {
 		return nil
 	}
-	m := make(map[*randNode]*randNode, 0)
+	m := make(map[*randNode]*randNode)
 	cur := head
 	for cur != nil {
 		m[cur] = &randNode{Value: cur.Value}
@@ -64,7 +64,6 @@ func copyListWithRand2(head *randNode) *randNode {
 		cur.Next = curCopy.Next
 		if curCopy.Next == nil {
 			curCopy.Next = nil
-
 		} else {
 			curCopy.Next = curCopy.Next.Next
 		}

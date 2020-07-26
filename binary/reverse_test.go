@@ -1,8 +1,8 @@
 package binary
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestReverse(t *testing.T) {
@@ -31,5 +31,4 @@ func TestReverse(t *testing.T) {
 			t.Error(fmt.Sprintf("reverseBit%d is not ok", k+1), v, fmt.Sprintf("(%b)", v))
 		}
 	}
-
 }

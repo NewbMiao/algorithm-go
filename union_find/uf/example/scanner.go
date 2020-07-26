@@ -1,13 +1,14 @@
 package uf
 
 import (
-	"github.com/NewbMiao/AlgorithmCodeNote/union_find/uf"
-	"fmt"
-	"strings"
 	"bufio"
+	"fmt"
 	"os"
 	"strconv"
-	"github.com/NewbMiao/AlgorithmCodeNote/tool"
+	"strings"
+
+	"github.com/NewbMiao/algorithm-go/tool"
+	"github.com/NewbMiao/algorithm-go/union_find/uf"
 )
 
 func Scanner() {
@@ -16,12 +17,12 @@ func Scanner() {
 	var mu uf.UnionFindList
 
 	input := bufio.NewScanner(os.Stdin) //初始化一个扫表对象
-	for input.Scan() { //扫描输入内容
+	for input.Scan() {                  //扫描输入内容
 		if err := input.Err(); err != nil {
 			fmt.Fprintln(os.Stderr, "reading standard input:", err)
 		}
 		line := input.Text() //把输入内容转换为字符串
-		if line==""{
+		if line == "" {
 			break
 		}
 		if !strings.Contains(line, " ") {
@@ -43,5 +44,4 @@ func Scanner() {
 	//fmt.Println(mu)
 
 	fmt.Println(mu.Count())
-
 }

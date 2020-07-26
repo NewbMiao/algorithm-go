@@ -1,13 +1,13 @@
 package subtree
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
-	"github.com/NewbMiao/AlgorithmCodeNote/btree/traversal"
-	"github.com/NewbMiao/AlgorithmCodeNote/string_alg"
+	"github.com/NewbMiao/algorithm-go/btree/traversal"
+	"github.com/NewbMiao/algorithm-go/kit/btree"
+	"github.com/NewbMiao/algorithm-go/stringalg"
 )
 
-func T1SubtreeEqualT2(t1, t2 *Node) (r bool) {
+func T1SubtreeEqualT2(t1, t2 *btree.Node) (r bool) {
 	st1 := traversal.SerialByPre(t1)
 	st2 := traversal.SerialByPre(t2)
-	return string_alg.GetIndexOf(st1, st2) > -1
+	return stringalg.GetIndexOf(st1, st2) > -1
 }

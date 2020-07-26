@@ -1,8 +1,9 @@
 package leetcode
 
 import (
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
 	"math"
+
+	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
 /*
@@ -73,9 +74,9 @@ func longestValidParentheses2(s string) int {
 	//从左到右
 	for i := 0; i < l; i++ {
 		if s[i] == '(' {
-			left += 1
+			left++
 		} else {
-			right += 1
+			right++
 		}
 		if left == right {
 			max = int(math.Max(float64(max), float64(2*right)))
@@ -90,9 +91,9 @@ func longestValidParentheses2(s string) int {
 	right = 0
 	for i := l - 1; i >= 0; i-- {
 		if s[i] == '(' {
-			left += 1
+			left++
 		} else {
-			right += 1
+			right++
 		}
 		if left == right {
 			max = int(math.Max(float64(max), float64(2*left)))

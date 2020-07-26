@@ -1,10 +1,10 @@
 package stack
 
-import . "github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
+import "github.com/NewbMiao/algorithm-go/kit/stack"
 
 //用栈来排序栈
-func sortStackByStack(s *S) {
-	help := New()
+func sortStackByStack(s *stack.S) {
+	help := stack.New()
 	if s.IsEmpty() {
 		return
 	}

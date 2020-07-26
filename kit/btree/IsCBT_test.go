@@ -1,8 +1,8 @@
 package btree
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 var cbt *Node

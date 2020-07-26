@@ -1,11 +1,11 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 //删除单链表倒数第K节点
-func RemoveLastKthNode(l *LList, k int) {
+func RemoveLastKthNode(l *linkedlist.LList, k int) {
 	if l.IsEmpty() || k < 1 {
 		return
 	}
@@ -34,7 +34,7 @@ func RemoveLastKthNode(l *LList, k int) {
 }
 
 //删除双链表倒数第K节点
-func RemoveLastKthDNode(l *DList, k int) {
+func RemoveLastKthDNode(l *linkedlist.DList, k int) {
 	if l.IsEmpty() || k < 1 {
 		return
 	}

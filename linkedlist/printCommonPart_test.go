@@ -1,19 +1,20 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
-	"testing"
 	"fmt"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 func TestPrintCommonPart(t *testing.T) {
-	h1 := NewList()
+	h1 := linkedlist.NewList()
 	h1.Push(2)
 	h1.Push(3)
 	h1.Push(5)
 	h1.Push(6)
 
-	h2 := NewList()
+	h2 := linkedlist.NewList()
 	h2.Push(1)
 	h2.Push(2)
 	h2.Push(5)

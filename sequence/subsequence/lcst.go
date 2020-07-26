@@ -17,7 +17,7 @@ func GetLcst(str1, str2 string) (res string) {
 		}
 	}
 	if mlen > 0 {
-		res = str1[endIndex-mlen+1:endIndex+1]
+		res = str1[endIndex-mlen+1 : endIndex+1]
 	}
 	return
 }
@@ -66,7 +66,7 @@ func GetLcst2(str1, str2 string) (res string) {
 		mlen := 0
 		for i < len(str1) && j < len(str2) {
 			if str2[j] == str1[i] {
-				mlen += 1
+				mlen++
 			} else {
 				mlen = 0
 			}
@@ -74,18 +74,18 @@ func GetLcst2(str1, str2 string) (res string) {
 				max = mlen
 				endIndex = i
 			}
-			i += 1
-			j += 1
+			i++
+			j++
 		}
 
 		if col > 0 { //右向左
-			col -= 1
+			col--
 		} else { //上向下
-			row += 1
+			row++
 		}
 	}
 	if max > 0 {
-		res = str1[endIndex-max+1:endIndex+1]
+		res = str1[endIndex-max+1 : endIndex+1]
 	}
-	return
+	return res
 }

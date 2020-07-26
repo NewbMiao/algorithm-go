@@ -1,4 +1,4 @@
-package string_alg
+package stringalg
 
 func GetIndexOf(ss, ms string) (i int) {
 	if ss == "" || ms == "" || len(ms) > len(ss) {
@@ -8,8 +8,8 @@ func GetIndexOf(ss, ms string) (i int) {
 	next := getNextArr(ms)
 	for si < len(ss) && mi < len(ms) {
 		if ss[si] == ms[mi] {
-			si += 1
-			mi += 1
+			si++
+			mi++
 		} else if next[mi] == -1 { //无公共匹配串，str后移一个字符
 			si++
 		} else { //有公共子串，回退到上一个公共子串位置
@@ -35,7 +35,7 @@ func getNextArr(ms string) (next []int) {
 	cn := 0
 	for pos < mlen {
 		if ms[pos-1] == ms[cn] { //前后缀匹配，则前移一位
-			cn += 1
+			cn++
 			next[pos] = cn
 			pos++
 		} else if cn > 0 { //不匹配，则回退到上一次匹配点cn

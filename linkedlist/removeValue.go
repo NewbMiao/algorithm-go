@@ -1,11 +1,11 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
+	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
-func removeValue1(head *LNode, num int) *LNode {
+func removeValue1(head *linkedlist.LNode, num int) *linkedlist.LNode {
 	if head == nil {
 		return nil
 	}
@@ -19,20 +19,19 @@ func removeValue1(head *LNode, num int) *LNode {
 
 	//倒着重新连接链表
 	for !st.IsEmpty() {
-		st.Peek().(*LNode).Next = head
+		st.Peek().(*linkedlist.LNode).Next = head
 		top, _ := st.Pop()
-		head = top.(*LNode)
+		head = top.(*linkedlist.LNode)
 	}
 	return head
 }
 
-func removeValue2(head *LNode, num int) *LNode {
-
+func removeValue2(head *linkedlist.LNode, num int) *linkedlist.LNode {
 	if head == nil {
 		return nil
 	}
 
-	var newHead, pre *LNode
+	var newHead, pre *linkedlist.LNode
 	cur := head
 
 	for cur != nil {
@@ -41,10 +40,8 @@ func removeValue2(head *LNode, num int) *LNode {
 				newHead = cur
 			}
 			pre = cur
-		} else {
-			if pre != nil {
-				pre.Next = cur.Next
-			}
+		} else if pre != nil {
+			pre.Next = cur.Next
 		}
 		cur = cur.Next
 	}

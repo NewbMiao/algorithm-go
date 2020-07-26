@@ -1,12 +1,12 @@
 package stack
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestGetMaxWindow(t *testing.T) {
-	arr := []int{4, 3, 5, 4, 3, 3, 6, 7,}
+	arr := []int{4, 3, 5, 4, 3, 3, 6, 7}
 	want := []int{5, 5, 5, 4, 6, 7}
 	width := 3
 
@@ -18,5 +18,4 @@ func TestGetMaxWindow(t *testing.T) {
 	} else {
 		t.Error("GetMaxWindow is not ok, result:", fmt.Sprintf("%v", r))
 	}
-
 }

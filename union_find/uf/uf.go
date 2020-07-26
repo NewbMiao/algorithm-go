@@ -2,9 +2,10 @@
 package uf
 
 import (
-	"fmt"
 	"errors"
-	"github.com/NewbMiao/AlgorithmCodeNote/tool"
+	"fmt"
+
+	"github.com/NewbMiao/algorithm-go/tool"
 )
 
 type UnionFindList []int

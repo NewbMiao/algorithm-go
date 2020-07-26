@@ -1,17 +1,17 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 //链表按pivot分为小中大三部分
-func listPartition1(l *LList, pivot int) {
+func listPartition1(l *linkedlist.LList, pivot int) {
 	if l == nil || l.IsEmpty() {
 		return
 	}
 	cur := l.Head
 	n := 0
-	arr := make([]*LNode, 0)
+	arr := make([]*linkedlist.LNode, 0)
 	for cur != nil {
 		arr = append(arr, cur)
 		n++
@@ -39,16 +39,15 @@ func listPartition1(l *LList, pivot int) {
 	}
 	arr[len(arr)-1].Next = nil
 	l.Head = arr[0]
-
 }
 
 //分隔中保持原有顺序
-func listPartition2(l *LList, pivot int) {
+func listPartition2(l *linkedlist.LList, pivot int) {
 	if l == nil || l.IsEmpty() {
 		return
 	}
 	cur := l.Head
-	var sH, sT, eH, eT, bH, bT, next *LNode
+	var sH, sT, eH, eT, bH, bT, next *linkedlist.LNode
 
 	for cur != nil {
 		next = cur.Next
@@ -100,5 +99,4 @@ func listPartition2(l *LList, pivot int) {
 	} else {
 		l.Head = bH
 	}
-
 }

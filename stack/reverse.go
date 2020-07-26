@@ -1,9 +1,9 @@
 package stack
 
-import . "github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
+import "github.com/NewbMiao/algorithm-go/kit/stack"
 
 //递归原地逆序栈
-func Reverse(s *S) {
+func Reverse(s *stack.S) {
 	if s.IsEmpty() {
 		return
 	}
@@ -13,7 +13,7 @@ func Reverse(s *S) {
 }
 
 //获取并移除最后一个元素
-func getAndRemoveLastElement(s *S) interface{} {
+func getAndRemoveLastElement(s *stack.S) interface{} {
 	res, _ := s.Pop()
 	if s.IsEmpty() {
 		return res

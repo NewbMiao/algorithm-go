@@ -1,8 +1,8 @@
 package shellsort
 
 import (
-	"testing"
 	"strings"
+	"testing"
 )
 
 type Sitem []string
@@ -19,7 +19,6 @@ func (s Sitem) Swap(i, j int) {
 }
 
 func TestShellSort(t *testing.T) {
-
 	s := strings.Split("S O R T E X A M P L E", " ")
 	t.Log("input array:", s)
 	Sort(Sitem(s))

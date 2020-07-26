@@ -1,8 +1,8 @@
 package binary
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestMin(t *testing.T) {
@@ -40,15 +40,14 @@ func TestIsPowerOf2(t *testing.T) {
 	}
 }
 
-
 func TestMPowerOfN(t *testing.T) {
-	var m,n = 5,6
+	var m, n = 5, 6
 	var want = 15625
-	t.Log(fmt.Sprintf("input: %d power of %d? want: %d", m,n, want))
+	t.Log(fmt.Sprintf("input: %d power of %d? want: %d", m, n, want))
 
-	if mPowerOfN(m,n) == want {
+	if mPowerOfN(m, n) == want {
 		t.Log("mPowerOfN is ok")
 	} else {
-		t.Error("mPowerOfN is not ok, get:",mPowerOfN(m,n))
+		t.Error("mPowerOfN is not ok, get:", mPowerOfN(m, n))
 	}
 }

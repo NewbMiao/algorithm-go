@@ -1,8 +1,9 @@
 package leetcode
 
 import (
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
 	"math"
+
+	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
 /*
@@ -10,7 +11,7 @@ https://leetcode-cn.com/problems/trapping-rain-water/
 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
 
 */
-//双指针，当前可接雨水取决左右较低的柱子
+//双指针，当前可接雨水取决左右较低的柱子.
 func trap(height []int) int {
 	l := len(height)
 	if l <= 1 {
@@ -22,7 +23,6 @@ func trap(height []int) int {
 	rightMax := 0
 	ans := 0
 	for left < right {
-
 		if height[left] < height[right] {
 			if height[left] > leftMax {
 				leftMax = height[left]
@@ -45,7 +45,7 @@ func trap(height []int) int {
 	return ans
 }
 
-//栈
+//栈.
 func trap1(height []int) int {
 	l := len(height)
 	if l <= 1 {
@@ -62,8 +62,8 @@ func trap1(height []int) int {
 			}
 			pre, _ := st.Peek().(int)
 			distance := i - pre - 1
-			bound_height := int(math.Min(float64(height[pre]), float64(height[i]))) - height[top]
-			ans += distance * bound_height
+			boundHeight := int(math.Min(float64(height[pre]), float64(height[i]))) - height[top]
+			ans += distance * boundHeight
 			//fmt.Println(i, top, pre, distance, bound_height)
 		}
 		st.Push(i)

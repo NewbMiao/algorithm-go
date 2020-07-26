@@ -1,9 +1,10 @@
 package linkedlist
 
 import (
-	"testing"
 	"fmt"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 func TestRemoveLastKthNode(t *testing.T) {
@@ -15,7 +16,7 @@ func TestRemoveLastKthNode(t *testing.T) {
 
 	kth := []int{6, 3, 7}
 	for k := range wants {
-		h1 := NewList()
+		h1 := linkedlist.NewList()
 		h1.Push(1)
 		h1.Push(2)
 		h1.Push(3)
@@ -30,7 +31,6 @@ func TestRemoveLastKthNode(t *testing.T) {
 			t.Error("RemoveLastKthNode is not ok, result:", fmt.Sprintf("%v", h1))
 		}
 	}
-
 }
 
 func TestRemoveLastKthDNode(t *testing.T) {
@@ -42,7 +42,7 @@ func TestRemoveLastKthDNode(t *testing.T) {
 
 	kth := []int{6, 3, 7}
 	for k := range wants {
-		h1 := NewDList()
+		h1 := linkedlist.NewDList()
 		h1.PushBack(1)
 		h1.PushBack(2)
 		h1.PushBack(3)
@@ -57,5 +57,4 @@ func TestRemoveLastKthDNode(t *testing.T) {
 			t.Error("RemoveLastKthDNode is not ok, result:", fmt.Sprintf("%v", h1))
 		}
 	}
-
 }

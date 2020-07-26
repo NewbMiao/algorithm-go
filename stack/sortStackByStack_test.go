@@ -1,13 +1,14 @@
 package stack
 
 import (
-	"testing"
 	"fmt"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
 func TestSortStackByStack(t *testing.T) {
-	s := New()
+	s := stack.New()
 	s.Push(3)
 	s.Push(1)
 	s.Push(6)

@@ -1,12 +1,13 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
 	"fmt"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 //环形链表模拟约瑟夫环问题
-func JosephusKill1(l *LList, m int) (res int) {
+func JosephusKill1(l *linkedlist.LList, m int) (res int) {
 	if l == nil || l.Head == nil || m < 1 {
 		return
 	}
@@ -38,7 +39,7 @@ func JosephusKill1(l *LList, m int) (res int) {
 }
 
 //递归计算最后报数位置
-func JosephusKill2(l *LList, m int) (res int) {
+func JosephusKill2(l *linkedlist.LList, m int) (res int) {
 	if l == nil || l.Head == nil || m < 1 {
 		return
 	}

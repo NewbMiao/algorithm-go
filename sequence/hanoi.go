@@ -18,5 +18,4 @@ func do(n int, from, by, to string) {
 		do(1, from, by, to)
 		do(n-1, by, to, from)
 	}
-
 }

@@ -1,37 +1,38 @@
 package traversal
 
 import (
-	"testing"
 	"fmt"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-var cbt *Node
+var cbt *btree.Node
 
 func init() {
-	cbt = &Node{Value: 1}
-	cbt.Left = &Node{Value: 2}
-	cbt.Right = &Node{Value: 3}
-	cbt.Left.Right = &Node{Value: 4}
-	cbt.Right.Left = &Node{Value: 5}
-	cbt.Right.Right = &Node{Value: 6}
-	cbt.Left.Right.Left = &Node{Value: 7}
-	cbt.Left.Right.Right = &Node{Value: 8}
-	cbt.Right.Left.Left = &Node{Value: 9}
-	cbt.Right.Left.Right = &Node{Value: 10}
-	cbt.Left.Right.Right.Right = &Node{Value: 11}
-	cbt.Right.Left.Left.Left = &Node{Value: 12}
-	cbt.Left.Right.Right.Right.Left = &Node{Value: 13}
-	cbt.Left.Right.Right.Right.Right = &Node{Value: 14}
-	cbt.Right.Left.Left.Left.Left = &Node{Value: 15}
-	cbt.Right.Left.Left.Left.Right = &Node{Value: 16}
+	cbt = &btree.Node{Value: 1}
+	cbt.Left = &btree.Node{Value: 2}
+	cbt.Right = &btree.Node{Value: 3}
+	cbt.Left.Right = &btree.Node{Value: 4}
+	cbt.Right.Left = &btree.Node{Value: 5}
+	cbt.Right.Right = &btree.Node{Value: 6}
+	cbt.Left.Right.Left = &btree.Node{Value: 7}
+	cbt.Left.Right.Right = &btree.Node{Value: 8}
+	cbt.Right.Left.Left = &btree.Node{Value: 9}
+	cbt.Right.Left.Right = &btree.Node{Value: 10}
+	cbt.Left.Right.Right.Right = &btree.Node{Value: 11}
+	cbt.Right.Left.Left.Left = &btree.Node{Value: 12}
+	cbt.Left.Right.Right.Right.Left = &btree.Node{Value: 13}
+	cbt.Left.Right.Right.Right.Right = &btree.Node{Value: 14}
+	cbt.Right.Left.Left.Left.Left = &btree.Node{Value: 15}
+	cbt.Right.Left.Left.Left.Right = &btree.Node{Value: 16}
 }
 
 func TestEdgeMap(t *testing.T) {
-	h := GetHeight(cbt, 0)
+	h := btree.GetHeight(cbt, 0)
 	fmt.Printf("get btree height: %d,\nedge map:\n", h)
-	m := make(map[int][2]*Node)
-	GetEdgeMap(cbt, m, 0)
+	m := make(map[int][2]*btree.Node)
+	btree.GetEdgeMap(cbt, m, 0)
 	for i := 0; i < h; i++ {
 		fmt.Println(i, ": ", m[i][0].Value, m[i][1].Value)
 	}

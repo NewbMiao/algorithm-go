@@ -1,8 +1,8 @@
 package leetcode
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestIsValid(t *testing.T) {
@@ -29,6 +29,5 @@ func TestIsValid(t *testing.T) {
 		} else {
 			t.Error("isValid is not ok, result:", r)
 		}
-
 	}
 }

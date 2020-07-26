@@ -1,8 +1,8 @@
 package sequence
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestMinEditCost(t *testing.T) {
@@ -46,5 +46,4 @@ func TestMinEditCost(t *testing.T) {
 			t.Error("minEditCost2 is not ok, result:", fmt.Sprintf("%v", r))
 		}
 	}
-
 }

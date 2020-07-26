@@ -33,7 +33,6 @@ func MinCoins1(arr []int, aim int) (c int) {
 				left = dp[i][j-arr[i]] + 1
 			}
 			dp[i][j] = int(math.Min(float64(dp[i-1][j]), float64(left)))
-
 		}
 	}
 	if dp[n-1][aim] == max {
@@ -68,7 +67,6 @@ func MinCoins2(arr []int, aim int) (c int) {
 				left = dp[j-arr[i]] + 1
 			}
 			dp[j] = int(math.Min(float64(dp[j]), float64(left)))
-
 		}
 	}
 	if dp[aim] == max {
@@ -76,7 +74,6 @@ func MinCoins2(arr []int, aim int) (c int) {
 	}
 	return dp[aim]
 }
-
 
 //----------------------------------------------------------------
 
@@ -143,7 +140,6 @@ func MinCoins4(arr []int, aim int) (c int) {
 				left = dp[j-arr[i]] + 1
 			}
 			dp[j] = int(math.Min(float64(dp[j]), float64(left)))
-
 		}
 	}
 	if dp[aim] == max {

@@ -31,5 +31,4 @@ func searchRange(nums []int, target int) []int {
 		leftIdx,
 		extremeInsertionIndex(nums, target, false) - 1,
 	}
-
 }

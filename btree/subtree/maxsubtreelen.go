@@ -1,18 +1,18 @@
 package subtree
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
 	"math"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-func GetMaxSubtreeLen(bt *Node, sum int) (maxLen int) {
+func GetMaxSubtreeLen(bt *btree.Node, sum int) (maxLen int) {
 	sumMap := map[int]int{}
 	sumMap[0] = 0 //important
 	return getMaxLenPreOrder(bt, sum, 0, 1, 0, sumMap)
 }
 
-func getMaxLenPreOrder(bt *Node, sum, preSum, level, maxLen int, sumMap map[int]int) int {
-
+func getMaxLenPreOrder(bt *btree.Node, sum, preSum, level, maxLen int, sumMap map[int]int) int {
 	if bt == nil {
 		return maxLen
 	}
@@ -24,7 +24,6 @@ func getMaxLenPreOrder(bt *Node, sum, preSum, level, maxLen int, sumMap map[int]
 
 	if preLevel, ok := sumMap[curSum-sum]; ok {
 		maxLen = int(math.Max(float64(maxLen), float64(level-preLevel)))
-
 	}
 	maxLen = getMaxLenPreOrder(bt.Left, sum, curSum, level+1, maxLen, sumMap)
 	maxLen = getMaxLenPreOrder(bt.Right, sum, curSum, level+1, maxLen, sumMap)

@@ -1,8 +1,8 @@
 package subsequence
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestGetLcse(t *testing.T) {
@@ -18,5 +18,4 @@ func TestGetLcse(t *testing.T) {
 	} else {
 		t.Error("GetLcse is not ok, result:", fmt.Sprintf("%v", r))
 	}
-
 }

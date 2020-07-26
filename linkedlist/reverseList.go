@@ -1,16 +1,16 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 //原地逆置链表
-func ReverseList(l *LList) {
+func ReverseList(l *linkedlist.LList) {
 	if l == nil || l.Head == nil {
 		return
 	}
 	head := l.Head
-	var pre, next *LNode
+	var pre, next *linkedlist.LNode
 	for head != nil {
 		next = head.Next
 		head.Next = pre
@@ -21,12 +21,12 @@ func ReverseList(l *LList) {
 }
 
 //原地逆置双链表
-func ReverseDList(l *DList) {
+func ReverseDList(l *linkedlist.DList) {
 	if l == nil || l.Head == nil {
 		return
 	}
 	head := l.Head
-	var pre, next *DoubleNode
+	var pre, next *linkedlist.DoubleNode
 	for head != nil {
 		next = head.Next
 		head.Next = pre

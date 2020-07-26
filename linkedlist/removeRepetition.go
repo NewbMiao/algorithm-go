@@ -1,12 +1,12 @@
 package linkedlist
 
-import . "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+import "github.com/NewbMiao/algorithm-go/kit/linkedlist"
 
-func removeRepetition1(head *LNode) {
+func removeRepetition1(head *linkedlist.LNode) {
 	if head == nil || head.Next == nil {
 		return
 	}
-	m := make(map[interface{}]bool, 0)
+	m := make(map[interface{}]bool)
 	pre := head
 	m[head.Value] = true
 	cur := head.Next
@@ -21,12 +21,12 @@ func removeRepetition1(head *LNode) {
 	}
 }
 
-func removeRepetition2(head *LNode) {
+func removeRepetition2(head *linkedlist.LNode) {
 	if head == nil || head.Next == nil {
 		return
 	}
 	cur := head
-	var pre *LNode
+	var pre *linkedlist.LNode
 	for cur != nil {
 		pre = cur //每次对当前cur向后遍历是否有重复
 		tmp := cur.Next

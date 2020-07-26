@@ -1,13 +1,14 @@
 package subtree
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
 	"math"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 //非递归搜索
-func GetBSTTopSize0(bt *Node) (size int) {
+func GetBSTTopSize0(bt *btree.Node) (size int) {
 	if bt == nil {
 		return
 	}
@@ -16,7 +17,7 @@ func GetBSTTopSize0(bt *Node) (size int) {
 	size = int(math.Max(float64(GetBSTTopSize0(bt.Right)), float64(size)))
 	return
 }
-func getNodeBSTTopSize(bt *Node) (size int) {
+func getNodeBSTTopSize(bt *btree.Node) (size int) {
 	if bt == nil {
 		return
 	}
@@ -28,7 +29,7 @@ func getNodeBSTTopSize(bt *Node) (size int) {
 		if tmp == nil {
 			continue
 		}
-		node, ok := tmp.(*Node)
+		node, ok := tmp.(*btree.Node)
 		if !ok || node == nil {
 			continue
 		}
@@ -43,17 +44,16 @@ func getNodeBSTTopSize(bt *Node) (size int) {
 			}
 		}
 		if cur == node {
-			size += 1
+			size++
 			queue.Push(node.Left)
 			queue.Push(node.Right)
 		}
-
 	}
-	return
+	return size
 }
 
 //递归搜索
-func GetBSTTopSize1(bt *Node) (size int) {
+func GetBSTTopSize1(bt *btree.Node) (size int) {
 	if bt == nil {
 		return
 	}
@@ -62,14 +62,14 @@ func GetBSTTopSize1(bt *Node) (size int) {
 	size = int(math.Max(float64(GetBSTTopSize1(bt.Right)), float64(size)))
 	return
 }
-func getNodeBSTTopSizeRecur(bt, cur *Node) int {
+func getNodeBSTTopSizeRecur(bt, cur *btree.Node) int {
 	if isBSTNode(bt, cur) {
 		return getNodeBSTTopSizeRecur(bt, cur.Left) + getNodeBSTTopSizeRecur(bt, cur.Right) + 1
 	}
 	return 0
 }
 
-func isBSTNode(bt, cur *Node) bool {
+func isBSTNode(bt, cur *btree.Node) bool {
 	if bt == nil || cur == nil {
 		return false
 	}
@@ -78,9 +78,8 @@ func isBSTNode(bt, cur *Node) bool {
 	}
 	if bt.Value > cur.Value {
 		return isBSTNode(bt.Left, cur)
-	} else {
-		return isBSTNode(bt.Right, cur)
 	}
+	return isBSTNode(bt.Right, cur)
 }
 
 type record struct {
@@ -89,15 +88,15 @@ type record struct {
 }
 
 //拓扑贡献记录
-func GetBSTTopSize2(bt *Node) (size int) {
+func GetBSTTopSize2(bt *btree.Node) (size int) {
 	if bt == nil {
 		return
 	}
-	rMap := map[*Node]*record{}
+	rMap := map[*btree.Node]*record{}
 	return posOrderRecordSize(bt, rMap)
 }
 
-func posOrderRecordSize(bt *Node, rMap map[*Node]*record) (size int) {
+func posOrderRecordSize(bt *btree.Node, rMap map[*btree.Node]*record) (size int) {
 	if bt == nil {
 		return
 	}
@@ -119,7 +118,7 @@ func posOrderRecordSize(bt *Node, rMap map[*Node]*record) (size int) {
 	return int(math.Max(float64(curR.Lr+curR.Rr+1), math.Max(float64(ls), float64(rs))))
 }
 
-func modifySizeMap(n *Node, v int, rMap map[*Node]*record, isLeft bool) (minus int) {
+func modifySizeMap(n *btree.Node, v int, rMap map[*btree.Node]*record, isLeft bool) (minus int) {
 	if n == nil {
 		return
 	}
@@ -130,17 +129,16 @@ func modifySizeMap(n *Node, v int, rMap map[*Node]*record, isLeft bool) (minus i
 	if (isLeft && n.Value > v) || (!isLeft && n.Value < v) {
 		delete(rMap, n)
 		return r.Lr + r.Rr + 1
-	} else {
-		//左子树左边界 && 右子树右边界无需修改贡献记录
-
-		if isLeft { //左子树考察其右边界是否满足小于根节点
-			minus = modifySizeMap(n.Right, v, rMap, isLeft)
-			r.Rr -= minus
-		} else { //右子树考察其左边界是否满足大于根节点
-			minus = modifySizeMap(n.Left, v, rMap, isLeft)
-			r.Lr -= minus
-		}
-		rMap[n] = r
-		return
 	}
+	//左子树左边界 && 右子树右边界无需修改贡献记录
+
+	if isLeft { //左子树考察其右边界是否满足小于根节点
+		minus = modifySizeMap(n.Right, v, rMap, isLeft)
+		r.Rr -= minus
+	} else { //右子树考察其左边界是否满足大于根节点
+		minus = modifySizeMap(n.Left, v, rMap, isLeft)
+		r.Lr -= minus
+	}
+	rMap[n] = r
+	return
 }

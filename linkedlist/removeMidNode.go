@@ -2,11 +2,12 @@ package linkedlist
 
 import (
 	"math"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 //删除列表中间节点
-func RemoveMidNode(l *LList) {
+func RemoveMidNode(l *linkedlist.LList) {
 	//空节点或单节点不移除
 	if l == nil || l.Head == nil || l.Head.Next == nil {
 		return
@@ -26,11 +27,10 @@ func RemoveMidNode(l *LList) {
 		cur = cur.Next.Next
 	}
 	pre.Next = pre.Next.Next
-	return
 }
 
 //按比例删除节点
-func RemoveByRatio(l *LList, a, b int) {
+func RemoveByRatio(l *linkedlist.LList, a, b int) {
 	n := 0 //n=l.Size
 	cur := l.Head
 	for cur != nil {

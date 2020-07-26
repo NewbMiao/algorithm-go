@@ -22,7 +22,5 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 		} else {
 			t.Error("LengthOfLongestSubstring is not ok, result:", fmt.Sprintf("%v", r))
 		}
-
 	}
-
 }

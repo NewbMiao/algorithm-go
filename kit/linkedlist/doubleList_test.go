@@ -1,8 +1,8 @@
 package linkedlist
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestDList_PushBack(t *testing.T) {
@@ -85,7 +85,7 @@ func TestDList_IsEmpty(t *testing.T) {
 	r2 := dl.PopBack()
 	r3 := dl.PopFront()
 
-	fmt.Println(dl, "pop all:",r1, r2, r3, "isEmpty", dl.IsEmpty(), dl.Size)
+	fmt.Println(dl, "pop all:", r1, r2, r3, "isEmpty", dl.IsEmpty(), dl.Size)
 	fmt.Println(dl, "dl is empty, isLast", dl.IsLast(dl.Front()), dl.Size)
 
 	dl.PushFront(1)

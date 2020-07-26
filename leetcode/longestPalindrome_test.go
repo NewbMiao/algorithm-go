@@ -1,8 +1,8 @@
 package leetcode
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestLongestPalindrome(t *testing.T) {
@@ -47,7 +47,5 @@ func TestLongestPalindrome(t *testing.T) {
 		} else {
 			t.Error("LongestPalindrome2 is not ok, result:", fmt.Sprintf("%v", r))
 		}
-
 	}
-
 }

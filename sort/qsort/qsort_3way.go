@@ -21,7 +21,7 @@ package qsort
 *            less->       i-> <-j   <-great
 
 *
-*/
+ */
 func _qsort3way(arr Sitem, lo, hi int) {
 	N := hi - lo + 1
 	if N <= CUTOFF {
@@ -31,8 +31,7 @@ func _qsort3way(arr Sitem, lo, hi int) {
 	// Bentley-McIlroy 3-way partitioning
 	i, j := lo, hi+1
 	less, great := lo, hi+1
-	for
-	{
+	for {
 		for {
 			i++
 			if !arr.Less(i, lo) || i == hi {
@@ -44,7 +43,6 @@ func _qsort3way(arr Sitem, lo, hi int) {
 			if !arr.Less(lo, j) || j == lo {
 				break
 			}
-
 		}
 		// pointers cross
 		if i == j && arr[i] == arr[lo] {
@@ -60,13 +58,11 @@ func _qsort3way(arr Sitem, lo, hi int) {
 		if arr[i] == arr[lo] {
 			less++
 			arr.Swap(less, i)
-
 		}
 		if arr[j] == arr[lo] {
 			great--
 			arr.Swap(great, j)
 		}
-
 	}
 
 	//将相等的元素交换到中间
@@ -75,7 +71,6 @@ func _qsort3way(arr Sitem, lo, hi int) {
 	for k := lo; k <= less; k++ {
 		arr.Swap(k, j)
 		j--
-
 	}
 	for k := hi; k >= great; k-- {
 		arr.Swap(k, i)

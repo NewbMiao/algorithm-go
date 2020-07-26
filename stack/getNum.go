@@ -3,7 +3,6 @@ package stack
 import "container/list"
 
 func getNum(arr []int, num int) (res int) {
-
 	l := len(arr)
 	if l == 0 {
 		return
@@ -40,5 +39,5 @@ func getNum(arr []int, num int) (res int) {
 		res += j - i
 		i++
 	}
-	return
+	return res
 }

@@ -6,7 +6,7 @@ https://leetcode-cn.com/problems/regular-expression-matching/
 
 '.' 匹配任意单个字符
 '*' 匹配零个或多个前面的那一个元素
-所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。.
 */
 func isMatch(s string, p string) bool {
 	if p == "" {
@@ -14,11 +14,9 @@ func isMatch(s string, p string) bool {
 	}
 	firstMatch := s != "" && (s[0] == p[0] || p[0] == '.')
 	if len(p) >= 2 && p[1] == '*' { //* : 校验0个或多个
-		return isMatch(s, p[2:]) || (firstMatch && isMatch(s[1:], p) )
-	} else {
-		return firstMatch && isMatch(s[1:], p[1:])
+		return isMatch(s, p[2:]) || (firstMatch && isMatch(s[1:], p))
 	}
-	return false
+	return firstMatch && isMatch(s[1:], p[1:])
 }
 func isMatch2(s string, p string) bool {
 	if p == "" {
@@ -38,7 +36,6 @@ func isMatch2(s string, p string) bool {
 			} else {
 				dp[i][j] = firstMatch && dp[i+1][j+1]
 			}
-
 		}
 	}
 

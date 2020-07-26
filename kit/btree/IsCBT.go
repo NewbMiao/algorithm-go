@@ -1,7 +1,7 @@
 package btree
 
 import (
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 func IsCBT(bt *Node) bool {
@@ -23,7 +23,7 @@ func IsCBT(bt *Node) bool {
 		}
 		l = node.Left
 		r = node.Right
-		if (leaf && (l != nil || r != nil) ) || (l == nil && r != nil) {
+		if (leaf && (l != nil || r != nil)) || (l == nil && r != nil) {
 			return false
 		}
 

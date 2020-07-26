@@ -1,13 +1,13 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
-	"testing"
 	"fmt"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 func TestIsPalindrome(t *testing.T) {
-
 	ds := [][]interface{}{
 		{},
 		{1},
@@ -30,7 +30,7 @@ func TestIsPalindrome(t *testing.T) {
 	}
 	for k := range ds {
 		t.Log(fmt.Sprintf("isPalindrome, input list %v, want: %v", ds[k], ws[k]))
-		l := Arr2LList(ds[k])
+		l := linkedlist.Arr2LList(ds[k])
 		var r bool
 		r = isPalindrome1(l)
 		if r == ws[k] {
@@ -59,5 +59,4 @@ func TestIsPalindrome(t *testing.T) {
 			t.Error("isPalindrome3 is not ok, result:", r)
 		}
 	}
-
 }

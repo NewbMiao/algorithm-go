@@ -1,9 +1,10 @@
 package traversal
 
 import (
-	"testing"
 	"fmt"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
 func TestIsPosOrderArr(t *testing.T) {
@@ -16,5 +17,5 @@ func TestIsPosOrderArr(t *testing.T) {
 	} else {
 		t.Error("IsPosOrderArr is not ok, result:", r)
 	}
-	PrintTree(PosOrderArrToBST(data))
+	btree.PrintTree(PosOrderArrToBST(data))
 }

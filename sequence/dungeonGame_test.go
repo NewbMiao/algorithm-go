@@ -1,12 +1,12 @@
 package sequence
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestDungeonGame(t *testing.T) {
-	m := [][]int{{-2, -3, 3}, {-5, -10, 1}, {10, 30, -5},}
+	m := [][]int{{-2, -3, 3}, {-5, -10, 1}, {10, 30, -5}}
 	want := 7
 	t.Log(fmt.Sprintf("DungeonGame, input map info: %+v, want min blood init: %d", m, want))
 

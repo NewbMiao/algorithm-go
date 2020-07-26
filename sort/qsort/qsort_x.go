@@ -1,7 +1,7 @@
 package qsort
 
 import (
-	"github.com/NewbMiao/AlgorithmCodeNote/tool"
+	"github.com/NewbMiao/algorithm-go/tool"
 )
 
 func _qsort(arr Sitem, lo, hi int) {
@@ -13,12 +13,12 @@ func _qsort(arr Sitem, lo, hi int) {
 		m := median3(arr, lo, lo+N>>1, hi)
 		arr.Swap(lo, m)
 	} else { //use median of ninther
-		eps := N / 8;
-		mid := lo + N>>1;
-		m1 := median3(arr, lo, lo+eps, lo+eps+eps);
-		m2 := median3(arr, mid-eps, mid, mid+eps);
-		m3 := median3(arr, hi-eps-eps, hi-eps, hi);
-		ninther := median3(arr, m1, m2, m3);
+		eps := N / 8
+		mid := lo + N>>1
+		m1 := median3(arr, lo, lo+eps, lo+eps+eps)
+		m2 := median3(arr, mid-eps, mid, mid+eps)
+		m3 := median3(arr, hi-eps-eps, hi-eps, hi)
+		ninther := median3(arr, m1, m2, m3)
 		arr.Swap(lo, ninther)
 	}
 	index := _partition(arr, lo, hi)
@@ -53,7 +53,6 @@ func _partition(arr Sitem, lo, hi int) int {
 	tool.Trace("partition last swap %d,%d\n", lo, j)
 	arr.Swap(lo, j)
 	return j
-
 }
 
 func median3(arr Sitem, x, y, z int) int {

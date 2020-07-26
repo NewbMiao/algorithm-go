@@ -1,13 +1,13 @@
 package subsequence
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestGetLcst(t *testing.T) {
-	str1 := "ABC1234567DEFG";
-	str2 := "HIJKL1234567MNOP";
+	str1 := "ABC1234567DEFG"
+	str2 := "HIJKL1234567MNOP"
 	want := "1234567"
 	t.Log(fmt.Sprintf("GetLcst, input str1 %v, str2 %v, want: %v", str1, str2, want))
 
@@ -24,5 +24,4 @@ func TestGetLcst(t *testing.T) {
 	} else {
 		t.Error("GetLcst2 is not ok, result:", fmt.Sprintf("%v", r))
 	}
-
 }

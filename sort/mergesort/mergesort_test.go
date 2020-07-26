@@ -1,8 +1,8 @@
 package mergesort
 
 import (
-	"testing"
 	"strings"
+	"testing"
 )
 
 func TestMergeSortRecursive(t *testing.T) {
