@@ -18,7 +18,6 @@ func IsStrCross(str1, str2, aim string) bool {
 			break
 		}
 		dp[i][0] = true
-
 	}
 	//第一行，无str2时，计算str1和aim的交错
 	for j := 1; j <= len(str2); j++ {
@@ -57,7 +56,6 @@ func IsStrCross2(str1, str2, aim string) bool {
 			break
 		}
 		dp[i] = true
-
 	}
 	for i := 1; i <= len(longs); i++ {
 		dp[0] = dp[0] && longs[i-1] == aim[i-1]

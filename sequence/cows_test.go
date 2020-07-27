@@ -1,8 +1,8 @@
 package sequence
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestCows(t *testing.T) {

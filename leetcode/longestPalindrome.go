@@ -23,7 +23,7 @@ func longestPalindrome2(s string) string {
 	if len(s) <= 1 {
 		return s
 	}
-	sDivided := generateDivided(s, '#');
+	sDivided := generateDivided(s, '#')
 	slen := len(sDivided)
 	p := make([]int, slen) //回文半径，p[i]-1 实际回文最大长度
 
@@ -33,7 +33,7 @@ func longestPalindrome2(s string) string {
 	lpdStr := string(s[0])
 	for i := 0; i < slen; i++ {
 		//p[j] < mx-i，i 和 j 关于 id 中心对称：即 j = 2 * id - i
-		if (i < mx) {
+		if i < mx {
 			p[i] = int(math.Min(float64(p[2*id-i]), float64(mx-i)))
 		} else {
 			// 走到这里，只可能是因为 i = mx
@@ -53,13 +53,13 @@ func longestPalindrome2(s string) string {
 
 		if p[i]-1 > lpdLen {
 			lpdLen = p[i] - 1
-			lpdStr = sDivided[i-p[i]+1:i+p[i]]
+			lpdStr = sDivided[i-p[i]+1 : i+p[i]]
 		}
 	}
 	return strings.Replace(lpdStr, "#", "", -1)
 }
 
-//s[j,i] 是否为回文：  dp[i, j] = s[i] == s[j] && (i-j <= 2 || dp[j+1][i-1])
+//s[j,i] 是否为回文：  dp[i, j] = s[i] == s[j] && (i-j <= 2 || dp[j+1][i-1]).
 func longestPalindrome1(s string) (res string) {
 	if len(s) <= 1 {
 		return s
@@ -76,16 +76,15 @@ func longestPalindrome1(s string) (res string) {
 				dp[j][i] = true
 				if i-j+1 > llen {
 					llen = i - j + 1
-					res = s[j:i+1]
+					res = s[j : i+1]
 				}
-
 			}
 		}
 	}
 	return res
 }
 
-//中心扩展
+//中心扩展.
 func longestPalindrome(s string) string {
 	if len(s) <= 1 {
 		return s
@@ -101,13 +100,13 @@ func longestPalindrome(s string) string {
 			end = i + lenMax/2
 		}
 	}
-	return s[start:end+1]
+	return s[start : end+1]
 }
 
 func expandAroundCenter(s string, left, right int) (l int) {
 	for left >= 0 && right < len(s) && s[left] == s[right] {
-		left -= 1
-		right += 1
+		left--
+		right++
 	}
 	return right - left - 1 // rightPre-leftPre+1 上一次循环后right+1,left-1,多加了2，所以-1
 }

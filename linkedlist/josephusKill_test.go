@@ -1,13 +1,14 @@
 package linkedlist
 
 import (
-	"testing"
 	"fmt"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 func TestJosephusKill1(t *testing.T) {
-	l := NewList()
+	l := linkedlist.NewList()
 	l.Push(1)
 	l.Push(2)
 	l.Push(3)
@@ -28,7 +29,7 @@ func TestJosephusKill1(t *testing.T) {
 }
 
 func TestJosephusKill2(t *testing.T) {
-	l := NewList()
+	l := linkedlist.NewList()
 	l.Push(1)
 	l.Push(2)
 	l.Push(3)

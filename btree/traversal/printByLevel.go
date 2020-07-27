@@ -1,14 +1,15 @@
 package traversal
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
-	"fmt"
 	"container/list"
+	"fmt"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
-func PrintByLevel(bt *Node) {
-	var last, nlast *Node //当前层最后一个节点，下一层最后一个节点
+func PrintByLevel(bt *btree.Node) {
+	var last, nlast *btree.Node //当前层最后一个节点，下一层最后一个节点
 	queue := linkedlist.NewList()
 	queue.Push(bt)
 	last = bt
@@ -19,7 +20,7 @@ func PrintByLevel(bt *Node) {
 		if tmp == nil {
 			return
 		}
-		node := tmp.(*Node)
+		node := tmp.(*btree.Node)
 		if node == nil {
 			return
 		}
@@ -35,7 +36,7 @@ func PrintByLevel(bt *Node) {
 		fmt.Printf("%d ", node.Value)
 
 		if last == node && !queue.IsEmpty() {
-			level += 1
+			level++
 			fmt.Printf("\nlevel %d: ", level)
 			last = nlast
 		}
@@ -43,9 +44,9 @@ func PrintByLevel(bt *Node) {
 	fmt.Println()
 }
 
-func PrintByZigZag(bt *Node) {
+func PrintByZigZag(bt *btree.Node) {
 	deQueue := list.New()
-	var node, last, nlast *Node //当前层最后一个节点，下一层最后一个节点
+	var node, last, nlast *btree.Node //当前层最后一个节点，下一层最后一个节点
 	last = bt
 	level := 1
 	str := "from left to right"
@@ -61,7 +62,7 @@ func PrintByZigZag(bt *Node) {
 				continue
 			}
 			deQueue.Remove(tmp)
-			node = tmp.Value.(*Node)
+			node = tmp.Value.(*btree.Node)
 			if node == nil {
 				continue
 			}
@@ -70,7 +71,6 @@ func PrintByZigZag(bt *Node) {
 					nlast = node.Left
 				}
 				deQueue.PushBack(node.Left)
-
 			}
 
 			if node.Right != nil {
@@ -78,17 +78,14 @@ func PrintByZigZag(bt *Node) {
 					nlast = node.Right
 				}
 				deQueue.PushBack(node.Right)
-
 			}
-
-
 		} else {
 			tmp := deQueue.Back()
 			if tmp == nil {
 				continue
 			}
 			deQueue.Remove(tmp)
-			node = tmp.Value.(*Node)
+			node = tmp.Value.(*btree.Node)
 			if node == nil {
 				continue
 			}
@@ -97,21 +94,18 @@ func PrintByZigZag(bt *Node) {
 					nlast = node.Right
 				}
 				deQueue.PushFront(node.Right)
-
 			}
 			if node.Left != nil {
 				if nlast == nil {
 					nlast = node.Left
 				}
 				deQueue.PushFront(node.Left)
-
 			}
-
 		}
 
 		fmt.Printf("%d ", node.Value)
 		if last == node && deQueue.Len() > 0 {
-			level += 1
+			level++
 			str = "from left to right"
 			if leftToRight {
 				str = "from right to left"
@@ -123,5 +117,4 @@ func PrintByZigZag(bt *Node) {
 			nlast = nil
 		}
 	}
-
 }

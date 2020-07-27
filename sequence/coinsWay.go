@@ -47,10 +47,8 @@ func process2(arr []int, rMap *[][]int, index, aim int) (res int) {
 			//计算剩余钱数是否能组合
 			if rv == 0 {
 				res += process2(arr, rMap, index+1, aim-arr[index]*i)
-			} else {
-				if rv != -1 {
-					res += rv
-				}
+			} else if rv != -1 {
+				res += rv
 			}
 		}
 	}

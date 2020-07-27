@@ -1,13 +1,14 @@
 package uf
 
 import (
-	"testing"
 	"bufio"
-	"os"
 	"fmt"
-	"strings"
+	"os"
 	"strconv"
-	"github.com/NewbMiao/AlgorithmCodeNote/tool"
+	"strings"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/tool"
 )
 
 func TestUF(t *testing.T) {
@@ -66,6 +67,5 @@ func readBuf() (mu UnionFindList) {
 		}
 		mu.Connect(p, q)
 	}
-	return
-
+	return mu
 }

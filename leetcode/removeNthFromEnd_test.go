@@ -5,15 +5,6 @@ import (
 	"testing"
 )
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-
-//go test -v src/leetcode/* -run TestRemoveNthFromEnd
 func TestRemoveNthFromEnd(t *testing.T) {
 	ds := [][]int{
 		{1, 2, 3, 4, 5},
@@ -29,13 +20,12 @@ func TestRemoveNthFromEnd(t *testing.T) {
 	}
 	for k, v := range ds {
 		t.Log(fmt.Sprintf("RemoveNthFromEnd, input list %v, del last %dth node , want: %v", v, ns[k], ws[k]))
-		r := removeNthFromEnd(genListNode(v), ns[k])
-		tmp := cvtListNode2arr(r)
+		r := removeNthFromEnd(generateListNodesFromArray(v), ns[k])
+		tmp := r.convertListNodesToArray()
 		if fmt.Sprint(tmp) == fmt.Sprint(ws[k]) {
 			t.Log("RemoveNthFromEnd is ok")
 		} else {
 			t.Error("RemoveNthFromEnd is not ok, result:", fmt.Sprintf("%v", tmp))
 		}
-
 	}
 }

@@ -1,8 +1,8 @@
 package linkedlist
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestCopyListWithRand(t *testing.T) {

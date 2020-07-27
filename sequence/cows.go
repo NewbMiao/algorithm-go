@@ -29,7 +29,7 @@ func Cow2(n int) int {
 	for i := 4; i <= n; i++ {
 		tmp1 = res
 		tmp2 = pre
-		res = res + prepre
+		res += prepre
 		pre = tmp1
 		prepre = tmp2
 	}

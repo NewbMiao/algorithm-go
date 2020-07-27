@@ -1,15 +1,15 @@
 package linkedlist
 
-import . "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+import "github.com/NewbMiao/algorithm-go/kit/linkedlist"
 
 //原地逆置部分链表
-func ReversePart(l *LList, from, to int) {
+func ReversePart(l *linkedlist.LList, from, to int) {
 	if l == nil {
 		return
 	}
 	n := 0
 	cur := l.Head
-	var fPre, tPos *LNode //先获取逆置开始的【前一个节点】和结束的【后一个节点】
+	var fPre, tPos *linkedlist.LNode //先获取逆置开始的【前一个节点】和结束的【后一个节点】
 	for cur != nil {
 		n++
 		if from-1 == n {
@@ -33,7 +33,7 @@ func ReversePart(l *LList, from, to int) {
 	cur = pre.Next
 	pre.Next = tPos //逆置后pre为tPos前一节点
 
-	var next *LNode
+	var next *linkedlist.LNode
 	for cur != tPos {
 		next = cur.Next
 		cur.Next = pre

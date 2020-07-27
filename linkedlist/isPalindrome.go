@@ -1,12 +1,12 @@
 package linkedlist
 
 import (
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
+	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
 //链表是否为回文结构 栈
-func isPalindrome1(l *LList) bool {
+func isPalindrome1(l *linkedlist.LList) bool {
 	if l == nil || l.IsEmpty() || l.Head.Next == nil {
 		return true
 	}
@@ -28,7 +28,7 @@ func isPalindrome1(l *LList) bool {
 }
 
 //栈压入一半
-func isPalindrome2_1(l *LList) bool {
+func isPalindrome2_1(l *linkedlist.LList) bool {
 	if l == nil || l.IsEmpty() || l.Head.Next == nil {
 		return true
 	}
@@ -55,7 +55,7 @@ func isPalindrome2_1(l *LList) bool {
 }
 
 //栈压入一半
-func isPalindrome2_2(l *LList) bool {
+func isPalindrome2_2(l *linkedlist.LList) bool {
 	if l == nil || l.IsEmpty() || l.Head.Next == nil {
 		return true
 	}
@@ -84,7 +84,7 @@ func isPalindrome2_2(l *LList) bool {
 }
 
 //逆置右半区后比较再恢复
-func isPalindrome3(l *LList) bool {
+func isPalindrome3(l *linkedlist.LList) bool {
 	if l == nil || l.IsEmpty() || l.Head.Next == nil {
 		return true
 	}
@@ -99,7 +99,7 @@ func isPalindrome3(l *LList) bool {
 	n1.Next = nil
 
 	//逆置右半边
-	var n3 *LNode
+	var n3 *linkedlist.LNode
 	for n2 != nil {
 		n3 = n2.Next
 		n2.Next = n1

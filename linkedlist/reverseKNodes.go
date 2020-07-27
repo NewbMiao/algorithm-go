@@ -1,19 +1,19 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
+	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
 //每k个节点逆置
-func reverseKNodes1(head *LNode, k int) *LNode {
+func reverseKNodes1(head *linkedlist.LNode, k int) *linkedlist.LNode {
 	if k < 2 {
 		return head
 	}
 	if head == nil {
 		return nil
 	}
-	var newHead, newCur, next *LNode
+	var newHead, newCur, next *linkedlist.LNode
 	st := stack.New()
 	cur := head
 	newHead = head
@@ -25,7 +25,7 @@ func reverseKNodes1(head *LNode, k int) *LNode {
 		if n == k {
 			for !st.IsEmpty() {
 				top, _ := st.Pop()
-				node, _ := top.(*LNode)
+				node, _ := top.(*linkedlist.LNode)
 				if newHead == head {
 					newHead = node
 					newCur = node
@@ -38,12 +38,11 @@ func reverseKNodes1(head *LNode, k int) *LNode {
 			newCur.Next = next
 		}
 		cur = next
-
 	}
 	return newHead
 }
 
-func reverseKNodes2(head *LNode, k int) *LNode {
+func reverseKNodes2(head *linkedlist.LNode, k int) *linkedlist.LNode {
 	if k < 2 {
 		return head
 	}
@@ -52,8 +51,8 @@ func reverseKNodes2(head *LNode, k int) *LNode {
 	}
 	cur := head
 	newHead := head
-	start := head
-	var left, next *LNode
+	var start *linkedlist.LNode
+	var left, next *linkedlist.LNode
 	n := 1
 	for cur != nil {
 		next = cur.Next
@@ -76,10 +75,10 @@ func reverseKNodes2(head *LNode, k int) *LNode {
 	return newHead
 }
 
-func resignList(left, start, end, right *LNode) {
+func resignList(left, start, end, right *linkedlist.LNode) {
 	pre := start
 	cur := start.Next
-	var next *LNode
+	var next *linkedlist.LNode
 	for cur != right {
 		next = cur.Next
 		cur.Next = pre
@@ -92,7 +91,7 @@ func resignList(left, start, end, right *LNode) {
 	start.Next = right
 }
 
-func reverseKNodes3(head *LNode, k int) *LNode {
+func reverseKNodes3(head *linkedlist.LNode, k int) *linkedlist.LNode {
 	if k < 2 {
 		return head
 	}
@@ -120,8 +119,8 @@ func reverseKNodes3(head *LNode, k int) *LNode {
 	return newHead
 }
 
-//func reverseList(head *LNode) *LNode {
-//	var pre, next *LNode
+//func reverseList(head *linkedlist.LNode) *linkedlist.LNode {
+//	var pre, next *linkedlist.LNode
 //	for head != nil {
 //		next = head.Next
 //		head.Next = pre
@@ -131,12 +130,12 @@ func reverseKNodes3(head *LNode, k int) *LNode {
 //	return pre
 //}
 
-func reverseList(head *LNode) *LNode {
-	if head==nil||head.Next==nil{
+func reverseList(head *linkedlist.LNode) *linkedlist.LNode {
+	if head == nil || head.Next == nil {
 		return head
 	}
-	result:=reverseList(head.Next)
-	head.Next.Next=head
-	head.Next=nil
+	result := reverseList(head.Next)
+	head.Next.Next = head
+	head.Next = nil
 	return result
 }

@@ -1,8 +1,8 @@
 package binary
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestGetNoRepeatNum(t *testing.T) {

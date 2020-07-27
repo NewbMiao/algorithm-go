@@ -16,7 +16,7 @@ func MaxSubArraySum(d []int, target int) (res []int) {
 
 		//若差值存在于sumMap，则返回（from+1,i）子数组
 		if from, ok := sumMap[preSum]; ok {
-			return d[from+1:i+1]
+			return d[from+1 : i+1]
 		}
 	}
 	return

@@ -33,7 +33,7 @@ func (l *DList) PushBack(n interface{}) {
 		node.Last = pre
 		l.Head.Last = node
 	}
-	l.Size += 1
+	l.Size++
 }
 
 func (l *DList) PushFront(n interface{}) {
@@ -51,9 +51,8 @@ func (l *DList) PushFront(n interface{}) {
 		next.Last = node
 
 		l.Head = node
-
 	}
-	l.Size += 1
+	l.Size++
 }
 func (l *DList) PopBack() (res interface{}) {
 	if l == nil || l.Head == nil {
@@ -70,7 +69,7 @@ func (l *DList) PopBack() (res interface{}) {
 		l.Head.Last.Next = nil
 	}
 
-	l.Size -= 1
+	l.Size--
 	return
 }
 func (l *DList) PopFront() (res interface{}) {
@@ -87,7 +86,7 @@ func (l *DList) PopFront() (res interface{}) {
 		l.Head = node.Next
 		l.Head.Last = node.Last
 	}
-	l.Size -= 1
+	l.Size--
 	return
 }
 

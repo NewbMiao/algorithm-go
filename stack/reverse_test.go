@@ -1,13 +1,14 @@
 package stack
 
 import (
-	"testing"
 	"fmt"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
 func TestReverse(t *testing.T) {
-	st := New()
+	st := stack.New()
 	want := []int{1, 2, 3, 4, 5}
 	res := []int{}
 	st.Push(1)

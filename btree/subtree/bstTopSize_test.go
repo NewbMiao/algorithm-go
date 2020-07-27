@@ -1,32 +1,33 @@
 package subtree
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
-	"testing"
 	"fmt"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-var sbt *Node
+var sbt *btree.Node
 
 func init() {
-	sbt = &Node{Value: 6}
-	sbt.Left = &Node{Value: 1}
-	sbt.Left.Left = &Node{Value: 0}
-	sbt.Left.Right = &Node{Value: 3}
-	sbt.Right = &Node{Value: 12}
-	sbt.Right.Left = &Node{Value: 10}
-	sbt.Right.Left.Left = &Node{Value: 4}
-	sbt.Right.Left.Left.Left = &Node{Value: 2}
-	sbt.Right.Left.Left.Right = &Node{Value: 5}
-	sbt.Right.Left.Right = &Node{Value: 14}
-	sbt.Right.Left.Right.Left = &Node{Value: 11}
-	sbt.Right.Left.Right.Right = &Node{Value: 15}
-	sbt.Right.Right = &Node{Value: 13}
-	sbt.Right.Right.Left = &Node{Value: 20}
-	sbt.Right.Right.Right = &Node{Value: 16}
-	sbt.Right.Right.Right.Right = &Node{Value: 23}
+	sbt = &btree.Node{Value: 6}
+	sbt.Left = &btree.Node{Value: 1}
+	sbt.Left.Left = &btree.Node{Value: 0}
+	sbt.Left.Right = &btree.Node{Value: 3}
+	sbt.Right = &btree.Node{Value: 12}
+	sbt.Right.Left = &btree.Node{Value: 10}
+	sbt.Right.Left.Left = &btree.Node{Value: 4}
+	sbt.Right.Left.Left.Left = &btree.Node{Value: 2}
+	sbt.Right.Left.Left.Right = &btree.Node{Value: 5}
+	sbt.Right.Left.Right = &btree.Node{Value: 14}
+	sbt.Right.Left.Right.Left = &btree.Node{Value: 11}
+	sbt.Right.Left.Right.Right = &btree.Node{Value: 15}
+	sbt.Right.Right = &btree.Node{Value: 13}
+	sbt.Right.Right.Left = &btree.Node{Value: 20}
+	sbt.Right.Right.Right = &btree.Node{Value: 16}
+	sbt.Right.Right.Right.Right = &btree.Node{Value: 23}
 
-	PrintTree(sbt)
+	btree.PrintTree(sbt)
 }
 
 func TestGetBSTTopSize1(t *testing.T) {
@@ -53,5 +54,4 @@ func TestGetBSTTopSize1(t *testing.T) {
 	} else {
 		t.Error("GetBSTTopSize2 is not ok, result:", fmt.Sprintf("%v", r))
 	}
-
 }

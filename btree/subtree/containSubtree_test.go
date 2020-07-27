@@ -1,29 +1,30 @@
 package subtree
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
-	"testing"
 	"fmt"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-var t1, t2 *Node
+var t1, t2 *btree.Node
 
 func init() {
-	t1 = &Node{Value: 1}
-	t1.Left = &Node{Value: 2}
-	t1.Right = &Node{Value: 3}
-	t1.Left.Left = &Node{Value: 4}
-	t1.Left.Right = &Node{Value: 5}
-	t1.Right.Left = &Node{Value: 6}
-	t1.Right.Right = &Node{Value: 7}
-	t1.Left.Left.Left = &Node{Value: 8}
-	t1.Left.Left.Right = &Node{Value: 9}
-	t1.Left.Right.Left = &Node{Value: 10}
+	t1 = &btree.Node{Value: 1}
+	t1.Left = &btree.Node{Value: 2}
+	t1.Right = &btree.Node{Value: 3}
+	t1.Left.Left = &btree.Node{Value: 4}
+	t1.Left.Right = &btree.Node{Value: 5}
+	t1.Right.Left = &btree.Node{Value: 6}
+	t1.Right.Right = &btree.Node{Value: 7}
+	t1.Left.Left.Left = &btree.Node{Value: 8}
+	t1.Left.Left.Right = &btree.Node{Value: 9}
+	t1.Left.Right.Left = &btree.Node{Value: 10}
 
-	t2 = &Node{Value: 2}
-	t2.Left = &Node{Value: 4}
-	t2.Left.Left = &Node{Value: 8}
-	t2.Right = &Node{Value: 5}
+	t2 = &btree.Node{Value: 2}
+	t2.Left = &btree.Node{Value: 4}
+	t2.Left.Left = &btree.Node{Value: 8}
+	t2.Right = &btree.Node{Value: 5}
 }
 
 func TestT1ContainsT2(t *testing.T) {

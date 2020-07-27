@@ -1,8 +1,8 @@
 package leetcode
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestLetterCombinations(t *testing.T) {
@@ -12,7 +12,7 @@ func TestLetterCombinations(t *testing.T) {
 	wants := [][]string{
 		{"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"},
 	}
-	for k,v:=range ds{
+	for k, v := range ds {
 		t.Log(fmt.Sprintf("letterCombinations, input arr %v, want: %v", v, wants[k]))
 		r := letterCombinations(v)
 		if fmt.Sprint(r) == fmt.Sprint(wants[k]) {
@@ -35,5 +35,4 @@ func TestLetterCombinations(t *testing.T) {
 			t.Error("letterCombinations2 is not ok, result:", fmt.Sprintf("%v", r))
 		}
 	}
-
 }

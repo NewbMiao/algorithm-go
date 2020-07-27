@@ -1,23 +1,23 @@
 package traversal
 
 import (
-	"testing"
 	"fmt"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-var mbt *Node
+var mbt *btree.Node
 
 func init() {
-	mbt = &Node{Value: 4}
-	mbt.Left = &Node{Value: 2}
-	mbt.Right = &Node{Value: 6}
-	mbt.Left.Left = &Node{Value: 1}
-	mbt.Left.Right = &Node{Value: 3}
-	mbt.Right.Left = &Node{Value: 5}
-	mbt.Right.Right = &Node{Value: 7}
-	PrintTree(mbt)
-
+	mbt = &btree.Node{Value: 4}
+	mbt.Left = &btree.Node{Value: 2}
+	mbt.Right = &btree.Node{Value: 6}
+	mbt.Left.Left = &btree.Node{Value: 1}
+	mbt.Left.Right = &btree.Node{Value: 3}
+	mbt.Right.Left = &btree.Node{Value: 5}
+	mbt.Right.Right = &btree.Node{Value: 7}
+	btree.PrintTree(mbt)
 }
 
 func TestMorrisIn(t *testing.T) {
@@ -43,7 +43,7 @@ func TestMorrisPre(t *testing.T) {
 }
 
 func TestMorrisLast(t *testing.T) {
-	want := []int{1,3,2,5,7,6,4}
+	want := []int{1, 3, 2, 5, 7, 6, 4}
 	t.Log(fmt.Sprintf("MorrisLast want: %v", want))
 	r := MorrisLast(mbt)
 	if fmt.Sprintf("%v", r) == fmt.Sprintf("%v", want) {

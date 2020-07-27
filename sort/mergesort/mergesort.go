@@ -2,7 +2,8 @@ package mergesort
 
 import (
 	"sort"
-	"github.com/NewbMiao/AlgorithmCodeNote/tool"
+
+	"github.com/NewbMiao/algorithm-go/tool"
 )
 
 type MItems []string
@@ -16,7 +17,6 @@ func Sort(m MItems) MItems {
 	cutset := 7
 	if n <= cutset {
 		return insertSort(m)
-
 	}
 	tool.Trace("to sort %d: %v,%v\n", n, m[:n/2], m[n/2:])
 	return merge(Sort(m[:n/2]), Sort(m[n/2:]))
@@ -33,11 +33,11 @@ func SortBU(m MItems) MItems {
 				hi = n
 			}
 			tool.Trace("sort bottom up (%d):  %d - %d - %d\n", step, lo, mid, hi)
-			tmp:=merge(m[lo:mid], m[mid:hi])
+			tmp := merge(m[lo:mid], m[mid:hi])
 			tool.Trace("sort bottom up (%v)\n", tmp)
 
-			for i:=lo;i<hi;i++{
-				m[i]=tmp[i-lo]
+			for i := lo; i < hi; i++ {
+				m[i] = tmp[i-lo]
 			}
 		}
 	}
@@ -79,7 +79,7 @@ func merge(l, r MItems) (d MItems) {
 		}
 	}
 	tool.Trace("after merge: %v\n", d)
-	return
+	return d
 }
 
 func insertSort(m MItems) MItems {

@@ -1,12 +1,11 @@
 package qsort
 
 import (
-	"testing"
 	"strings"
+	"testing"
 )
 
 func TestQSort(t *testing.T) {
-
 	s := strings.Split("S O R T E X A M P L E", " ")
 	t.Log("input array:", s)
 	Sort(Sitem(s))
@@ -19,7 +18,6 @@ func TestQSort(t *testing.T) {
 }
 
 func TestQSortX(t *testing.T) {
-
 	s := strings.Split("S O R T E X A M P L E", " ")
 	t.Log("input array:", s)
 	SortX(s)
@@ -32,7 +30,6 @@ func TestQSortX(t *testing.T) {
 }
 
 func TestQSort3Way(t *testing.T) {
-
 	s := strings.Split("S S O R T S O R T E X A M P L E E", " ")
 	t.Log("input array:", s)
 	Sort3way(s)
@@ -45,7 +42,6 @@ func TestQSort3Way(t *testing.T) {
 }
 
 func TestQSort3Way2(t *testing.T) {
-
 	s := strings.Split("2 1 1 1 2 3 1 2 3 1 2 2 1 1 1 2 3 1 2 3 1 2 3 3 6 6 4 4 5 5 5 3 3 2 1 1 1 2 3 1 2 3 1 2 3 3 6 6 4 4 5 5 5 6 6 4 4 5 5 5", " ")
 	t.Log("input array:", s)
 	Sort3way(s)

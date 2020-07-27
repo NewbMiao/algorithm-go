@@ -1,11 +1,11 @@
 package linkedlist
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 //判断两链表是否有交点并获取
-func getIntersectNode(h1, h2 *LNode) *LNode {
+func getIntersectNode(h1, h2 *linkedlist.LNode) *linkedlist.LNode {
 	if h1 == nil || h2 == nil {
 		return nil
 	}
@@ -21,7 +21,7 @@ func getIntersectNode(h1, h2 *LNode) *LNode {
 	return nil
 }
 
-func getLoopNode(head *LNode) *LNode {
+func getLoopNode(head *linkedlist.LNode) *linkedlist.LNode {
 	if head == nil || head.Next == nil || head.Next.Next == nil {
 		return nil
 	}
@@ -44,7 +44,7 @@ func getLoopNode(head *LNode) *LNode {
 }
 
 //无环相交点判定
-func noLoop(h1, h2 *LNode) *LNode {
+func noLoop(h1, h2 *linkedlist.LNode) *linkedlist.LNode {
 	if h1 == nil || h2 == nil {
 		return nil
 	}
@@ -79,7 +79,7 @@ func noLoop(h1, h2 *LNode) *LNode {
 }
 
 //两有环链表是否相交判定
-func bothLoop(h1, h2, loop1, loop2 *LNode) *LNode {
+func bothLoop(h1, h2, loop1, loop2 *linkedlist.LNode) *linkedlist.LNode {
 	if h1 == nil || h2 == nil || loop1 == nil || loop2 == nil {
 		return nil
 	}
@@ -112,14 +112,13 @@ func bothLoop(h1, h2, loop1, loop2 *LNode) *LNode {
 			cur2 = cur2.Next
 		}
 		return cur1
-	} else {
-		cur := loop1.Next
-		for cur != loop1 {
-			if cur == loop2 {
-				return loop1 //返回 loop1和loop2都可以
-			}
-			cur = cur.Next
+	}
+	cur := loop1.Next
+	for cur != loop1 {
+		if cur == loop2 {
+			return loop1 //返回 loop1和loop2都可以
 		}
+		cur = cur.Next
 	}
 
 	return nil

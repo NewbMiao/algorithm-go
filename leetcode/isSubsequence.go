@@ -11,7 +11,7 @@ import (
 字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。
 （例如，"ace"是"abcde"的一个子序列，而"aec"不是）。
 */
-//经典dp 内存占用多
+//经典dp 内存占用多.
 func isSubsequence(s string, t string) bool {
 	row := len(t)
 	col := len(s)
@@ -51,13 +51,10 @@ func isSubsequence(s string, t string) bool {
 			}
 		}
 	}
-	if dp[row-1][col-1] == col {
-		return true
-	}
-	return false
+	return dp[row-1][col-1] == col
 }
 
-//压缩dp 减少内存占用
+//压缩dp 减少内存占用.
 func isSubsequence2(s string, t string) bool {
 	row := len(t)
 	col := len(s)
@@ -98,27 +95,20 @@ func isSubsequence2(s string, t string) bool {
 			}
 		}
 	}
-	if dp[col-1] == col {
-		return true
-	}
-	return false
+	return dp[col-1] == col
 }
 
-//双指针遍历 更快
+//双指针遍历 更快.
 func isSubsequence3(s string, t string) bool {
 	var si, ti int
 	for si < len(s) && ti < len(t) {
 		if s[si] == t[ti] {
-			si += 1
-			ti += 1
+			si++
+			ti++
 		} else {
-			ti += 1
+			ti++
 		}
 	}
 
-	if si == len(s) {
-		return true
-	}
-
-	return false
+	return si == len(s)
 }

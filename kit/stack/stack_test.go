@@ -1,8 +1,8 @@
 package stack
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestStack(t *testing.T) {

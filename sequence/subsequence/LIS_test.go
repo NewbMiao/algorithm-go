@@ -1,8 +1,8 @@
 package subsequence
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestGetLIS(t *testing.T) {

@@ -1,14 +1,14 @@
 package traversal
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
 //逆时针打印树边界节点
-func CounterClockWise(bt *Node) (res []int) {
-	height := GetHeight(bt, 0)
-	eMap := make(map[int][2]*Node, height)
-	GetEdgeMap(bt, eMap, 0)
+func CounterClockWise(bt *btree.Node) (res []int) {
+	height := btree.GetHeight(bt, 0)
+	eMap := make(map[int][2]*btree.Node, height)
+	btree.GetEdgeMap(bt, eMap, 0)
 	//打印左边界
 	for i := 0; i < height; i++ {
 		res = append(res, eMap[i][0].Value)
@@ -23,11 +23,10 @@ func CounterClockWise(bt *Node) (res []int) {
 		res = append(res, eMap[i][1].Value)
 	}
 	return
-
 }
 
 //逆时针打印树边界节点（根节点，树左边界延伸，叶子节点，右边界延伸）
-func CounterClockWise2(bt *Node) (res []int) {
+func CounterClockWise2(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
@@ -40,12 +39,10 @@ func CounterClockWise2(bt *Node) (res []int) {
 	} else {
 		res = append(res, CounterClockWise2(bt.Right)...)
 	}
-
 	return
-
 }
 
-func getLeftEdge(bt *Node, print bool) (res []int) {
+func getLeftEdge(bt *btree.Node, print bool) (res []int) {
 	if bt == nil {
 		return
 	}
@@ -61,7 +58,7 @@ func getLeftEdge(bt *Node, print bool) (res []int) {
 	return
 }
 
-func getRightEdge(bt *Node, print bool) (res []int) {
+func getRightEdge(bt *btree.Node, print bool) (res []int) {
 	if bt == nil {
 		return
 	}
@@ -79,7 +76,7 @@ func getRightEdge(bt *Node, print bool) (res []int) {
 	return
 }
 
-func getLeafNotUnMap(bt *Node, l int, eMap map[int][2]*Node) (res []int) {
+func getLeafNotUnMap(bt *btree.Node, l int, eMap map[int][2]*btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
@@ -91,5 +88,4 @@ func getLeafNotUnMap(bt *Node, l int, eMap map[int][2]*Node) (res []int) {
 	res = append(res, getLeafNotUnMap(bt.Left, l+1, eMap)...)
 	res = append(res, getLeafNotUnMap(bt.Right, l+1, eMap)...)
 	return
-
 }

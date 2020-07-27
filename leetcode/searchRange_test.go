@@ -1,12 +1,11 @@
 package leetcode
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestSearchRange(t *testing.T) {
-
 	ds := [][]int{
 		{2, 2},
 	}
@@ -25,5 +24,4 @@ func TestSearchRange(t *testing.T) {
 			t.Error("searchRange is not ok, result:", fmt.Sprintf("%v", r))
 		}
 	}
-
 }

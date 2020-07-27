@@ -1,8 +1,8 @@
 package array
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestLeftUnique(t *testing.T) {
@@ -17,8 +17,8 @@ func TestLeftUnique(t *testing.T) {
 	}
 }
 
-func TestSort(t *testing.T)  {
-	d:=[]int{ 2, 1, 2, 0, 1, 1, 2, 2, 0 }
+func TestSort(t *testing.T) {
+	d := []int{2, 1, 2, 0, 1, 1, 2, 2, 0}
 	want := []int{0, 0, 1, 1, 1, 2, 2, 2, 2}
 	t.Log(fmt.Sprintf("partitionArray_sort, input list %v, want: %v", d, want))
 	pSort(d)

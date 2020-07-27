@@ -50,7 +50,6 @@ func MinEditCost2(str1, str2 string, dc, rc, ic int) (c int) {
 		tmp := ic
 		ic = dc
 		dc = tmp
-
 	}
 	dp := make([]int, len(shorts)+1)
 	//第一行，'' => str2[0]

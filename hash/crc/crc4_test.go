@@ -1,8 +1,8 @@
 package crc
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestCrc4(t *testing.T) {

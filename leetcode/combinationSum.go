@@ -12,7 +12,7 @@ candidates 中的数字可以无限制重复被选取。
 
 说明：
 所有数字（包括 target）都是正整数。
-解集不能包含重复的组合。 
+解集不能包含重复的组合。 .
 
 */
 func combinationSum(candidates []int, target int) [][]int {
@@ -46,7 +46,6 @@ func findCombinationSum(nums, res []int, index, target int) (out [][]int) {
 		tmp = append(tmp, nums[index])
 		sort.Ints(tmp)
 		out = append(out, tmp)
-
 	}
 
 	res = append(res, nums[index])
@@ -55,7 +54,7 @@ func findCombinationSum(nums, res []int, index, target int) (out [][]int) {
 	res = res[:len(res)-1]
 	offset := 1
 	for index > 0 && nums[index] == nums[index-1] {
-		index -= 1
+		index--
 	}
 	out = append(out, findCombinationSum(nums, res, index-offset, target)...)
 

@@ -1,8 +1,8 @@
 package stack
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestGetNum(t *testing.T) {
@@ -25,5 +25,4 @@ func TestGetNum(t *testing.T) {
 			t.Error("GetNum is not ok, result:", r)
 		}
 	}
-
 }

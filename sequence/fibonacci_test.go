@@ -1,8 +1,8 @@
 package sequence
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestFibonacci(t *testing.T) {

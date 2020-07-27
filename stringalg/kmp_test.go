@@ -1,8 +1,8 @@
-package string_alg
+package stringalg
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestGetIndexOf(t *testing.T) {

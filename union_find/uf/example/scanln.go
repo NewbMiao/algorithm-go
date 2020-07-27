@@ -1,10 +1,11 @@
 package uf
 
 import (
-	"github.com/NewbMiao/AlgorithmCodeNote/union_find/uf"
 	"fmt"
 	"io"
-	"github.com/NewbMiao/AlgorithmCodeNote/tool"
+
+	"github.com/NewbMiao/algorithm-go/tool"
+	"github.com/NewbMiao/algorithm-go/union_find/uf"
 )
 
 func Scanln() {
@@ -12,7 +13,7 @@ func Scanln() {
 	var in, p, q, re int
 	var mu uf.UnionFindList
 	var isEoF = false
-	re, err = fmt.Scanln(&in)
+	_, err = fmt.Scanln(&in)
 	tool.ErrPanic(err)
 	mu = uf.NewUnionFindList(in)
 
@@ -27,8 +28,6 @@ func Scanln() {
 		}
 		tool.ErrPanic(err)
 		mu.Connect(p, q)
-
 	}
-	fmt.Println(mu,mu.Count())
-
+	fmt.Println(mu, mu.Count())
 }

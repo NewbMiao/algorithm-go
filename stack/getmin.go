@@ -1,15 +1,16 @@
 package stack
 
-import . "github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
+import "github.com/NewbMiao/algorithm-go/kit/stack"
+
 //用栈获取最小值
 type MyStack struct {
-	SData *S
-	SMin  *S //维护最小值
+	SData *stack.S
+	SMin  *stack.S //维护最小值
 }
 
 func NewMyStack() *MyStack {
 	return &MyStack{
-		New(), New(),
+		stack.New(), stack.New(),
 	}
 }
 
@@ -29,7 +30,6 @@ func (s *MyStack) Pop() int {
 		s.SMin.Pop()
 	}
 	return tmp.(int)
-
 }
 func (s *MyStack) GetMin() int {
 	if s.SMin.IsEmpty() {

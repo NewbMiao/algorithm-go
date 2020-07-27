@@ -1,16 +1,16 @@
 package traversal
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-func MorrisIn(bt *Node) (res []int) {
+func MorrisIn(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
 
-	cur1 := bt     //当前根节点
-	var cur2 *Node //当前根节点最右节点
+	cur1 := bt           //当前根节点
+	var cur2 *btree.Node //当前根节点最右节点
 	for cur1 != nil {
 		cur2 = cur1.Left //先处理左子树
 		if cur2 != nil {
@@ -36,13 +36,13 @@ func MorrisIn(bt *Node) (res []int) {
 	return
 }
 
-func MorrisPre(bt *Node) (res []int) {
+func MorrisPre(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
 
-	cur1 := bt     //当前根节点
-	var cur2 *Node //当前根节点最右节点
+	cur1 := bt           //当前根节点
+	var cur2 *btree.Node //当前根节点最右节点
 	for cur1 != nil {
 		cur2 = cur1.Left
 		if cur2 != nil {
@@ -68,16 +68,16 @@ func MorrisPre(bt *Node) (res []int) {
 		//左子树处理完，切到又节点继续
 		cur1 = cur1.Right
 	}
-	return
+	return res
 }
 
-func MorrisLast(bt *Node) (res []int) {
+func MorrisLast(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
 
-	cur1 := bt     //当前根节点
-	var cur2 *Node //当前根节点最右节点
+	cur1 := bt           //当前根节点
+	var cur2 *btree.Node //当前根节点最右节点
 	for cur1 != nil {
 		cur2 = cur1.Left
 		if cur2 != nil {
@@ -103,10 +103,10 @@ func MorrisLast(bt *Node) (res []int) {
 	//获取根节点右边界
 	res = append(res, getEdgeNode(bt)...)
 
-	return
+	return res
 }
 
-func getEdgeNode(bt *Node) (res []int) {
+func getEdgeNode(bt *btree.Node) (res []int) {
 	//逆序右边界
 	tail := reverseEdge(bt)
 	cur := tail
@@ -119,8 +119,8 @@ func getEdgeNode(bt *Node) (res []int) {
 	return
 }
 
-func reverseEdge(from *Node) *Node {
-	var pre, next *Node
+func reverseEdge(from *btree.Node) *btree.Node {
+	var pre, next *btree.Node
 	for from != nil {
 		next = from.Right
 		from.Right = pre

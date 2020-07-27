@@ -2,7 +2,8 @@ package qsort
 
 import (
 	"sort"
-	"github.com/NewbMiao/AlgorithmCodeNote/tool"
+
+	"github.com/NewbMiao/algorithm-go/tool"
 )
 
 func qSort(arr QuickSorter, lo, hi int) {
@@ -44,5 +45,4 @@ func partition(arr QuickSorter, lo, hi int) int {
 	//交换lo，j
 	arr.Swap(lo, j)
 	return j
-
 }

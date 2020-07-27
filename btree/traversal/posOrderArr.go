@@ -1,7 +1,7 @@
 package traversal
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
 //BST post order arr check
@@ -21,10 +21,8 @@ func isPosOrder(arr []int, start, end int) bool {
 	for i := start; i < end; i++ {
 		if arr[end] > arr[i] {
 			less = i
-		} else {
-			if more == end {
-				more = i
-			}
+		} else if more == end {
+			more = i
 		}
 	}
 	if less == -1 || more == end {
@@ -37,29 +35,25 @@ func isPosOrder(arr []int, start, end int) bool {
 	return isPosOrder(arr, start, less) && isPosOrder(arr, more, end-1)
 }
 
-
-
-func PosOrderArrToBST(arr []int) (bt *Node) {
+func PosOrderArrToBST(arr []int) (bt *btree.Node) {
 	if len(arr) == 0 {
 		return
 	}
 	return posToBST(arr, 0, len(arr)-1)
 }
 
-func posToBST(arr []int, start, end int) (bt *Node) {
+func posToBST(arr []int, start, end int) (bt *btree.Node) {
 	if start > end { //should finish current loop
 		return
 	}
 	less := -1
 	more := end
-	head := &Node{Value: arr[end]}
+	head := &btree.Node{Value: arr[end]}
 	for i := start; i < end; i++ {
 		if arr[end] > arr[i] {
 			less = i
-		} else {
-			if more == end {
-				more = i
-			}
+		} else if more == end {
+			more = i
 		}
 	}
 	head.Left = posToBST(arr, start, less)

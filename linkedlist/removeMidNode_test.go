@@ -1,13 +1,14 @@
 package linkedlist
 
 import (
-	"testing"
 	"fmt"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 func TestRemoveMidNode(t *testing.T) {
-	l := NewList()
+	l := linkedlist.NewList()
 	l.Push(1)
 	l.Push(2)
 	l.Push(3)
@@ -25,7 +26,7 @@ func TestRemoveMidNode(t *testing.T) {
 }
 
 func TestRemoveByRatio(t *testing.T) {
-	l := NewList()
+	l := linkedlist.NewList()
 	l.Push(1)
 	l.Push(2)
 	l.Push(3)

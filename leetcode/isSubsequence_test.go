@@ -38,5 +38,4 @@ func TestIsSubsequence(t *testing.T) {
 			t.Error("isSubsequence3 is not ok, result:", fmt.Sprintf("%v", r))
 		}
 	}
-
 }

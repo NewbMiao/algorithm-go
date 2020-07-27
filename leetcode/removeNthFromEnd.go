@@ -22,7 +22,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		if llen > n {
 			nth = nth.Next
 		}
-		llen += 1
+		llen++
 	}
 	if llen > n {
 		nth.Next = nth.Next.Next

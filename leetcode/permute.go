@@ -10,7 +10,6 @@ func permute(nums []int) [][]int {
 	out := make([][]int, 0)
 	backtrackPermute(len(nums), 0, nums, &out)
 	return out
-
 }
 
 func backtrackPermute(n, first int, nums []int, out *[][]int) {
@@ -33,5 +32,4 @@ func backtrackPermute(n, first int, nums []int, out *[][]int) {
 			nums[first], nums[i] = nums[i], nums[first]
 		}
 	}
-	return
 }

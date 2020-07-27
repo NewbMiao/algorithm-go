@@ -1,8 +1,8 @@
 package stack
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestMyStack_GetMin(t *testing.T) {
@@ -26,5 +26,4 @@ func TestMyStack_GetMin(t *testing.T) {
 	} else {
 		t.Error("getMin is not ok, result:", fmt.Sprintf("%v", res))
 	}
-
 }

@@ -1,20 +1,18 @@
 package subtree
 
 import (
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
 	"math"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-func GetMaxSubBST(bt *Node) *Node {
+func GetMaxSubBST(bt *btree.Node) *btree.Node {
 	record := map[int]int{} // size min max
 	//record := &[3]int{} // size min max 若为数组需传递指针
-
 	return posOrderRecord(bt, record)
-
 }
 
-func posOrderRecord(bt *Node, record map[int]int) *Node {
-
+func posOrderRecord(bt *btree.Node, record map[int]int) *btree.Node {
 	if bt == nil {
 		record[0] = 0
 		record[1] = math.MaxInt64

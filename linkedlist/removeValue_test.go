@@ -1,9 +1,10 @@
 package linkedlist
 
 import (
-	"testing"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
 	"fmt"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 func TestRemoveValue(t *testing.T) {
@@ -15,10 +16,10 @@ func TestRemoveValue(t *testing.T) {
 	}
 	nums := []int{1}
 	for k := range ds {
-		l := Arr2LList(ds[k])
+		l := linkedlist.Arr2LList(ds[k])
 		t.Log(fmt.Sprintf("removeValue, input list %v, num %v, want: %v", ds[k], nums[k], ws[k]))
 		r1 := removeValue1(l.Head, nums[k])
-		tmp := NewList()
+		tmp := linkedlist.NewList()
 		tmp.Head = r1
 		if fmt.Sprint(tmp) == fmt.Sprint(ws[k]) {
 			t.Log("removeValue1 is ok")
@@ -26,7 +27,7 @@ func TestRemoveValue(t *testing.T) {
 			t.Error("removeValue1 is not ok, result:", fmt.Sprintf("%v", tmp))
 		}
 
-		l2 := Arr2LList(ds[k])
+		l2 := linkedlist.Arr2LList(ds[k])
 		r2 := removeValue2(l2.Head, nums[k])
 		tmp.Head = r2
 		if fmt.Sprint(tmp) == fmt.Sprint(ws[k]) {
@@ -35,5 +36,4 @@ func TestRemoveValue(t *testing.T) {
 			t.Error("removeValue2 is not ok, result:", fmt.Sprintf("%v", tmp))
 		}
 	}
-
 }

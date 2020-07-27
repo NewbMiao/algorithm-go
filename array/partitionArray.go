@@ -1,6 +1,6 @@
 package array
 
-//将有序数组无重复部分移到左侧
+//将有序数组无重复部分移到左侧.
 func leftUnique(arr []int) {
 	l := len(arr)
 	if l <= 1 {

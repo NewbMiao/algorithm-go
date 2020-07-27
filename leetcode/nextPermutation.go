@@ -11,7 +11,7 @@ https://leetcode-cn.com/problems/next-permutation/submissions/
 以下是一些例子，输入位于左侧列，其相应输出位于右侧列。
 1,2,3 → 1,3,2
 3,2,1 → 1,2,3
-1,1,5 → 1,5,1
+1,1,5 → 1,5,1.
 
 */
 func nextPermutation(nums []int) []int {
@@ -22,13 +22,13 @@ func nextPermutation(nums []int) []int {
 	//寻找右侧第一个非降序数字
 	i := l - 2
 	for i >= 0 && nums[i] >= nums[i+1] {
-		i -= 1
+		i--
 	}
 	if i >= 0 {
 		//交换右侧只比nums[i]大一点的数
 		j := l - 1
 		for j >= 0 && nums[i] >= nums[j] {
-			j -= 1
+			j--
 		}
 		nums[i], nums[j] = nums[j], nums[i]
 	}
@@ -40,8 +40,8 @@ func reverseNums(nums []int, start int) []int {
 	end := len(nums) - 1
 	for end > start {
 		nums[start], nums[end] = nums[end], nums[start]
-		start += 1
-		end -= 1
+		start++
+		end--
 	}
 	return nums
 }

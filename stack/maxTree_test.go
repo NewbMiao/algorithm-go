@@ -1,10 +1,11 @@
 package stack
 
 import (
-	"testing"
-	"github.com/NewbMiao/AlgorithmCodeNote/btree/traversal"
 	"fmt"
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/btree/traversal"
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
 func TestGetMaxTree(t *testing.T) {
@@ -26,5 +27,4 @@ func TestGetMaxTree(t *testing.T) {
 	}
 
 	btree.PrintTree(bt)
-
 }

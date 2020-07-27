@@ -1,20 +1,20 @@
 package sequence
 
 func Fibonacci1(n int) int {
-	if (n < 1) {
+	if n < 1 {
 		return 0
 	}
-	if (n == 1 || n == 2) {
+	if n == 1 || n == 2 {
 		return 1
 	}
 	return Fibonacci1(n-1) + Fibonacci1(n-2)
 }
 
 func Fibonacci2(n int) int {
-	if (n < 1) {
+	if n < 1 {
 		return 0
 	}
-	if (n == 1 || n == 2) {
+	if n == 1 || n == 2 {
 		return 1
 	}
 	res := 1
@@ -22,7 +22,7 @@ func Fibonacci2(n int) int {
 	tmp := 0
 	for i := 3; i <= n; i++ {
 		tmp = res
-		res = res + pre
+		res += pre
 		pre = tmp
 	}
 	return res

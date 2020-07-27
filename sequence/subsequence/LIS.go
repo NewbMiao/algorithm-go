@@ -14,7 +14,7 @@ func GetLIS1(arr []int) (res []int) {
 	return genLIS(arr, dp)
 }
 
-func getDp1(arr [] int) (dp []int) {
+func getDp1(arr []int) (dp []int) {
 	dp = make([]int, len(arr))
 	for i := 0; i < len(arr); i++ {
 		dp[i] = 1
@@ -57,8 +57,7 @@ func getDp2(arr []int) (dp []int) {
 	right := 0             //有效区右边界
 	dp[0] = 1
 	ends[0] = arr[0]
-	l := 0
-	r := right
+	var l, r int
 	m := 0
 	for i := 1; i < n; i++ {
 		//二分查找不大于ends的位置

@@ -1,8 +1,8 @@
 package sequence
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestSteps(t *testing.T) {

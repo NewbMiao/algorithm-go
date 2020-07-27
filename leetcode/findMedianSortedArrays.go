@@ -18,7 +18,7 @@ len(left_part)=len(right_part)
 max(left_part) <= min(right_part)
 即：
 i+j=m - i + n - j + 1
-B[j−1]≤A[i] 以及 A[i−1]≤B[j]
+B[j−1]≤A[i] 以及 A[i−1]≤B[j].
 */
 func findMedianSortedArrays(A, B []int) float64 {
 	m := len(A)
@@ -51,9 +51,9 @@ func findMedianSortedArrays(A, B []int) float64 {
 			}
 
 			minRight := 0.0
-			if (i == m) {
+			if i == m {
 				minRight = float64(B[j])
-			} else if (j == n) {
+			} else if j == n {
 				minRight = float64(A[i])
 			} else {
 				minRight = math.Min(float64(B[j]), float64(A[i]))

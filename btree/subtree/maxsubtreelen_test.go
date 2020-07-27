@@ -1,24 +1,25 @@
 package subtree
 
 import (
-	"testing"
 	"fmt"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-var smbt *Node
+var smbt *btree.Node
 
 func init() {
-	smbt = &Node{Value: -3}
-	smbt.Left = &Node{Value: 3}
-	smbt.Right = &Node{Value: -9}
-	smbt.Left.Left = &Node{Value: 1}
-	smbt.Left.Right = &Node{Value: 0}
-	smbt.Left.Right.Left = &Node{Value: 1}
-	smbt.Left.Right.Right = &Node{Value: 6}
-	smbt.Right.Left = &Node{Value: 2}
-	smbt.Right.Right = &Node{Value: 1}
-	PrintTree(smbt)
+	smbt = &btree.Node{Value: -3}
+	smbt.Left = &btree.Node{Value: 3}
+	smbt.Right = &btree.Node{Value: -9}
+	smbt.Left.Left = &btree.Node{Value: 1}
+	smbt.Left.Right = &btree.Node{Value: 0}
+	smbt.Left.Right.Left = &btree.Node{Value: 1}
+	smbt.Left.Right.Right = &btree.Node{Value: 6}
+	smbt.Right.Left = &btree.Node{Value: 2}
+	smbt.Right.Right = &btree.Node{Value: 1}
+	btree.PrintTree(smbt)
 }
 
 func TestGetMaxSubtreeLen(t *testing.T) {
@@ -32,12 +33,10 @@ func TestGetMaxSubtreeLen(t *testing.T) {
 	for sum, want := range wants {
 		t.Log(fmt.Sprintf("GetMaxSubtreeLen sum:%d, want: %v", sum, want))
 		r := GetMaxSubtreeLen(smbt, sum)
-		return
 		if r == want {
 			t.Log("GetMaxSubtreeLen is ok")
 		} else {
 			t.Error("GetMaxSubtreeLen is not ok, result:", fmt.Sprintf("%v", r))
 		}
 	}
-
 }

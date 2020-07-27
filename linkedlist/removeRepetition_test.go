@@ -3,7 +3,8 @@ package linkedlist
 import (
 	"fmt"
 	"testing"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/linkedlist"
+
+	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
 func TestRemoveRepetition(t *testing.T) {
@@ -16,7 +17,7 @@ func TestRemoveRepetition(t *testing.T) {
 		{1, 3, 4, 2},
 	}
 	for k := range ds {
-		l := Arr2LList(ds[k])
+		l := linkedlist.Arr2LList(ds[k])
 		t.Log(fmt.Sprintf("RemoveRepetition1, input list %v, want: %v", ds[k], ws[k]))
 		removeRepetition1(l.Head)
 		if fmt.Sprint(l) == fmt.Sprint(ws[k]) {
@@ -25,7 +26,7 @@ func TestRemoveRepetition(t *testing.T) {
 			t.Error("RemoveRepetition1 is not ok, result:", fmt.Sprintf("%v", l))
 		}
 
-		l2 := Arr2LList(ds[k])
+		l2 := linkedlist.Arr2LList(ds[k])
 		removeRepetition2(l2.Head)
 		if fmt.Sprint(l2) == fmt.Sprint(ws[k]) {
 			t.Log("RemoveRepetition2 is ok")
@@ -33,5 +34,4 @@ func TestRemoveRepetition(t *testing.T) {
 			t.Error("RemoveRepetition2 is not ok, result:", fmt.Sprintf("%v", l2))
 		}
 	}
-
 }

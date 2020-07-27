@@ -1,12 +1,12 @@
 package traversal
 
 import (
-	"github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
+	"github.com/NewbMiao/algorithm-go/kit/btree"
+	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
 //先序遍历：根,左,右
-func PreOrderRecur(bt *Node) (res []int) {
+func PreOrderRecur(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
@@ -17,7 +17,7 @@ func PreOrderRecur(bt *Node) (res []int) {
 }
 
 //中序遍历：左,根,右
-func InOrderRecur(bt *Node) (res []int) {
+func InOrderRecur(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
@@ -28,7 +28,7 @@ func InOrderRecur(bt *Node) (res []int) {
 }
 
 //后序遍历：左,右,根
-func LastOrderRecur(bt *Node) (res []int) {
+func LastOrderRecur(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
@@ -38,7 +38,7 @@ func LastOrderRecur(bt *Node) (res []int) {
 	return
 }
 
-func PreOrder(bt *Node) (res []int) {
+func PreOrder(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
@@ -46,7 +46,7 @@ func PreOrder(bt *Node) (res []int) {
 	s.Push(bt)
 	for !s.IsEmpty() {
 		tmp, _ := s.Pop()
-		cur := tmp.(*Node)
+		cur := tmp.(*btree.Node)
 		res = append(res, cur.Value)
 		if cur.Right != nil {
 			s.Push(cur.Right)
@@ -58,7 +58,7 @@ func PreOrder(bt *Node) (res []int) {
 	return
 }
 
-func InOrder(bt *Node) (res []int) {
+func InOrder(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
@@ -75,14 +75,14 @@ func InOrder(bt *Node) (res []int) {
 			if !ok {
 				return
 			}
-			node := tmp.(*Node)
+			node := tmp.(*btree.Node)
 			res = append(res, node.Value)
 			cur = node.Right
 		}
 	}
 	return
 }
-func LastOrder1(bt *Node) (res []int) {
+func LastOrder1(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
@@ -91,7 +91,7 @@ func LastOrder1(bt *Node) (res []int) {
 	s1.Push(bt)
 	for !s1.IsEmpty() {
 		if tmp, ok := s1.Pop(); ok {
-			node := tmp.(*Node)
+			node := tmp.(*btree.Node)
 			s2.Push(node.Value)
 			if node.Left != nil {
 				s1.Push(node.Left)
@@ -100,7 +100,6 @@ func LastOrder1(bt *Node) (res []int) {
 				s1.Push(node.Right)
 			}
 		}
-
 	}
 	for !s2.IsEmpty() {
 		tmp, _ := s2.Pop()
@@ -109,17 +108,17 @@ func LastOrder1(bt *Node) (res []int) {
 	return
 }
 
-func LastOrder2(bt *Node) (res []int) {
+func LastOrder2(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
-	var history *Node //最近一次弹出并打印节点
-	var cur *Node     //当前栈顶节点
+	var history *btree.Node //最近一次弹出并打印节点
+	var cur *btree.Node     //当前栈顶节点
 	s := &stack.S{}
 	s.Push(bt)
 	history = bt //history为nil会影响最左节点的添加
 	for !s.IsEmpty() {
-		cur = s.Peek().(*Node)
+		cur = s.Peek().(*btree.Node)
 		if cur == nil {
 			return
 		}
@@ -136,7 +135,6 @@ func LastOrder2(bt *Node) (res []int) {
 			history = cur
 			res = append(res, history.Value)
 		}
-
 	}
 	return
 }

@@ -1,14 +1,14 @@
 package leetcode
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestFindMedianSortedArrays(t *testing.T) {
 	ds := [][2][]int{
-		{{1, 3}, {2, 5, 7},},
-		{{1, 2}, {3, 4},},
+		{{1, 3}, {2, 5, 7}},
+		{{1, 2}, {3, 4}},
 	}
 	ws := []float64{
 		3,
@@ -22,7 +22,5 @@ func TestFindMedianSortedArrays(t *testing.T) {
 		} else {
 			t.Error("FindMedianSortedArrays is not ok, result:", r)
 		}
-
 	}
-
 }

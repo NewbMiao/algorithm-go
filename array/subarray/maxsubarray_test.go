@@ -1,8 +1,8 @@
 package subarray
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestMaxSubArraySum(t *testing.T) {

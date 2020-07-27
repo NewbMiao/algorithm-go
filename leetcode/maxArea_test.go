@@ -1,8 +1,8 @@
 package leetcode
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestMaxArea(t *testing.T) {

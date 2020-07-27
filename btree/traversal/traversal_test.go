@@ -1,26 +1,27 @@
 package traversal
 
 import (
-	"testing"
 	"fmt"
-	. "github.com/NewbMiao/AlgorithmCodeNote/kit/btree"
+	"testing"
+
+	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-var tbt *Node
+var tbt *btree.Node
 
 func init() {
-	tbt = &Node{Value: 5}
-	tbt.Left = &Node{Value: 3}
-	tbt.Right = &Node{Value: 8}
-	tbt.Left.Left = &Node{Value: 2}
-	tbt.Left.Right = &Node{Value: 4}
-	tbt.Left.Left.Left = &Node{Value: 1}
-	tbt.Right.Left = &Node{Value: 7}
-	tbt.Right.Left.Left = &Node{Value: 6}
-	tbt.Right.Right = &Node{Value: 10}
-	tbt.Right.Right.Left = &Node{Value: 9}
-	tbt.Right.Right.Right = &Node{Value: 11}
-	PrintTree(tbt)
+	tbt = &btree.Node{Value: 5}
+	tbt.Left = &btree.Node{Value: 3}
+	tbt.Right = &btree.Node{Value: 8}
+	tbt.Left.Left = &btree.Node{Value: 2}
+	tbt.Left.Right = &btree.Node{Value: 4}
+	tbt.Left.Left.Left = &btree.Node{Value: 1}
+	tbt.Right.Left = &btree.Node{Value: 7}
+	tbt.Right.Left.Left = &btree.Node{Value: 6}
+	tbt.Right.Right = &btree.Node{Value: 10}
+	tbt.Right.Right.Left = &btree.Node{Value: 9}
+	tbt.Right.Right.Right = &btree.Node{Value: 11}
+	btree.PrintTree(tbt)
 }
 
 func TestPreOrderRecur(t *testing.T) {

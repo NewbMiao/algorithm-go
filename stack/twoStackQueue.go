@@ -1,16 +1,16 @@
 package stack
 
-import . "github.com/NewbMiao/AlgorithmCodeNote/kit/stack"
+import "github.com/NewbMiao/algorithm-go/kit/stack"
 
 //双栈实现队列
 type TwoStackQueue struct {
-	SPush *S
-	SPop  *S
+	SPush *stack.S
+	SPop  *stack.S
 }
 
 func NewTwoStackQueue() *TwoStackQueue {
 	return &TwoStackQueue{
-		New(), New(),
+		stack.New(), stack.New(),
 	}
 }
 
@@ -29,7 +29,6 @@ func (t *TwoStackQueue) Peek() int {
 	t.loadQueue()
 	tmp, _ := t.SPop.Peek().(int)
 	return tmp
-
 }
 
 func (t *TwoStackQueue) loadQueue() {
