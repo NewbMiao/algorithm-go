@@ -1,0 +1,16 @@
+name: algorithm-go
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: go Lint
+        run: sh goLint.sh
+      - name: go test
+        run: go test ./...

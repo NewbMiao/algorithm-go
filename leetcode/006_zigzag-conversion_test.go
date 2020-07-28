@@ -28,7 +28,7 @@ func TestConvert(t *testing.T) {
 		} else {
 			t.Errorf("convert is not ok, result:%v, expect:%v", res, expected)
 		}
-		res = convert_even(v.str, v.row)
+		res = convertEven(v.str, v.row)
 		if res == expected {
 			t.Log("convert_even is ok")
 		} else {

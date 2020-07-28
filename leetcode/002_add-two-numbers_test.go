@@ -15,7 +15,7 @@ func TestAddTwoNumbers(t *testing.T) {
 	for k, v := range inputs {
 		expected := outputs[k]
 		t.Logf("addTwoNumbers, input: %v, expect: %v", v, expected)
-		res := addTwoNumbers(generateListNodesFromArray(v[0]), generateListNodesFromArray(v[1]))
+		res := addTwoNumbers(generateLinkedListFromArray(v[0]), generateLinkedListFromArray(v[1]))
 		if fmt.Sprint(res.convertListNodesToArray()) == fmt.Sprint(expected) {
 			t.Log("addTwoNumbers is ok")
 		} else {

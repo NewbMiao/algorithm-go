@@ -31,7 +31,7 @@ func TestMergeKLists(t *testing.T) {
 
 func fmtLists(list [][]int) (res []*ListNode) {
 	for _, v := range list {
-		res = append(res, generateListNodesFromArray(v))
+		res = append(res, generateLinkedListFromArray(v))
 	}
 	return
 }

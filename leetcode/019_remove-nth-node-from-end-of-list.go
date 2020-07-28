@@ -1,18 +1,5 @@
 package leetcode
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-
-/*
-https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
-给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
-*/
-
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	cur := head
 	nth := head //要删除节点前一个
@@ -33,4 +20,19 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		return nil
 	}
 	return head
+}
+
+func removeNthFromEnd2(head *ListNode, n int) *ListNode {
+	dummyHead := new(ListNode)
+	dummyHead.Next = head
+	first, last := dummyHead, dummyHead
+	for i := 0; i < n+1; i++ {
+		first = first.Next
+	}
+	for first != nil {
+		first = first.Next
+		last = last.Next
+	}
+	last.Next = last.Next.Next
+	return dummyHead.Next
 }

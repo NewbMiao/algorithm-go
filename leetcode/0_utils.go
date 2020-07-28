@@ -23,7 +23,7 @@ func (l *ListNode) convertListNodesToArray() (res []int) {
 	return
 }
 
-func generateListNodesFromArray(arr []int) *ListNode {
+func generateLinkedListFromArray(arr []int) *ListNode {
 	if len(arr) == 0 {
 		return nil
 	}
@@ -38,4 +38,27 @@ func generateListNodesFromArray(arr []int) *ListNode {
 		curNode = curNode.Next
 	}
 	return l
+}
+
+// link end node to node at `pos`
+func generateCycleLinkedList(arr []int, pos int) *ListNode {
+	if pos < 0 {
+		return generateLinkedListFromArray(arr)
+	}
+	head := &ListNode{}
+	cur := head
+	cycleNode := &ListNode{}
+	for i := 0; i < len(arr); i++ {
+		cur.Val = arr[i]
+		cur.Next = &ListNode{}
+		if i == pos {
+			cycleNode = cur
+		}
+		if i == len(arr)-1 {
+			cur.Next = cycleNode
+			break
+		}
+		cur = cur.Next
+	}
+	return head
 }

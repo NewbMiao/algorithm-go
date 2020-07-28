@@ -1,7 +1,7 @@
 package leetcode
 
 func convert(s string, numRows int) string {
-	if numRows<=1{
+	if numRows <= 1 {
 		return s
 	}
 	res := make([][]rune, numRows)
@@ -21,8 +21,8 @@ func convert(s string, numRows int) string {
 	return output
 }
 
-func convert_even(s string, numRows int) string {
-	if numRows<=1{
+func convertEven(s string, numRows int) string {
+	if numRows <= 1 {
 		return s
 	}
 	res := make([][]rune, numRows)
