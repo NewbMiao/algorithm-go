@@ -1,10 +1,12 @@
-golang版算法练习笔记
+# golang版算法笔记
+
+![algorithm-go](https://github.com/NewbMiao/algorithm-go/workflows/algorithm-go/badge.svg)
 
 ## 题目来自
 
 - [程序员代码面试指南](https://read.douban.com/ebook/35765471/)
-- [leetcode](https://leetcode-cn.com/problems/rotate-image/)
-- [algorithm-go](https://www.coursera.org/learn/algorithms-part1)
+- [LeetCode](https://leetcode-cn.com/problemset/all/)
+- [Coursera-Algorithm](https://www.coursera.org/learn/algorithms-part1)
 
 ## 测试
 
