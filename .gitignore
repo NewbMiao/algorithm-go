@@ -3,3 +3,4 @@ pkg
 bin
 test/
 *.test
+test.go
