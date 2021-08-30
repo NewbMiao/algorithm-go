@@ -36,20 +36,20 @@ Poly生成项： 1001，长度为4
 func Crc4(data uint) uint {
 	var poly uint = 0x13
 	var w uint = 4
-	var curBit int = 15
+	var curBit = 15
 	var register uint = 0x0000
 
-	//借位w=4
+	// 借位w=4
 	data <<= w
 	fmt.Printf("data append %d bit is  %b\n", w, data)
 
 	for ; curBit >= 0; curBit-- {
-		if (register>>w)&0x0001 == 0x1 { //register = register ^ POLY;
+		if (register>>w)&0x0001 == 0x1 { // register = register ^ POLY;
 			fmt.Printf("register %b right shift %d bit is 1, xor with poly(%b):%b\n", register, w, poly, register^poly)
 			register ^= poly
 		}
 		register <<= 1
-		//读取目标串下一位
+		// 读取目标串下一位
 		tmp := data >> uint8(curBit) & 0x0001
 		register |= tmp
 		fmt.Printf("curBit:%d, register:%b\n", curBit, register)

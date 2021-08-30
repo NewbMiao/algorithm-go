@@ -10,9 +10,9 @@ func GetIndexOf(ss, ms string) (i int) {
 		if ss[si] == ms[mi] {
 			si++
 			mi++
-		} else if next[mi] == -1 { //无公共匹配串，str后移一个字符
+		} else if next[mi] == -1 { // 无公共匹配串，str后移一个字符
 			si++
-		} else { //有公共子串，回退到上一个公共子串位置
+		} else { // 有公共子串，回退到上一个公共子串位置
 			mi = next[mi]
 		}
 	}

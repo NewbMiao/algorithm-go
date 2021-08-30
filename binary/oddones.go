@@ -116,7 +116,7 @@ func judgeBinOddOne5(x uint) bool {
 
 	//unsigned char * p = (unsigned char *) &v;
 	//parity = ParityTable256[p[0] ^ p[1] ^ p[2] ^ p[3]];
-	var p uint = 0
+	var p uint
 	for x != 0 {
 		p ^= pMap[x&0xff]
 		x >>= 8

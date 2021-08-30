@@ -47,9 +47,7 @@ func MinEditCost2(str1, str2 string, dc, rc, ic int) (c int) {
 	}
 	//str2长,作为行，则替换ic，dc
 	if longs == str2 {
-		tmp := ic
-		ic = dc
-		dc = tmp
+		ic, dc = dc, ic
 	}
 	dp := make([]int, len(shorts)+1)
 	//第一行，'' => str2[0]

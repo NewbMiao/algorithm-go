@@ -4,12 +4,12 @@ import (
 	"math"
 )
 
-//最长递增子序列
+// 最长递增子序列
 func GetLIS1(arr []int) (res []int) {
 	if len(arr) == 0 {
 		return
 	}
-	//到数组arr位置i，之前最长递增子序列长度为n, 对应res的index为n-1
+	// 到数组arr位置i，之前最长递增子序列长度为n, 对应res的index为n-1
 	dp := getDp1(arr)
 	return genLIS(arr, dp)
 }
@@ -53,8 +53,8 @@ func GetLIS2(arr []int) (res []int) {
 func getDp2(arr []int) (dp []int) {
 	n := len(arr)
 	dp = make([]int, n)
-	ends := make([]int, n) //有效区：对应i位置数结尾的递增子序列
-	right := 0             //有效区右边界
+	ends := make([]int, n) // 有效区：对应i位置数结尾的递增子序列
+	right := 0             // 有效区右边界
 	dp[0] = 1
 	ends[0] = arr[0]
 	var l, r int

@@ -22,7 +22,7 @@ func TestOddOnes(t *testing.T) {
 		if v == want {
 			t.Log(fmt.Sprintf("judgeBinOddOne%d is ok", k+1))
 		} else {
-			t.Error(fmt.Sprintf("judgeBinOddOne%d is not ok", k+1))
+			t.Errorf("judgeBinOddOne%d is not ok", k+1)
 		}
 	}
 }

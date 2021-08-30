@@ -56,7 +56,7 @@ func longestPalindrome2(s string) string {
 			lpdStr = sDivided[i-p[i]+1 : i+p[i]]
 		}
 	}
-	return strings.Replace(lpdStr, "#", "", -1)
+	return strings.ReplaceAll(lpdStr, "#", "")
 }
 
 //s[j,i] 是否为回文：  dp[i, j] = s[i] == s[j] && (i-j <= 2 || dp[j+1][i-1]).
