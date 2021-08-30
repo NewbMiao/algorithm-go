@@ -20,7 +20,7 @@ package qsort
 
 *            less->       i-> <-j   <-great
 
-*
+*.
  */
 func _qsort3way(arr Sitem, lo, hi int) {
 	N := hi - lo + 1
@@ -54,7 +54,7 @@ func _qsort3way(arr Sitem, lo, hi int) {
 		}
 		arr.Swap(i, j)
 
-		//这里暂时将与pivot相等的元素换到数组的两端
+		// 这里暂时将与pivot相等的元素换到数组的两端
 		if arr[i] == arr[lo] {
 			less++
 			arr.Swap(less, i)
@@ -65,7 +65,7 @@ func _qsort3way(arr Sitem, lo, hi int) {
 		}
 	}
 
-	//将相等的元素交换到中间
+	// 将相等的元素交换到中间
 	i = j + 1
 
 	for k := lo; k <= less; k++ {

@@ -17,7 +17,7 @@ func removeValue1(head *linkedlist.LNode, num int) *linkedlist.LNode {
 		head = head.Next
 	}
 
-	//倒着重新连接链表
+	// 倒着重新连接链表
 	for !st.IsEmpty() {
 		st.Peek().(*linkedlist.LNode).Next = head
 		top, _ := st.Pop()

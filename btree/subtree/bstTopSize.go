@@ -7,7 +7,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
-//非递归搜索
+// 非递归搜索.
 func GetBSTTopSize0(bt *btree.Node) (size int) {
 	if bt == nil {
 		return
@@ -17,6 +17,7 @@ func GetBSTTopSize0(bt *btree.Node) (size int) {
 	size = int(math.Max(float64(GetBSTTopSize0(bt.Right)), float64(size)))
 	return
 }
+
 func getNodeBSTTopSize(bt *btree.Node) (size int) {
 	if bt == nil {
 		return
@@ -35,7 +36,7 @@ func getNodeBSTTopSize(bt *btree.Node) (size int) {
 		}
 
 		cur := bt
-		//搜索该节点
+		// 搜索该节点
 		for cur != nil && cur != node {
 			if node.Value < cur.Value {
 				cur = cur.Left
@@ -52,7 +53,7 @@ func getNodeBSTTopSize(bt *btree.Node) (size int) {
 	return size
 }
 
-//递归搜索
+// 递归搜索.
 func GetBSTTopSize1(bt *btree.Node) (size int) {
 	if bt == nil {
 		return
@@ -62,6 +63,7 @@ func GetBSTTopSize1(bt *btree.Node) (size int) {
 	size = int(math.Max(float64(GetBSTTopSize1(bt.Right)), float64(size)))
 	return
 }
+
 func getNodeBSTTopSizeRecur(bt, cur *btree.Node) int {
 	if isBSTNode(bt, cur) {
 		return getNodeBSTTopSizeRecur(bt, cur.Left) + getNodeBSTTopSizeRecur(bt, cur.Right) + 1
@@ -87,7 +89,7 @@ type record struct {
 	Rr int
 }
 
-//拓扑贡献记录
+// 拓扑贡献记录.
 func GetBSTTopSize2(bt *btree.Node) (size int) {
 	if bt == nil {
 		return
@@ -102,7 +104,7 @@ func posOrderRecordSize(bt *btree.Node, rMap map[*btree.Node]*record) (size int)
 	}
 	ls := posOrderRecordSize(bt.Left, rMap)
 	rs := posOrderRecordSize(bt.Right, rMap)
-	//修改上层拓扑记录
+	// 修改上层拓扑记录
 	modifySizeMap(bt.Left, bt.Value, rMap, true)
 	modifySizeMap(bt.Right, bt.Value, rMap, false)
 	lr := rMap[bt.Left]
@@ -130,12 +132,12 @@ func modifySizeMap(n *btree.Node, v int, rMap map[*btree.Node]*record, isLeft bo
 		delete(rMap, n)
 		return r.Lr + r.Rr + 1
 	}
-	//左子树左边界 && 右子树右边界无需修改贡献记录
+	// 左子树左边界 && 右子树右边界无需修改贡献记录
 
-	if isLeft { //左子树考察其右边界是否满足小于根节点
+	if isLeft { // 左子树考察其右边界是否满足小于根节点
 		minus = modifySizeMap(n.Right, v, rMap, isLeft)
 		r.Rr -= minus
-	} else { //右子树考察其左边界是否满足大于根节点
+	} else { // 右子树考察其左边界是否满足大于根节点
 		minus = modifySizeMap(n.Left, v, rMap, isLeft)
 		r.Lr -= minus
 	}

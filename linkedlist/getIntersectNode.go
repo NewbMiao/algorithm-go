@@ -4,7 +4,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
-//判断两链表是否有交点并获取
+// 判断两链表是否有交点并获取.
 func getIntersectNode(h1, h2 *linkedlist.LNode) *linkedlist.LNode {
 	if h1 == nil || h2 == nil {
 		return nil
@@ -12,10 +12,10 @@ func getIntersectNode(h1, h2 *linkedlist.LNode) *linkedlist.LNode {
 	l1 := getLoopNode(h1)
 	l2 := getLoopNode(h2)
 
-	//有环相交
+	// 有环相交
 	if l1 != nil && l2 != nil {
 		return bothLoop(h1, h2, l1, l2)
-	} else if l1 == nil && l2 == nil { //无环相交
+	} else if l1 == nil && l2 == nil { // 无环相交
 		return noLoop(h1, h2)
 	}
 	return nil
@@ -43,12 +43,12 @@ func getLoopNode(head *linkedlist.LNode) *linkedlist.LNode {
 	return slow
 }
 
-//无环相交点判定
+// 无环相交点判定.
 func noLoop(h1, h2 *linkedlist.LNode) *linkedlist.LNode {
 	if h1 == nil || h2 == nil {
 		return nil
 	}
-	n := 0 //计算两无环链表相交前长度差
+	n := 0 // 计算两无环链表相交前长度差
 	cur1 := h1
 	cur2 := h2
 	for cur1 != nil {
@@ -78,13 +78,13 @@ func noLoop(h1, h2 *linkedlist.LNode) *linkedlist.LNode {
 	return cur1
 }
 
-//两有环链表是否相交判定
+// 两有环链表是否相交判定.
 func bothLoop(h1, h2, loop1, loop2 *linkedlist.LNode) *linkedlist.LNode {
 	if h1 == nil || h2 == nil || loop1 == nil || loop2 == nil {
 		return nil
 	}
 	if loop1 == loop2 {
-		n := 0 //计算两有环链表相交前长度差
+		n := 0 // 计算两有环链表相交前长度差
 		cur1 := h1
 		cur2 := h2
 		for cur1 != loop1 {
@@ -116,7 +116,7 @@ func bothLoop(h1, h2, loop1, loop2 *linkedlist.LNode) *linkedlist.LNode {
 	cur := loop1.Next
 	for cur != loop1 {
 		if cur == loop2 {
-			return loop1 //返回 loop1和loop2都可以
+			return loop1 // 返回 loop1和loop2都可以
 		}
 		cur = cur.Next
 	}

@@ -14,19 +14,23 @@ func TestMinEditCost(t *testing.T) {
 		{
 			"ab12cd3",
 			"abcdf",
-			5, 3, 2, 8},
+			5, 3, 2, 8,
+		},
 		{
 			"abcdf",
 			"ab12cd3",
-			3, 2, 4, 10},
+			3, 2, 4, 10,
+		},
 		{
 			"",
 			"ab12cd3",
-			1, 7, 5, 7},
+			1, 7, 5, 7,
+		},
 		{
 			"abcdf",
 			"",
-			2, 9, 8, 45},
+			2, 9, 8, 45,
+		},
 	}
 	for _, v := range wants {
 		var r int

@@ -4,7 +4,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-//前序遍历
+// 前序遍历.
 func T1ContainsT2(t1, t2 *btree.Node) bool {
 	return check(t1, t2) || T1ContainsT2(t1.Left, t2) || T1ContainsT2(t1.Right, t2)
 }

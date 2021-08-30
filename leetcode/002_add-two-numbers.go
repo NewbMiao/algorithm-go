@@ -1,6 +1,6 @@
 package leetcode
 
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func addTwoNumbers(l1, l2 *ListNode) *ListNode {
 	curSum, l3 := 0, new(ListNode)
 	for curNode := l3; l1 != nil || l2 != nil || curSum > 0; curNode = curNode.Next {
 		if l1 != nil {

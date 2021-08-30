@@ -6,10 +6,12 @@ import (
 	"github.com/NewbMiao/algorithm-go/tool"
 )
 
-type MItems []string
-type MergeSorter interface {
-	sort.Interface
-}
+type (
+	MItems      []string
+	MergeSorter interface {
+		sort.Interface
+	}
+)
 
 func Sort(m MItems) MItems {
 	tool.Trace("to sort slice %v\n", m)

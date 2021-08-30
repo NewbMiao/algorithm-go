@@ -28,7 +28,7 @@ func TestSerialByLevel(t *testing.T) {
 	}
 }
 
-//go test  -run TestReconByLevel -v src/btree/traversal/*
+// go test  -run TestReconByLevel -v src/btree/traversal/*.
 func TestReconByLevel(t *testing.T) {
 	r := ReconByLevel("1!2!3!4!#!#!5!#!#!#!#!")
 	btree.PrintTree(r)
@@ -45,7 +45,7 @@ func TestSerialByPre(t *testing.T) {
 	}
 }
 
-//go test  -run TestReconByLevel -v src/btree/traversal/*
+// go test  -run TestReconByLevel -v src/btree/traversal/*.
 func TestReconByPre(t *testing.T) {
 	r := ReconByPre("1!2!4!#!#!#!3!#!5!#!#!")
 	btree.PrintTree(r)

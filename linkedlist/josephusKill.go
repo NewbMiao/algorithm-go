@@ -6,7 +6,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
-//环形链表模拟约瑟夫环问题
+// 环形链表模拟约瑟夫环问题.
 func JosephusKill1(l *linkedlist.LList, m int) (res int) {
 	if l == nil || l.Head == nil || m < 1 {
 		return
@@ -15,7 +15,7 @@ func JosephusKill1(l *linkedlist.LList, m int) (res int) {
 		return l.Head.Value.(int)
 	}
 	head := l.Head
-	//获取尾节点
+	// 获取尾节点
 	last := head
 	for last.Next != head {
 		last = last.Next
@@ -23,7 +23,7 @@ func JosephusKill1(l *linkedlist.LList, m int) (res int) {
 
 	cnt := 0
 
-	//依次后移last->head,没遇m删head节点
+	// 依次后移last->head,没遇m删head节点
 	for head != last {
 		cnt++
 		if cnt == m {
@@ -38,7 +38,7 @@ func JosephusKill1(l *linkedlist.LList, m int) (res int) {
 	return head.Value.(int)
 }
 
-//递归计算最后报数位置
+// 递归计算最后报数位置.
 func JosephusKill2(l *linkedlist.LList, m int) (res int) {
 	if l == nil || l.Head == nil || m < 1 {
 		return
@@ -64,8 +64,8 @@ func JosephusKill2(l *linkedlist.LList, m int) (res int) {
 	return cur.Value.(int)
 }
 
-//报数编号对应关系 B=(A-1)%i+1
-//移除报号为m的节点，新老环关系 old=(new+m -1)%i+1
+// 报数编号对应关系 B=(A-1)%i+1
+// 移除报号为m的节点，新老环关系 old=(new+m -1)%i+1.
 func getLive(i, m int) int {
 	if i == 1 {
 		return 1

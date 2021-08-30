@@ -2,7 +2,7 @@ package leetcode
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	cur := head
-	nth := head //要删除节点前一个
+	nth := head // 要删除节点前一个
 	llen := 0
 	for cur != nil {
 		cur = cur.Next

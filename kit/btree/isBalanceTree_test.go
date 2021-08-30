@@ -16,6 +16,7 @@ func init() {
 	bbt.Right.Left = &Node{Value: 6}
 	bbt.Right.Right = &Node{Value: 7}
 }
+
 func TestIsBalanceTree(t *testing.T) {
 	want := true
 	t.Log(fmt.Sprintf("IsBalanceTree ? want: %v", want))

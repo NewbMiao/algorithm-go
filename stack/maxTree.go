@@ -5,19 +5,19 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
-//由数组构建最大值树
+// 由数组构建最大值树.
 func getMaxTree(arr []int) *btree.Node {
 	l := len(arr)
 	var head *btree.Node
 	lBigMap := make(map[*btree.Node]*btree.Node, l)
 	rBigMap := make(map[*btree.Node]*btree.Node, l)
-	st := stack.New() //栈维护一个递增节点集合，便于记录当前节点和前一个比他大的节点
+	st := stack.New() // 栈维护一个递增节点集合，便于记录当前节点和前一个比他大的节点
 	nodes := make([]*btree.Node, l)
 	for k, v := range arr {
 		nodes[k] = &btree.Node{Value: v}
 	}
 
-	//left 左边第一个比他大的数
+	// left 左边第一个比他大的数
 	for _, v := range nodes {
 		for !st.IsEmpty() && st.Peek().(*btree.Node).Value < v.Value {
 			popStackSetMap(st, lBigMap)
@@ -28,7 +28,7 @@ func getMaxTree(arr []int) *btree.Node {
 		popStackSetMap(st, lBigMap)
 	}
 
-	//right 右边第一个比他大的数
+	// right 右边第一个比他大的数
 	for i := l - 1; i >= 0; i-- {
 		for !st.IsEmpty() && st.Peek().(*btree.Node).Value < nodes[i].Value {
 			popStackSetMap(st, rBigMap)
@@ -43,7 +43,7 @@ func getMaxTree(arr []int) *btree.Node {
 		left := lBigMap[v]
 		right := rBigMap[v]
 		if left == nil && right == nil {
-			//左右无大值则当前节点为根节点
+			// 左右无大值则当前节点为根节点
 			head = v
 		} else if left == nil {
 			if right.Left == nil {
@@ -58,7 +58,7 @@ func getMaxTree(arr []int) *btree.Node {
 				left.Right = v
 			}
 		} else {
-			//父节点为当前节点左右大值中较小者
+			// 父节点为当前节点左右大值中较小者
 			parent := left
 			if left.Value > right.Value {
 				parent = right

@@ -19,7 +19,7 @@ func GetHeight(bt *Node, l int) int {
 	return int(math.Max(float64(GetHeight(bt.Left, l+1)), float64(GetHeight(bt.Right, l+1))))
 }
 
-//获取每层的最左和最右节点
+// 获取每层的最左和最右节点.
 func GetEdgeMap(h *Node, edgeMap map[int][2]*Node, l int) {
 	if h == nil {
 		return
@@ -29,12 +29,12 @@ func GetEdgeMap(h *Node, edgeMap map[int][2]*Node, l int) {
 		edgeMap = make(map[int][2]*Node, height)
 	}
 
-	//最左节点
+	// 最左节点
 	left := edgeMap[l][0]
 	if edgeMap[l][0] == nil {
 		left = h
 	}
-	//最右节点
+	// 最右节点
 	right := h
 
 	edgeMap[l] = [2]*Node{left, right}

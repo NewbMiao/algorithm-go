@@ -2,7 +2,7 @@ package stack
 
 import "github.com/NewbMiao/algorithm-go/kit/stack"
 
-//用栈来排序栈
+// 用栈来排序栈.
 func sortStackByStack(s *stack.S) {
 	help := stack.New()
 	if s.IsEmpty() {

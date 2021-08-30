@@ -22,7 +22,7 @@ func GetIndexOf(ss, ms string) (i int) {
 	return -1
 }
 
-//match[i]之前的前缀和后缀最大匹配公共长度
+// match[i]之前的前缀和后缀最大匹配公共长度.
 func getNextArr(ms string) (next []int) {
 	mlen := len(ms)
 	if mlen == 0 {
@@ -34,13 +34,13 @@ func getNextArr(ms string) (next []int) {
 	pos := 2
 	cn := 0
 	for pos < mlen {
-		if ms[pos-1] == ms[cn] { //前后缀匹配，则前移一位
+		if ms[pos-1] == ms[cn] { // 前后缀匹配，则前移一位
 			cn++
 			next[pos] = cn
 			pos++
-		} else if cn > 0 { //不匹配，则回退到上一次匹配点cn
+		} else if cn > 0 { // 不匹配，则回退到上一次匹配点cn
 			cn = next[cn]
-		} else { //回退完也不匹配
+		} else { // 回退完也不匹配
 			next[pos] = 0
 			pos++
 		}

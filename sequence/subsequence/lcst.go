@@ -1,6 +1,6 @@
 package subsequence
 
-//最长公共子串
+// 最长公共子串.
 func GetLcst(str1, str2 string) (res string) {
 	if str1 == "" || str2 == "" {
 		return
@@ -51,12 +51,12 @@ func GetDpLcst(str1, str2 string) (dp [][]int) {
 	return
 }
 
-//按斜线，从右上到左下遍历
+// 按斜线，从右上到左下遍历.
 func GetLcst2(str1, str2 string) (res string) {
 	if str1 == "" || str2 == "" {
 		return
 	}
-	max := 0 //最大长度
+	max := 0 // 最大长度
 	endIndex := 0
 	row := 0
 	col := len(str2) - 1
@@ -78,9 +78,9 @@ func GetLcst2(str1, str2 string) (res string) {
 			j++
 		}
 
-		if col > 0 { //右向左
+		if col > 0 { // 右向左
 			col--
-		} else { //上向下
+		} else { // 上向下
 			row++
 		}
 	}

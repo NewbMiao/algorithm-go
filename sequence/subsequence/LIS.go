@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-// 最长递增子序列
+// 最长递增子序列.
 func GetLIS1(arr []int) (res []int) {
 	if len(arr) == 0 {
 		return
@@ -27,7 +27,7 @@ func getDp1(arr []int) (dp []int) {
 	return
 }
 
-func genLIS(arr []int, dp []int) (res []int) {
+func genLIS(arr, dp []int) (res []int) {
 	maxK := 0
 	for k, v := range dp {
 		if v > dp[maxK] {
@@ -50,6 +50,7 @@ func GetLIS2(arr []int) (res []int) {
 	}
 	return genLIS(arr, getDp2(arr))
 }
+
 func getDp2(arr []int) (dp []int) {
 	n := len(arr)
 	dp = make([]int, n)
@@ -57,10 +58,9 @@ func getDp2(arr []int) (dp []int) {
 	right := 0             // 有效区右边界
 	dp[0] = 1
 	ends[0] = arr[0]
-	var l, r int
-	m := 0
+	var l, r, m int
 	for i := 1; i < n; i++ {
-		//二分查找不大于ends的位置
+		// 二分查找不大于ends的位置
 		l = 0
 		r = right
 		for l <= r {

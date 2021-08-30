@@ -19,6 +19,7 @@ func NewDList() *DList {
 func NewDNode(n interface{}) *DoubleNode {
 	return &DoubleNode{Value: n}
 }
+
 func (l *DList) PushBack(n interface{}) {
 	if n == nil {
 		return
@@ -54,6 +55,7 @@ func (l *DList) PushFront(n interface{}) {
 	}
 	l.Size++
 }
+
 func (l *DList) PopBack() (res interface{}) {
 	if l == nil || l.Head == nil {
 		return
@@ -72,6 +74,7 @@ func (l *DList) PopBack() (res interface{}) {
 	l.Size--
 	return
 }
+
 func (l *DList) PopFront() (res interface{}) {
 	if l == nil || l.Head == nil {
 		return

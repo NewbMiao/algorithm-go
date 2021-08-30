@@ -32,7 +32,7 @@ func backtrace(letters, nextDigit string) (res []string) {
 	return
 }
 
-//rune.
+// rune.
 func letterCombinations1(digits string) []string {
 	if digits == "" {
 		return nil
@@ -42,8 +42,8 @@ func letterCombinations1(digits string) []string {
 		nextRes := [][]rune{}
 		for _, letter := range pMap[string(d)] {
 			for _, v := range res {
-				//tmp := make([]rune, len(v))
-				//copy(tmp, v) //拷贝rune，避免重复修改 v
+				// tmp := make([]rune, len(v))
+				// copy(tmp, v) // 拷贝rune，避免重复修改 v
 				nextRes = append(nextRes, append([]rune(string(v)), letter))
 			}
 		}
@@ -57,7 +57,7 @@ func letterCombinations1(digits string) []string {
 	return out
 }
 
-//string.
+// string.
 func letterCombinations2(digits string) []string {
 	if digits == "" {
 		return nil

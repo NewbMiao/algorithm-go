@@ -4,7 +4,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
-//删除单链表倒数第K节点
+// 删除单链表倒数第K节点.
 func RemoveLastKthNode(l *linkedlist.LList, k int) {
 	if l.IsEmpty() || k < 1 {
 		return
@@ -14,14 +14,14 @@ func RemoveLastKthNode(l *linkedlist.LList, k int) {
 		k--
 		node = node.Next
 	}
-	if k > 0 { //无倒数kth node
+	if k > 0 { // 无倒数kth node
 		return
 	}
-	if k == 0 { //倒数kth node为头结点
+	if k == 0 { // 倒数kth node为头结点
 		l.Head = l.Head.Next
 		return
 	}
-	//此时k-N,在遍历一次，k==0时，找到N-k,即删除节点的前一个节点
+	// 此时k-N,在遍历一次，k==0时，找到N-k,即删除节点的前一个节点
 	node = l.Head
 	for node != nil {
 		k++
@@ -33,7 +33,7 @@ func RemoveLastKthNode(l *linkedlist.LList, k int) {
 	}
 }
 
-//删除双链表倒数第K节点
+// 删除双链表倒数第K节点.
 func RemoveLastKthDNode(l *linkedlist.DList, k int) {
 	if l.IsEmpty() || k < 1 {
 		return
@@ -43,16 +43,16 @@ func RemoveLastKthDNode(l *linkedlist.DList, k int) {
 		k--
 		node = node.Next
 	}
-	if k > 0 { //无倒数kth node
+	if k > 0 { // 无倒数kth node
 		return
 	}
-	if k == 0 { //倒数kth node为头结点
+	if k == 0 { // 倒数kth node为头结点
 		head := l.Head
 		l.Head = head.Next
 		l.Head.Last = head.Last
 		return
 	}
-	//此时k-N,在遍历一次，k==0时，找到N-k,即删除节点的前一个节点
+	// 此时k-N,在遍历一次，k==0时，找到N-k,即删除节点的前一个节点
 	node = l.Head
 	for node != nil {
 		k++

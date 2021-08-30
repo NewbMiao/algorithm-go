@@ -7,7 +7,7 @@ import (
 )
 
 func TestCrc32(t *testing.T) {
-	var data = "1234567890"
+	data := "1234567890"
 	var want uint32 = 639479525
 	t.Log(fmt.Sprintf("input data=%s, want crc32: %d(%b)", data, want, want))
 

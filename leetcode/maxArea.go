@@ -18,7 +18,7 @@ func maxArea(height []int) int {
 	for r > l {
 		tmp := int(math.Min(float64(height[r]), float64(height[l])))
 		max = int(math.Max(float64(max), float64(tmp*(r-l))))
-		//移动短的那个指针
+		// 移动短的那个指针
 		if height[r] > height[l] {
 			l++
 		} else {

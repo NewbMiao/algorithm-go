@@ -1,6 +1,7 @@
 package uf
 
 import (
+	"errors"
 	"fmt"
 	"io"
 
@@ -12,14 +13,14 @@ func Scanln() {
 	var err error
 	var in, p, q, re int
 	var mu uf.UnionFindList
-	var isEoF = false
+	isEoF := false
 	_, err = fmt.Scanln(&in)
 	tool.ErrPanic(err)
 	mu = uf.NewUnionFindList(in)
 
-	for !isEoF { //扫描输入内容
+	for !isEoF { // 扫描输入内容
 		re, err = fmt.Scanln(&p, &q)
-		if err == io.EOF {
+		if errors.Is(err, io.EOF) {
 			err = nil
 			isEoF = true
 		}

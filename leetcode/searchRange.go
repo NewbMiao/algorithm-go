@@ -6,7 +6,7 @@ func extremeInsertionIndex(nums []int, target int, left bool) int {
 	for lo < hi {
 		mid := (hi + lo) / 2
 		if nums[mid] > target ||
-			(left && nums[mid] == target) { //left==true：获取range左边界，false则为右边界（lo-1）
+			(left && nums[mid] == target) { // left==true：获取range左边界，false则为右边界（lo-1）
 			hi = mid
 		} else {
 			lo = mid + 1

@@ -1,12 +1,12 @@
 package ringbuffer
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
-// nolint: dupl // example
 func TestRingBuffer(t *testing.T) {
 	rb := NewRingBuffer(16)
 	v, err := rb.Read()
@@ -49,7 +49,7 @@ func TestRingBuffer(t *testing.T) {
 
 	for {
 		v, err := rb.Read()
-		if err == ErrIsEmpty {
+		if errors.Is(err, ErrIsEmpty) {
 			break
 		}
 
@@ -64,7 +64,6 @@ func TestRingBuffer(t *testing.T) {
 	assert.True(t, rb.IsEmpty())
 }
 
-// nolint: dupl // example
 func TestRingBuffer_One(t *testing.T) {
 	rb := NewRingBuffer(2)
 	v, err := rb.Read()
@@ -107,7 +106,7 @@ func TestRingBuffer_One(t *testing.T) {
 
 	for {
 		v, err := rb.Read()
-		if err == ErrIsEmpty {
+		if errors.Is(err, ErrIsEmpty) {
 			break
 		}
 

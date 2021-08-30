@@ -4,7 +4,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
-//链表按pivot分为小中大三部分
+// 链表按pivot分为小中大三部分.
 func listPartition1(l *linkedlist.LList, pivot int) {
 	if l == nil || l.IsEmpty() {
 		return
@@ -41,7 +41,7 @@ func listPartition1(l *linkedlist.LList, pivot int) {
 	l.Head = arr[0]
 }
 
-//分隔中保持原有顺序
+// 分隔中保持原有顺序.
 func listPartition2(l *linkedlist.LList, pivot int) {
 	if l == nil || l.IsEmpty() {
 		return
@@ -80,14 +80,14 @@ func listPartition2(l *linkedlist.LList, pivot int) {
 		cur = next
 	}
 
-	//连接小和中
+	// 连接小和中
 	if sT != nil {
 		sT.Next = eH
-		if eT == nil { //中为空
+		if eT == nil { // 中为空
 			eT = sT
 		}
 	}
-	//连接大
+	// 连接大
 	if eT != nil {
 		eT.Next = bH
 	}

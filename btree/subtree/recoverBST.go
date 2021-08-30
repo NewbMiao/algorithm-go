@@ -70,7 +70,7 @@ func RecoverTree(bt *btree.Node) *btree.Node {
 	e2P := parents[1]
 	e2L := e2.Left
 	e2R := e2.Right
-	//14 situation
+	// 14 situation
 	if e1 == bt {
 		if e1 == e2P {
 			e1.Left = e2L

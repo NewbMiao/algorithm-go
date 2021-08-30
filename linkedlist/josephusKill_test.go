@@ -14,7 +14,7 @@ func TestJosephusKill1(t *testing.T) {
 	l.Push(3)
 	l.Push(4)
 	l.Push(5)
-	//成环
+	// 成环
 	l.Last().Next = l.Head
 
 	m := 3
@@ -35,7 +35,7 @@ func TestJosephusKill2(t *testing.T) {
 	l.Push(3)
 	l.Push(4)
 	l.Push(5)
-	//成环
+	// 成环
 	l.Last().Next = l.Head
 
 	m := 3

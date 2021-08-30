@@ -1,6 +1,6 @@
 package binary
 
-//x & ~0 = x;	x & 0 = 0.
+// x & ~0 = x;	x & 0 = 0.
 func Min(x, y int) (r int) {
 	var less int
 	if x < y {
@@ -9,6 +9,7 @@ func Min(x, y int) (r int) {
 	r = y ^ ((x ^ y) & -less)
 	return
 }
+
 func Max(x, y int) (r int) {
 	var less int
 	if x < y {

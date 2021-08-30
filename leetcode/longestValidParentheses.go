@@ -43,7 +43,7 @@ func longestValidParentheses1(s string) int {
 	dp := make([]int, l)
 	for i := 1; i < l; i++ {
 		if s[i] == ')' {
-			if s[i-1] == '(' { //...()
+			if s[i-1] == '(' { // ...()
 				if i-2 >= 0 {
 					dp[i] = dp[i-2] + 2
 				} else {
@@ -51,7 +51,7 @@ func longestValidParentheses1(s string) int {
 				}
 			} else if s[i-1] == ')' { // ...))
 				if i-dp[i-1] > 0 && s[i-dp[i-1]-1] == '(' { // (..))
-					if i-dp[i-1] >= 2 { //dp[i-1]+2 是i位置的长度
+					if i-dp[i-1] >= 2 { // dp[i-1]+2 是i位置的长度
 						dp[i] = dp[i-1] + 2 + dp[i-dp[i-1]-2]
 					} else {
 						dp[i] = dp[i-1] + 2
@@ -71,7 +71,7 @@ func longestValidParentheses2(s string) int {
 	}
 	max := 0
 	var left, right int
-	//从左到右
+	// 从左到右
 	for i := 0; i < l; i++ {
 		if s[i] == '(' {
 			left++
@@ -86,7 +86,7 @@ func longestValidParentheses2(s string) int {
 		}
 	}
 
-	//从右到左
+	// 从右到左
 	left = 0
 	right = 0
 	for i := l - 1; i >= 0; i-- {

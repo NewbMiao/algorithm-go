@@ -35,6 +35,7 @@ func NewRingBuffer(initialSize int) *RingBuffer {
 func (r *RingBuffer) incrCursor(p *int) {
 	*p = (*p + 1) & (2*r.size - 1)
 }
+
 func (r *RingBuffer) Read() (T, error) {
 	if r.IsEmpty() {
 		return nil, ErrIsEmpty
@@ -48,7 +49,7 @@ func (r *RingBuffer) Read() (T, error) {
 
 func (r *RingBuffer) Pop() T {
 	v, err := r.Read()
-	if err == ErrIsEmpty { // Empty
+	if errors.Is(err, ErrIsEmpty) { // Empty
 		panic(ErrIsEmpty.Error())
 	}
 

@@ -5,7 +5,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
-//先序遍历：根,左,右
+// 先序遍历：根,左,右.
 func PreOrderRecur(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
@@ -16,7 +16,7 @@ func PreOrderRecur(bt *btree.Node) (res []int) {
 	return
 }
 
-//中序遍历：左,根,右
+// 中序遍历：左,根,右.
 func InOrderRecur(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
@@ -27,7 +27,7 @@ func InOrderRecur(bt *btree.Node) (res []int) {
 	return
 }
 
-//后序遍历：左,右,根
+// 后序遍历：左,右,根.
 func LastOrderRecur(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
@@ -66,11 +66,11 @@ func InOrder(bt *btree.Node) (res []int) {
 	cur := bt
 	for !s.IsEmpty() || cur != nil {
 		if cur != nil {
-			//添加二叉树左边界
+			// 添加二叉树左边界
 			s.Push(cur)
 			cur = cur.Left
 		} else {
-			//左节点为空，切到当前节点的右节点
+			// 左节点为空，切到当前节点的右节点
 			tmp, ok := s.Pop()
 			if !ok {
 				return
@@ -82,12 +82,13 @@ func InOrder(bt *btree.Node) (res []int) {
 	}
 	return
 }
+
 func LastOrder1(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
-	s1 := &stack.S{} //记录 根 左右 入栈， 根 右左 出栈顺序
-	s2 := &stack.S{} //逆序s1, 根右左 入栈,记录 左右根 出栈顺序
+	s1 := &stack.S{} // 记录 根 左右 入栈， 根 右左 出栈顺序
+	s2 := &stack.S{} // 逆序s1, 根右左 入栈,记录 左右根 出栈顺序
 	s1.Push(bt)
 	for !s1.IsEmpty() {
 		if tmp, ok := s1.Pop(); ok {
@@ -112,11 +113,11 @@ func LastOrder2(bt *btree.Node) (res []int) {
 	if bt == nil {
 		return
 	}
-	var history *btree.Node //最近一次弹出并打印节点
-	var cur *btree.Node     //当前栈顶节点
+	var history *btree.Node // 最近一次弹出并打印节点
+	var cur *btree.Node     // 当前栈顶节点
 	s := &stack.S{}
 	s.Push(bt)
-	history = bt //history为nil会影响最左节点的添加
+	history = bt // history为nil会影响最左节点的添加
 	for !s.IsEmpty() {
 		cur = s.Peek().(*btree.Node)
 		if cur == nil {
@@ -124,13 +125,13 @@ func LastOrder2(bt *btree.Node) (res []int) {
 		}
 
 		if cur.Left != nil && cur.Left != history && cur.Right != history {
-			//左子树未处理
+			// 左子树未处理
 			s.Push(cur.Left)
 		} else if cur.Right != nil && cur.Right != history {
-			//右子树未处理
+			// 右子树未处理
 			s.Push(cur.Right)
 		} else {
-			//都处理过
+			// 都处理过
 			s.Pop()
 			history = cur
 			res = append(res, history.Value)

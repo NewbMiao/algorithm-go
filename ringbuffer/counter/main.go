@@ -52,7 +52,7 @@ func (r *RingBuffer) Read() (T, error) {
 
 func (r *RingBuffer) Pop() T {
 	v, err := r.Read()
-	if err == ErrIsEmpty { // Empty
+	if errors.Is(err, ErrIsEmpty) { // Empty
 		panic(ErrIsEmpty.Error())
 	}
 

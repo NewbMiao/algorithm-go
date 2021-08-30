@@ -25,10 +25,11 @@ func TestUF(t *testing.T) {
 		t.Error("Union Find List is Not OK: ", mu.String(), ",Want:", want)
 	}
 }
+
 func readBuf() (mu UnionFindList) {
 	var err error
 	var in, p, q, re int
-	//tinyUF.txt
+	// tinyUF.txt
 	str := `10
 4 3
 3 8
@@ -45,11 +46,11 @@ func readBuf() (mu UnionFindList) {
 	f := strings.NewReader(str)
 	input := bufio.NewScanner(f)
 
-	for input.Scan() { //扫描输入内容
+	for input.Scan() { // 扫描输入内容
 		if err := input.Err(); err != nil {
 			fmt.Fprintln(os.Stderr, "reading standard input:", err)
 		}
-		line := input.Text() //把输入内容转换为字符串
+		line := input.Text() // 把输入内容转换为字符串
 		if !strings.Contains(line, " ") {
 			in, err = strconv.Atoi(line)
 			tool.ErrPanic(err)

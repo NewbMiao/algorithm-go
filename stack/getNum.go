@@ -7,13 +7,13 @@ func getNum(arr []int, num int) (res int) {
 	if l == 0 {
 		return
 	}
-	//双端队列维护当前arr[i,j]内的最大值和最小值
+	// 双端队列维护当前arr[i,j]内的最大值和最小值
 	qmax := list.New()
 	qmin := list.New()
 	var i, j int
 	for i < l {
 		for j < l {
-			//j右移
+			// j右移
 			for qmax.Len() != 0 && arr[qmax.Back().Value.(int)] <= arr[j] {
 				qmax.Remove(qmax.Back())
 			}
@@ -29,7 +29,7 @@ func getNum(arr []int, num int) (res int) {
 			}
 			j++
 		}
-		//i右移
+		// i右移
 		if qmax.Front().Value.(int) == i {
 			qmax.Remove(qmax.Front())
 		}

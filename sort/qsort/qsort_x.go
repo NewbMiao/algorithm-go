@@ -9,10 +9,10 @@ func _qsort(arr Sitem, lo, hi int) {
 	if N <= CUTOFF {
 		insertSort(arr, lo, hi)
 		return
-	} else if N <= 40 { //use median of three
+	} else if N <= 40 { // use median of three
 		m := median3(arr, lo, lo+N>>1, hi)
 		arr.Swap(lo, m)
-	} else { //use median of ninther
+	} else { // use median of ninther
 		eps := N / 8
 		mid := lo + N>>1
 		m1 := median3(arr, lo, lo+eps, lo+eps+eps)
@@ -40,7 +40,7 @@ func _partition(arr Sitem, lo, hi int) int {
 			}
 			i++
 		}
-		for arr.Less(lo, j) { //无需判断 j > lo，因为 j=lo不满足less
+		for arr.Less(lo, j) { // 无需判断 j > lo，因为 j=lo不满足less
 			j--
 		}
 
@@ -56,16 +56,16 @@ func _partition(arr Sitem, lo, hi int) int {
 }
 
 func median3(arr Sitem, x, y, z int) int {
-	if arr[x] < arr[y] { //x < y
-		if arr[y] < arr[z] { //y < z
+	if arr[x] < arr[y] { // x < y
+		if arr[y] < arr[z] { // y < z
 			return y
 		} else if arr[x] < arr[z] { // x< z < y
 			return z
 		} else { // y > x >z
 			return x
 		}
-	} else { //x > y
-		if arr[y] > arr[z] { //y > z
+	} else { // x > y
+		if arr[y] > arr[z] { // y > z
 			return y
 		} else if arr[x] > arr[z] { // x>z>y
 			return z

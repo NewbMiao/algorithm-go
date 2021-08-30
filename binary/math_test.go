@@ -6,8 +6,8 @@ import (
 )
 
 func TestMin(t *testing.T) {
-	var x, y = 4, 5
-	var want = 4
+	x, y := 4, 5
+	want := 4
 	t.Log(fmt.Sprintf("input x=%d, y=%d, want min: %d", x, y, want))
 
 	if Min(x, y) == want {
@@ -18,8 +18,8 @@ func TestMin(t *testing.T) {
 }
 
 func TestMax(t *testing.T) {
-	var x, y = 4, 5
-	var want = 5
+	x, y := 4, 5
+	want := 5
 	t.Log(fmt.Sprintf("input x=%d, y=%d, want max: %d", x, y, want))
 	if Max(x, y) == want {
 		t.Log("max is ok")
@@ -29,8 +29,8 @@ func TestMax(t *testing.T) {
 }
 
 func TestIsPowerOf2(t *testing.T) {
-	var x = 4
-	var want = true
+	x := 4
+	want := true
 	t.Log(fmt.Sprintf("input x=%d, is power of 2? want: %v", x, want))
 
 	if IsPowerOf2(x) == want {
@@ -41,8 +41,8 @@ func TestIsPowerOf2(t *testing.T) {
 }
 
 func TestMPowerOfN(t *testing.T) {
-	var m, n = 5, 6
-	var want = 15625
+	m, n := 5, 6
+	want := 15625
 	t.Log(fmt.Sprintf("input: %d power of %d? want: %d", m, n, want))
 
 	if mPowerOfN(m, n) == want {

@@ -4,7 +4,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/btree"
 )
 
-//BST post order arr check
+// BST post order arr check.
 func IsPosOrderArr(arr []int) bool {
 	if len(arr) == 0 {
 		return false
@@ -13,7 +13,7 @@ func IsPosOrderArr(arr []int) bool {
 }
 
 func isPosOrder(arr []int, start, end int) bool {
-	if start == end { //self no need cmp
+	if start == end { // self no need cmp
 		return true
 	}
 	less := -1
@@ -28,7 +28,7 @@ func isPosOrder(arr []int, start, end int) bool {
 	if less == -1 || more == end {
 		return isPosOrder(arr, start, end-1)
 	}
-	if less != more-1 { //no asc order
+	if less != more-1 { // no asc order
 		return false
 	}
 
@@ -43,7 +43,7 @@ func PosOrderArrToBST(arr []int) (bt *btree.Node) {
 }
 
 func posToBST(arr []int, start, end int) (bt *btree.Node) {
-	if start > end { //should finish current loop
+	if start > end { // should finish current loop
 		return
 	}
 	less := -1

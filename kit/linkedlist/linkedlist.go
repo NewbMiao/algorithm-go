@@ -19,6 +19,7 @@ func NewList() *LList {
 func NewLNode(n interface{}) *LNode {
 	return &LNode{Value: n}
 }
+
 func (l *LList) Push(n interface{}) {
 	if n == nil {
 		return
@@ -83,7 +84,7 @@ func (l *LList) String() string {
 	r := []interface{}{}
 	for tmp != nil {
 		r = append(r, tmp.Value)
-		if tmp.Next == l.Head { //避免成环死循环
+		if tmp.Next == l.Head { // 避免成环死循环
 			break
 		}
 		tmp = tmp.Next

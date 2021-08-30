@@ -13,6 +13,7 @@ func (s Sitem) Len() int {
 func (s Sitem) Less(i, j int) bool {
 	return s[i] < s[j]
 }
+
 func (s Sitem) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }

@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-//是否为平衡二叉树，左右子树高差不超过1
+// 是否为平衡二叉树，左右子树高差不超过1.
 func IsBalanceTree(bt *Node) (r bool) {
 	res := new(bool)
 	*res = true

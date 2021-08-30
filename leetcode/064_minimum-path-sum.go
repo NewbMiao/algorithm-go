@@ -1,6 +1,6 @@
 package leetcode
 
-// optimized version see: sequence/minPathSum.go
+// optimized version see: sequence/minPathSum.go.
 func minPathSum(grid [][]int) int {
 	m := len(grid)
 	if m < 1 {

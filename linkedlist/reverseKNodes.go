@@ -5,7 +5,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/stack"
 )
 
-//每k个节点逆置
+// 每k个节点逆置.
 func reverseKNodes1(head *linkedlist.LNode, k int) *linkedlist.LNode {
 	if k < 2 {
 		return head
@@ -106,20 +106,20 @@ func reverseKNodes3(head *linkedlist.LNode, k int) *linkedlist.LNode {
 		return head
 	}
 
-	//下一组开始节点
+	// 下一组开始节点
 	tmp2 := tmp.Next
-	tmp.Next = nil //移除next
-	//逆置当前分组
+	tmp.Next = nil // 移除next
+	// 逆置当前分组
 	newHead := reverseList(head)
 
-	//递归后续分组
+	// 递归后续分组
 	nextGroup := reverseKNodes3(tmp2, k)
 	head.Next = nextGroup
 
 	return newHead
 }
 
-//func reverseList(head *linkedlist.LNode) *linkedlist.LNode {
+// func reverseList(head *linkedlist.LNode) *linkedlist.LNode {
 //	var pre, next *linkedlist.LNode
 //	for head != nil {
 //		next = head.Next
@@ -128,7 +128,7 @@ func reverseKNodes3(head *linkedlist.LNode, k int) *linkedlist.LNode {
 //		head = next
 //	}
 //	return pre
-//}
+// }
 
 func reverseList(head *linkedlist.LNode) *linkedlist.LNode {
 	if head == nil || head.Next == nil {

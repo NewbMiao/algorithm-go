@@ -1,4 +1,4 @@
-//https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/UF.java.html
+// https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/UF.java.html
 package uf
 
 import (
@@ -10,8 +10,10 @@ import (
 
 type UnionFindList []int
 
-var count int
-var rank []byte
+var (
+	count int
+	rank  []byte
+)
 
 func NewUnionFindList(n int) UnionFindList {
 	if n <= 0 {
@@ -35,13 +37,14 @@ func (parent *UnionFindList) find(i int) int {
 	tool.Trace("\tstart find the root of %d: \n", i)
 	for i != (*parent)[i] {
 		tool.Trace("\tfinding: index %d,parent %d\n", i, (*parent)[i])
-		(*parent)[i] = (*parent)[(*parent)[i]] //path compression by halving
+		(*parent)[i] = (*parent)[(*parent)[i]] // path compression by halving
 		tool.Trace("\tpath compression by halving: chg index %d's parent to index %d\n", i, (*parent)[i])
 
 		i = (*parent)[(*parent)[i]]
 	}
 	return i
 }
+
 func (parent *UnionFindList) IsConnected(p, q int) bool {
 	tool.Trace("check %d & %d is connected\n", p, q)
 	if parent.find(p) == parent.find(q) {
@@ -59,7 +62,7 @@ func (parent *UnionFindList) Connect(p, q int) {
 		return
 	}
 
-	//move little rank to larger rank's root
+	// move little rank to larger rank's root
 	if rank[rootP] < rank[rootQ] {
 		(*parent)[rootP] = rootQ
 	} else if rank[rootP] > rank[rootQ] {
@@ -68,7 +71,7 @@ func (parent *UnionFindList) Connect(p, q int) {
 		(*parent)[rootQ] = rootP
 		rank[rootP]++
 	}
-	//after connected,node is decrease one
+	// after connected,node is decrease one
 	count--
 	tool.Trace("after connect: \n\tcount:\t%d\n\tparent:\t%v\n\trank:\t%v\n", count, *parent, rank)
 }

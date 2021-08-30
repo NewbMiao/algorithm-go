@@ -26,7 +26,7 @@ func findMedianSortedArrays(A, B []int) float64 {
 	if m > n { // to ensure m<=n
 		return findMedianSortedArrays(B, A)
 	}
-	//在A中二分查找maxLeft
+	// 在A中二分查找maxLeft
 	iMin := 0
 	iMax := m
 	halfLen := (m + n + 1) / 2
@@ -38,19 +38,19 @@ func findMedianSortedArrays(A, B []int) float64 {
 		} else if i > iMin && A[i-1] > B[j] {
 			iMax = i - 1 // i is too big
 		} else { // i is perfect
-			maxLeft := 0.0
-			if i == 0 { //A[i-1]不存在，只有B[j−1]≤A[i]
+			var maxLeft float64
+			if i == 0 { // A[i-1]不存在，只有B[j−1]≤A[i]
 				maxLeft = float64(B[j-1])
-			} else if j == 0 { //B[j-1]不存在，只有A[i−1]≤B[j]
+			} else if j == 0 { // B[j-1]不存在，只有A[i−1]≤B[j]
 				maxLeft = float64(A[i-1])
 			} else {
 				maxLeft = math.Max(float64(A[i-1]), float64(B[j-1]))
 			}
-			if (m+n)%2 == 1 { //奇数个
+			if (m+n)%2 == 1 { // 奇数个
 				return maxLeft
 			}
 
-			minRight := 0.0
+			var minRight float64
 			if i == m {
 				minRight = float64(B[j])
 			} else if j == n {

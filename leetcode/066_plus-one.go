@@ -1,7 +1,7 @@
 package leetcode
 
 func plusOne(digits []int) []int {
-	sum := 0
+	var sum int
 	l := len(digits)
 	if l < 1 {
 		return nil

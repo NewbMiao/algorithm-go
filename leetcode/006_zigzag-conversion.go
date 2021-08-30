@@ -26,8 +26,8 @@ func convertEven(s string, numRows int) string {
 		return s
 	}
 	res := make([][]rune, numRows)
-	i := 0
-	isEven := false
+	var i int
+	var isEven bool
 	for k, v := range s {
 		isEven = (k/(numRows-1))%2 == 0
 		i = k % (numRows - 1)

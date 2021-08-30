@@ -23,7 +23,7 @@ func search(nums []int, target int) int {
 	}
 	left := 0
 	right := l - 1
-	if nums[left] < nums[right] { //无旋转点
+	if nums[left] < nums[right] { // 无旋转点
 		if target >= nums[0] && target <= nums[l-1] {
 			left = 0
 			right = l - 1
@@ -39,9 +39,9 @@ func search(nums []int, target int) int {
 				break
 			} else {
 				//!important pivot==left时,防止right越界成为-1，先处理right
-				if nums[pivot] < nums[left] { //左侧降序，旋转点在左侧
+				if nums[pivot] < nums[left] { // 左侧降序，旋转点在左侧
 					right = pivot - 1
-				} else { //左侧升序，旋转点在右侧
+				} else { // 左侧升序，旋转点在右侧
 					left = pivot + 1
 				}
 			}

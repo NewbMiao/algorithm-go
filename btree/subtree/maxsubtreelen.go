@@ -8,7 +8,7 @@ import (
 
 func GetMaxSubtreeLen(bt *btree.Node, sum int) (maxLen int) {
 	sumMap := map[int]int{}
-	sumMap[0] = 0 //important
+	sumMap[0] = 0 // important
 	return getMaxLenPreOrder(bt, sum, 0, 1, 0, sumMap)
 }
 
@@ -28,9 +28,9 @@ func getMaxLenPreOrder(bt *btree.Node, sum, preSum, level, maxLen int, sumMap ma
 	maxLen = getMaxLenPreOrder(bt.Left, sum, curSum, level+1, maxLen, sumMap)
 	maxLen = getMaxLenPreOrder(bt.Right, sum, curSum, level+1, maxLen, sumMap)
 
-	//if v, ok := sumMap[curSum]; ok && v == level {
+	// if v, ok := sumMap[curSum]; ok && v == level {
 	//	delete(sumMap, curSum)
-	//}
+	// }
 
 	return maxLen
 }

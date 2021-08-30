@@ -1,6 +1,6 @@
 package leetcode
 
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+func mergeTwoLists(l1, l2 *ListNode) *ListNode {
 	if l1 == nil && l2 == nil {
 		return nil
 	}
@@ -36,11 +36,11 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	return res.Next
 }
 
-func mergeTwoListsRecursive(l1 *ListNode, l2 *ListNode) *ListNode {
-	if nil == l1 {
+func mergeTwoListsRecursive(l1, l2 *ListNode) *ListNode {
+	if l1 == nil {
 		return l2
 	}
-	if nil == l2 {
+	if l2 == nil {
 		return l1
 	}
 	if l1.Val < l2.Val {

@@ -10,7 +10,7 @@ type randNode struct {
 	Rand  *randNode
 }
 
-//拷贝带有rand的节点
+// 拷贝带有rand的节点.
 func copyListWithRand1(head *randNode) *randNode {
 	if head == nil {
 		return nil
@@ -29,12 +29,13 @@ func copyListWithRand1(head *randNode) *randNode {
 	}
 	return m[head]
 }
+
 func copyListWithRand2(head *randNode) *randNode {
 	if head == nil {
 		return nil
 	}
 
-	//复制节点带每一个节点后
+	// 复制节点带每一个节点后
 	cur := head
 	var next *randNode
 	for cur != nil {
@@ -42,11 +43,12 @@ func copyListWithRand2(head *randNode) *randNode {
 		cur.Next = &randNode{
 			Next:  next,
 			Value: cur.Value,
-			Rand:  nil}
+			Rand:  nil,
+		}
 		cur = next
 	}
 
-	//copy rand
+	// copy rand
 	cur = head
 	for cur != nil {
 		if cur.Rand != nil {
@@ -55,7 +57,7 @@ func copyListWithRand2(head *randNode) *randNode {
 		cur = cur.Next.Next
 	}
 
-	//分离
+	// 分离
 	cur = head
 	res := cur.Next
 	var curCopy *randNode
@@ -72,7 +74,7 @@ func copyListWithRand2(head *randNode) *randNode {
 	return res
 }
 
-//按[][cur,next,rand]方式打印
+// 按[][cur,next,rand]方式打印.
 func (s *randNode) String() string {
 	cur := s
 	res := [][3]int{}

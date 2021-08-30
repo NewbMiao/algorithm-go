@@ -3,7 +3,7 @@ package sequence
 // 母牛永远不死，母牛每年生一头小母牛。第一年1头母牛，第二年母牛开始生小母牛。
 // 每只小母牛3年后成熟又可以生小母牛。给定整数N，求N年后牛数量
 
-//c(n)=c(n-1)+c(n-3)
+// c(n)=c(n-1)+c(n-3).
 func Cow1(n int) int {
 	if n < 1 {
 		return 0
@@ -24,8 +24,7 @@ func Cow2(n int) int {
 	prepre := 1
 	pre := 2
 	res := 3
-	tmp1 := 0
-	tmp2 := 0
+	var tmp1, tmp2 int
 	for i := 4; i <= n; i++ {
 		tmp1 = res
 		tmp2 = pre

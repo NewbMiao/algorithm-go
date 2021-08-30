@@ -15,22 +15,22 @@ func reverseBit1(x uint) (r uint) {
 	return
 }
 
-//look reverse table
-//https://stackoverflow.com/questions/15107398/algorithm-behind-the-generation-of-the-reverse-bits-lookup-table8-bit
+// look reverse table
+// https://stackoverflow.com/questions/15107398/algorithm-behind-the-generation-of-the-reverse-bits-lookup-table8-bit
 func reverseBit2(x uint) (r uint) {
-	//reverse map
-	var rMap = make([]uint, 0)
-	var p2 = func(n uint) []uint {
+	// reverse map
+	rMap := make([]uint, 0)
+	p2 := func(n uint) []uint {
 		return []uint{n, n + 2*64, n + 1*64, n + 3*64}
 	}
-	var p4 = func(n uint) (r []uint) {
+	p4 := func(n uint) (r []uint) {
 		r = append(r, p2(n)...)
 		r = append(r, p2(n+2*16)...)
 		r = append(r, p2(n+1*16)...)
 		r = append(r, p2(n+3*16)...)
 		return r
 	}
-	var p6 = func(n uint) (r []uint) {
+	p6 := func(n uint) (r []uint) {
 		r = append(r, p4(n)...)
 		r = append(r, p4(n+2*4)...)
 		r = append(r, p4(n+1*4)...)
@@ -53,7 +53,7 @@ func reverseBit2(x uint) (r uint) {
 
 func ReverseBin32(v uint32) (r uint32) {
 	var s uint32 = 32
-	var mask = ^uint32(0)
+	mask := ^uint32(0)
 	// fmt.Printf("%b,%d,%d\n", mask, mask, ^0)
 	// 11111111111111111111111111111111,4294967295,-1
 	s >>= 1

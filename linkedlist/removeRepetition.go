@@ -28,7 +28,7 @@ func removeRepetition2(head *linkedlist.LNode) {
 	cur := head
 	var pre *linkedlist.LNode
 	for cur != nil {
-		pre = cur //每次对当前cur向后遍历是否有重复
+		pre = cur // 每次对当前cur向后遍历是否有重复
 		tmp := cur.Next
 		for tmp != nil {
 			if tmp.Value == cur.Value {

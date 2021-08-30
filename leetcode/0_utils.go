@@ -47,7 +47,7 @@ func generateLinkedListFromArray(arr []int) *ListNode {
 	return l
 }
 
-// link end node to node at `pos`
+// link end node to node at `pos`.
 func generateCycleLinkedList(arr []int, pos int) *ListNode {
 	if pos < 0 {
 		return generateLinkedListFromArray(arr)

@@ -8,7 +8,7 @@ import (
 
 func GetMaxSubBST(bt *btree.Node) *btree.Node {
 	record := map[int]int{} // size min max
-	//record := &[3]int{} // size min max 若为数组需传递指针
+	// record := &[3]int{} // size min max 若为数组需传递指针
 	return posOrderRecord(bt, record)
 }
 

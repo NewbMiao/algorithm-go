@@ -17,6 +17,7 @@ func init() {
 	gbt.Right.Right = &Node{Value: 6}
 	gbt.Left.Left.Right = &Node{Value: 7}
 }
+
 func TestPrinter(t *testing.T) {
 	bt := &Node{Value: 1}
 	bt.Left = &Node{Value: -222222222}

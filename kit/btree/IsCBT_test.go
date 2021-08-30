@@ -15,6 +15,7 @@ func init() {
 	cbt.Left.Right = &Node{Value: 3}
 	cbt.Right.Left = &Node{Value: 5}
 }
+
 func TestIsCBT(t *testing.T) {
 	want := true
 	t.Log(fmt.Sprintf("IsCBT ? want: %v", want))

@@ -19,13 +19,13 @@ func nextPermutation(nums []int) []int {
 	if l <= 1 {
 		return nums
 	}
-	//寻找右侧第一个非降序数字
+	// 寻找右侧第一个非降序数字
 	i := l - 2
 	for i >= 0 && nums[i] >= nums[i+1] {
 		i--
 	}
 	if i >= 0 {
-		//交换右侧只比nums[i]大一点的数
+		// 交换右侧只比nums[i]大一点的数
 		j := l - 1
 		for j >= 0 && nums[i] >= nums[j] {
 			j--

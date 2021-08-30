@@ -2,7 +2,7 @@ package stack
 
 import "github.com/NewbMiao/algorithm-go/kit/stack"
 
-//双栈实现队列
+// 双栈实现队列.
 type TwoStackQueue struct {
 	SPush *stack.S
 	SPop  *stack.S

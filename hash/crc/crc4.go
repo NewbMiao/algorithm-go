@@ -3,7 +3,7 @@ package crc
 import "fmt"
 
 /*
-//https://my.oschina.net/iwuyang/blog/198630
+https://my.oschina.net/iwuyang/blog/198630
 
 CRC4运算
 
@@ -36,7 +36,7 @@ Poly生成项： 1001，长度为4
 func Crc4(data uint) uint {
 	var poly uint = 0x13
 	var w uint = 4
-	var curBit = 15
+	curBit := 15
 	var register uint = 0x0000
 
 	// 借位w=4
@@ -54,7 +54,7 @@ func Crc4(data uint) uint {
 		register |= tmp
 		fmt.Printf("curBit:%d, register:%b\n", curBit, register)
 	}
-	if (register>>w)&0x0001 == 0x1 { //register = register ^ POLY;
+	if (register>>w)&0x0001 == 0x1 { // register = register ^ POLY;
 		fmt.Printf("register %b right shift %d bit is 1, xor with poly(%b):%b\n", register, w, poly, register^poly)
 		register ^= poly
 		fmt.Printf("curBit:%d, register:%b\n", curBit, register)

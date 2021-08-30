@@ -22,7 +22,7 @@ func mergeKLists(lists []*ListNode) *ListNode {
 	}
 	interval := 1
 	for interval < amout {
-		//两两合并
+		// 两两合并
 		for i := 0; i+interval < amout; i += interval * 2 {
 			lists[i] = mergeTwoLists(lists[i], lists[interval+i])
 			fmt.Println(i, interval+i)

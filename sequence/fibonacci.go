@@ -19,7 +19,7 @@ func Fibonacci2(n int) int {
 	}
 	res := 1
 	pre := 1
-	tmp := 0
+	var tmp int
 	for i := 3; i <= n; i++ {
 		tmp = res
 		res += pre
@@ -28,7 +28,7 @@ func Fibonacci2(n int) int {
 	return res
 }
 
-//斐波那契数列 f(n)=f(n-1)+f(n-2)
+// 斐波那契数列 f(n)=f(n-1)+f(n-2).
 func Fibonacci3(n int) int {
 	if n < 1 {
 		return 0
@@ -46,7 +46,7 @@ func matrixPower(m [][]int, p int) (res [][]int) {
 		return
 	}
 	res = make([][]int, len(m))
-	//单位矩阵 [[1 0] [0 1]]
+	// 单位矩阵 [[1 0] [0 1]]
 	for i := 0; i < len(m); i++ {
 		res[i] = make([]int, len(m[0]))
 		res[i][i] = 1

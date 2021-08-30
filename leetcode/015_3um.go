@@ -21,11 +21,11 @@ func threeSum(nums []int) [][]int {
 		return nil
 	}
 	for i := 0; i < l-2; i++ {
-		//最左为正数则无解
+		// 最左为正数则无解
 		if nums[i] > 0 {
 			break
 		}
-		//后边的相同值计算过
+		// 后边的相同值计算过
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}

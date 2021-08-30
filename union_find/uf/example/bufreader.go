@@ -2,6 +2,7 @@ package uf
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"io"
 	"os"
@@ -15,19 +16,19 @@ func BufReader() {
 	var err error
 	var in, p, q int
 	var mu uf.UnionFindList
-	var isEoF = false
+	isEoF := false
 	var line string
-	input := bufio.NewReader(os.Stdin) //初始化一个扫表对象
-	for !isEoF {                       //扫描输入内容
+	input := bufio.NewReader(os.Stdin) // 初始化一个扫表对象
+	for !isEoF {                       // 扫描输入内容
 		line, err = input.ReadString('\n')
-		if err == io.EOF {
+		if errors.Is(err, io.EOF) {
 			isEoF = true
 			err = nil
 		}
 		if line == "\n" || line == "" {
 			break
 		}
-		if err != nil && err != io.EOF {
+		if err != nil && !errors.Is(err, io.EOF) {
 			break
 		}
 		tool.ErrPanic(err)
@@ -48,6 +49,6 @@ func BufReader() {
 		mu.Connect(p, q)
 	}
 
-	//fmt.Println(mu)
+	// fmt.Println(mu)
 	fmt.Println(mu.Count())
 }

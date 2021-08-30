@@ -8,17 +8,18 @@ https://leetcode-cn.com/problems/regular-expression-matching/
 '*' 匹配零个或多个前面的那一个元素
 所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。.
 */
-func isMatch(s string, p string) bool {
+func isMatch(s, p string) bool {
 	if p == "" {
 		return s == ""
 	}
 	firstMatch := s != "" && (s[0] == p[0] || p[0] == '.')
-	if len(p) >= 2 && p[1] == '*' { //* : 校验0个或多个
+	if len(p) >= 2 && p[1] == '*' { // * : 校验0个或多个
 		return isMatch(s, p[2:]) || (firstMatch && isMatch(s[1:], p))
 	}
 	return firstMatch && isMatch(s[1:], p[1:])
 }
-func isMatch2(s string, p string) bool {
+
+func isMatch2(s, p string) bool {
 	if p == "" {
 		return s == ""
 	}

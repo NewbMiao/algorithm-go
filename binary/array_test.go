@@ -9,7 +9,7 @@ func TestGetNoRepeatNum(t *testing.T) {
 	arr := []int{
 		1, 2, 3, 4, 5, 1, 2, 3, 4,
 	}
-	var want = 5
+	want := 5
 	t.Log(fmt.Sprintf("input x=%v, no repeat num is : %d", arr, want))
 
 	if getNoRepeatNum(arr) == want {

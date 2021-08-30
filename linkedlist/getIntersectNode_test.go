@@ -22,7 +22,7 @@ func TestGetIntersectNode1(t *testing.T) {
 	l2.Push(9)
 	l2.Push(8)
 
-	//l2 8-> l1 6
+	// l2 8-> l1 6
 	l2.Head.Next.Next.Next = l1.Head.Next.Next.Next.Next.Next
 	t.Log(fmt.Sprintf("getIntersectNode1, input list %v, %v", l1, l2))
 
@@ -52,7 +52,7 @@ func TestGetIntersectNode2(t *testing.T) {
 	l2.Push(9)
 	l2.Push(8)
 
-	//l2 8-> l1 2
+	// l2 8-> l1 2
 	l2.Head.Next.Next.Next = l1.Head.Next
 	t.Log("getIntersectNode2")
 
@@ -83,7 +83,7 @@ func TestGetIntersectNode3(t *testing.T) {
 	l2.Push(9)
 	l2.Push(8)
 
-	//l2 8-> l1 6
+	// l2 8-> l1 6
 	l2.Head.Next.Next.Next = l1.Head.Next.Next.Next.Next.Next
 	t.Log("getIntersectNode3")
 

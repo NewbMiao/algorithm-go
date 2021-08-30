@@ -1,6 +1,6 @@
 package btree
 
-//是否为搜索二叉树：中序遍历为升序
+// 是否为搜索二叉树：中序遍历为升序.
 func IsBST(bt *Node) (res bool) {
 	if bt == nil {
 		return
@@ -24,7 +24,7 @@ func IsBST(bt *Node) (res bool) {
 		}
 
 		if pre != nil && pre.Value > cur1.Value {
-			res = false //记录，等恢复更改的右指针指向再返回
+			res = false // 记录，等恢复更改的右指针指向再返回
 		}
 		pre = cur1
 		cur1 = cur1.Right

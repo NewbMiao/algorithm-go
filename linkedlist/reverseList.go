@@ -4,7 +4,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
-//原地逆置链表
+// 原地逆置链表.
 func ReverseList(l *linkedlist.LList) {
 	if l == nil || l.Head == nil {
 		return
@@ -20,7 +20,7 @@ func ReverseList(l *linkedlist.LList) {
 	l.Head = pre
 }
 
-//原地逆置双链表
+// 原地逆置双链表.
 func ReverseDList(l *linkedlist.DList) {
 	if l == nil || l.Head == nil {
 		return
@@ -36,6 +36,6 @@ func ReverseDList(l *linkedlist.DList) {
 	}
 	tail := l.Head
 	l.Head = pre
-	//头结点前指针指向尾节点
+	// 头结点前指针指向尾节点
 	l.Head.Last = tail
 }

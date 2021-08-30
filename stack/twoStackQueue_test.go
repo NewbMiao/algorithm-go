@@ -12,6 +12,7 @@ func TestTwoStackQueue(t *testing.T) {
 	tq.Add(1)
 	tq.Add(2)
 	tq.Add(3)
+	// nolint: gocritic // example
 	res = append(res, tq.Peek())
 	res = append(res, tq.Poll())
 	res = append(res, tq.Peek())

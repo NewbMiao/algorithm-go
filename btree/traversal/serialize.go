@@ -9,7 +9,7 @@ import (
 	"github.com/NewbMiao/algorithm-go/kit/linkedlist"
 )
 
-//层级遍历序列化
+// 层级遍历序列化.
 func SerialByLevel(bt *btree.Node) (res string) {
 	queue := linkedlist.NewList()
 	queue.Push(bt)
@@ -38,7 +38,7 @@ func SerialByLevel(bt *btree.Node) (res string) {
 	return
 }
 
-//层级遍历反序列化
+// 层级遍历反序列化.
 func ReconByLevel(res string) (bt *btree.Node) {
 	strs := strings.Split(res, "!")
 	index := 0

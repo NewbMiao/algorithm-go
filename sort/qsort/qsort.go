@@ -27,10 +27,10 @@ type QuickSorter interface {
 func partition(arr QuickSorter, lo, hi int) int {
 	i, j := lo+1, hi
 	for {
-		for arr.Less(i, lo) && i < hi { //找到 i>lo
+		for arr.Less(i, lo) && i < hi { // 找到 i>lo
 			i++
 		}
-		for arr.Less(lo, j) { //找到 lo>j （无需判断 j > lo，因为 j=lo不满足less）
+		for arr.Less(lo, j) { // 找到 lo>j （无需判断 j > lo，因为 j=lo不满足less）
 			j--
 		}
 
@@ -38,11 +38,11 @@ func partition(arr QuickSorter, lo, hi int) int {
 			break
 		}
 		tool.Trace("partition swapping %d,%d\n", i, j)
-		//交换i，j
+		// 交换i，j
 		arr.Swap(i, j)
 	}
 	tool.Trace("partition last swap %d,%d\n", lo, j)
-	//交换lo，j
+	// 交换lo，j
 	arr.Swap(lo, j)
 	return j
 }

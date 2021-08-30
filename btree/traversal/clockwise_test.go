@@ -38,7 +38,7 @@ func TestEdgeMap(t *testing.T) {
 	}
 }
 
-//go test  -run TestCounterClockWise -v src/btree/traversal/*
+// go test  -run TestCounterClockWise -v src/btree/traversal/*.
 func TestCounterClockWise(t *testing.T) {
 	want := []int{
 		1, 2, 4, 7, 11, 13, 14, 15, 16, 12, 10, 6, 3,

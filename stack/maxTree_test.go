@@ -12,8 +12,7 @@ func TestGetMaxTree(t *testing.T) {
 	d := []int{3, 4, 5, 1, 2}
 	bt := getMaxTree(d)
 	res := [][]int{}
-	res = append(res, traversal.PreOrder(bt))
-	res = append(res, traversal.InOrder(bt))
+	res = append(res, traversal.PreOrder(bt), traversal.InOrder(bt))
 	wants := [][]int{
 		{5, 4, 3, 2, 1},
 		{3, 4, 5, 1, 2},

@@ -9,7 +9,7 @@ import (
 )
 
 func PrintByLevel(bt *btree.Node) {
-	var last, nlast *btree.Node //当前层最后一个节点，下一层最后一个节点
+	var last, nlast *btree.Node // 当前层最后一个节点，下一层最后一个节点
 	queue := linkedlist.NewList()
 	queue.Push(bt)
 	last = bt
@@ -46,7 +46,7 @@ func PrintByLevel(bt *btree.Node) {
 
 func PrintByZigZag(bt *btree.Node) {
 	deQueue := list.New()
-	var node, last, nlast *btree.Node //当前层最后一个节点，下一层最后一个节点
+	var node, last, nlast *btree.Node // 当前层最后一个节点，下一层最后一个节点
 	last = bt
 	level := 1
 	str := "from left to right"

@@ -10,11 +10,13 @@ func TestGenerateParenthesis(t *testing.T) {
 		3,
 	}
 	ws := [][]string{
-		{"((()))",
+		{
+			"((()))",
 			"(()())",
 			"(())()",
 			"()(())",
-			"()()()"},
+			"()()()",
+		},
 	}
 	for k, v := range ds {
 		t.Log(fmt.Sprintf("GenerateParenthesis, input num %v, want: %v", v, ws[k]))

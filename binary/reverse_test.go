@@ -10,7 +10,7 @@ func TestReverse(t *testing.T) {
 	var want uint32 = 2952790016
 
 	t.Log("input 32bit x:", x, fmt.Sprintf("(%b) \nreverse is %d(%b)", x, want, want))
-	var r uint32 = ReverseBin32(x)
+	r := ReverseBin32(x)
 	if r == want {
 		t.Log("reverseBin32 is ok")
 	} else {
@@ -20,7 +20,7 @@ func TestReverse(t *testing.T) {
 	var oInt uint = 47
 	var want2 uint = 17582052945254416384
 	t.Log("input 64bit x:", x, fmt.Sprintf("(%b) \nreverse is %d(%b)", oInt, want2, want2))
-	var reverseInts = []uint{
+	reverseInts := []uint{
 		reverseBit1(oInt),
 		reverseBit2(oInt),
 	}

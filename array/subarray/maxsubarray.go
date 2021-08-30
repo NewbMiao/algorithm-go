@@ -1,6 +1,6 @@
 package subarray
 
-// 无序数组，求和为target的最大子数组
+// 无序数组，求和为target的最大子数组.
 func MaxSubArraySum(d []int, target int) (res []int) {
 	sumMap := map[int]int{}
 	sumMap[0] = -1 // 设置和为0的索引位置

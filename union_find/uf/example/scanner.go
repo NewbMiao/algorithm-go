@@ -16,12 +16,12 @@ func Scanner() {
 	var in, p, q, re int
 	var mu uf.UnionFindList
 
-	input := bufio.NewScanner(os.Stdin) //初始化一个扫表对象
-	for input.Scan() {                  //扫描输入内容
+	input := bufio.NewScanner(os.Stdin) // 初始化一个扫表对象
+	for input.Scan() {                  // 扫描输入内容
 		if err := input.Err(); err != nil {
 			fmt.Fprintln(os.Stderr, "reading standard input:", err)
 		}
-		line := input.Text() //把输入内容转换为字符串
+		line := input.Text() // 把输入内容转换为字符串
 		if line == "" {
 			break
 		}
@@ -41,7 +41,7 @@ func Scanner() {
 
 		mu.Connect(p, q)
 	}
-	//fmt.Println(mu)
+	// fmt.Println(mu)
 
 	fmt.Println(mu.Count())
 }

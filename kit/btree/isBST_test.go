@@ -15,6 +15,7 @@ func init() {
 	bst.Left.Right = &Node{Value: 3}
 	bst.Right.Left = &Node{Value: 5}
 }
+
 func TestIsBST(t *testing.T) {
 	want := true
 	t.Log(fmt.Sprintf("IsBST ? want: %v", want))

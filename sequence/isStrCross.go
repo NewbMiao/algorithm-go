@@ -1,6 +1,6 @@
 package sequence
 
-//判定aim是否顺序交错包含str1和str2
+// 判定aim是否顺序交错包含str1和str2.
 func IsStrCross(str1, str2, aim string) bool {
 	if len(aim) != len(str1)+len(str2) {
 		return false
@@ -11,15 +11,15 @@ func IsStrCross(str1, str2, aim string) bool {
 	}
 
 	dp[0][0] = true
-	//第一列，无str1时，计算str2和aim的交错
+	// 第一列，无str1时，计算str2和aim的交错
 	for i := 1; i <= len(str1); i++ {
-		//顺序包含，所以当不相等时无需比较后续str
+		// 顺序包含，所以当不相等时无需比较后续str
 		if str1[i-1] != aim[i-1] {
 			break
 		}
 		dp[i][0] = true
 	}
-	//第一行，无str2时，计算str1和aim的交错
+	// 第一行，无str2时，计算str1和aim的交错
 	for j := 1; j <= len(str2); j++ {
 		if str2[j-1] != aim[j-1] {
 			break
@@ -49,9 +49,9 @@ func IsStrCross2(str1, str2, aim string) bool {
 	}
 	dp := make([]bool, len(shorts)+1)
 
-	//第一行或第一列
+	// 第一行或第一列
 	for i := 1; i <= len(shorts); i++ {
-		//顺序包含，所以当不相等时无需比较后续str
+		// 顺序包含，所以当不相等时无需比较后续str
 		if str1[i-1] != aim[i-1] {
 			break
 		}
